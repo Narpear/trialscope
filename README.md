@@ -2,7 +2,7 @@
 
 ClinicalTrials.gov Query-to-Visualization service: ask a natural-language question about registered studies and receive a renderable visualization specification with record-level citations.
 
-**Live demo:** TODO — add the Railway URL after deployment.
+**Live demo:** TODO — add the Render URL after deployment.
 
 ## What it does
 
@@ -38,7 +38,7 @@ Open `http://127.0.0.1:8000/`. For calls without a key, include `analysis_type` 
 | `CLINICALTRIALS_BASE_URL` | No | `https://clinicaltrials.gov/api/v2` | ClinicalTrials.gov v2 API base URL. |
 | `MAX_TRIALS_CAP` | No | `10000` | Server-side hard cap on trials fetched per query (1–10,000). |
 | `EXACT_COUNT_QUERY_BUDGET` | No | `40` | Maximum ClinicalTrials.gov count queries per request when computing exact totals for a truncated sample (see [Count accuracy](#count-accuracy)). |
-| `TRUSTED_PROXY_HOPS` | No | `1` on Railway, else `0` | Reverse proxies in front of the app. The rate limiter reads the client IP from the `X-Forwarded-For` entry appended by the outermost trusted proxy; `0` uses the socket peer. |
+| `TRUSTED_PROXY_HOPS` | No | `2` on Render, else `0` | Reverse proxies in front of the app. The rate limiter reads the client IP from the `X-Forwarded-For` entry appended by the outermost trusted proxy; `0` uses the socket peer. |
 | `NETWORK_EXCLUDED_INTERVENTIONS` | No | `["placebo","standard of care","saline","best supportive care"]` | JSON array of intervention names excluded from network nodes and edges; matched with the same name normalization as drug nodes. |
 
 ## API
@@ -231,7 +231,7 @@ Caveats:
 - **Enrollment.** Enrollment is the registry's reported count (target or actual depending on the record), not harmonized to one enrollment type. Histograms use ten equal-width bins over the observed range. Scatter plots exclude records missing numeric enrollment or start year.
 - **Networks.** Nodes have stable typed IDs and are ranked by trial weight. The top 30 nodes are kept, and edges need at least two co-occurring trials; both thresholds are in response metadata. Sponsor–drug and condition–drug networks link records containing both entities, and a drug-only network captures drugs tested together in the same trials. `NETWORK_EXCLUDED_INTERVENTIONS` removes generic labels (placebo, standard of care, …) from drug nodes and edges. This is a label-based heuristic: it can remove a legitimate intervention with an excluded name and does not identify synonyms. Network weights are exact only when every matching trial is fetched (`count_basis: complete_records`).
 - **Sampling.** See [Count accuracy](#count-accuracy). Truncated samples are the first records in the API's default order, which is not a random sample.
-- **Single process.** The response cache, request pacer and per-client rate limiter (12 queries/minute) are in-process. They reset on restart and do not coordinate across Railway replicas; scaling beyond one instance needs a shared cache and limiter.
+- **Single process.** The response cache, request pacer and per-client rate limiter (12 queries/minute) are in-process. They reset on restart and do not coordinate across instances; scaling beyond one instance needs a shared cache and limiter.
 - **Citation cap.** Citation details include up to five references per datum for payload and UI usability. `nct_ids` lists every contributing fetched record, and the citation drawer lists every contributing NCT ID below the detailed records when the list exceeds the cap.
 
 ## Tests and examples
@@ -265,14 +265,18 @@ python scripts/generate_examples.py
 
 Set `EXAMPLES_BASE_URL` if the server is not at `http://127.0.0.1:8000`. The examples are natural-language queries, so generation needs `OPENAI_API_KEY` on the server; it uses live ClinicalTrials.gov data.
 
-## Deploying to Railway
+## Deploying to Render
 
-1. Push this repository to a Git provider and create a Railway project from that repository.
-2. Railway reads `railway.json`; it starts `uvicorn app.main:app --host 0.0.0.0 --port $PORT` and checks `/api/health`. `.python-version` selects Python 3.12. (The start command was checked locally by running it through `sh -c` with `PORT` set; it has not yet been exercised on Railway itself.)
-3. In the Railway service's **Variables** panel, set `OPENAI_API_KEY` and, optionally, `OPENAI_MODEL`, `MAX_TRIALS_CAP`, `EXACT_COUNT_QUERY_BUDGET`, and `NETWORK_EXCLUDED_INTERVENTIONS`. Do not commit `.env` or paste secrets into source files.
-4. Rate limiting keys on the client IP that Railway's edge proxy appends to `X-Forwarded-For`. `TRUSTED_PROXY_HOPS` defaults to `1` when Railway's `RAILWAY_ENVIRONMENT` variable is present; set it explicitly if you add another proxy or CDN in front.
-5. Deploy and wait for the `/api/health` check to pass. Use the generated Railway domain as the live demo URL and update the TODO at the top of this README.
+1. Push this repository to GitHub. In Render, choose **New → Web Service**, connect the repository, and pick the **Free** instance type.
+2. Set **Runtime** to Python, **Build Command** to `pip install .`, and **Start Command** to `uvicorn app.main:app --host 0.0.0.0 --port $PORT`. Render supplies `PORT`. `.python-version` selects Python 3.12 (a `PYTHON_VERSION` environment variable would override it).
+3. Under **Advanced**, set **Health Check Path** to `/api/health`.
+4. Under **Environment**, add `OPENAI_API_KEY` and, optionally, `OPENAI_MODEL`, `MAX_TRIALS_CAP`, `EXACT_COUNT_QUERY_BUDGET`, and `NETWORK_EXCLUDED_INTERVENTIONS`. Do not commit `.env` or paste secrets into source files.
+5. Deploy. Use the `https://<service>.onrender.com` URL as the live demo URL and update the TODO at the top of this README.
 6. To run without an OpenAI key, callers must specify `analysis_type` (and `comparison_groups` for comparisons); this mode is useful for service smoke tests, not natural-language chart selection.
+
+**Free-tier cold starts.** Render spins a free web service down after 15 minutes without traffic. The next request wakes it, which takes about a minute, and Render shows a loading page meanwhile. After that, responses take their normal time. The in-memory cache and rate-limit counters start empty after each wake.
+
+**Client IPs behind Render.** Requests reach the app through Cloudflare and then Render's proxy. Both append to `X-Forwarded-For` without removing what the client sent, so the header arrives as `<client-supplied entries>, <client IP>, <Cloudflare edge IP>`. The rate limiter therefore reads the second entry from the right: `TRUSTED_PROXY_HOPS` defaults to `2` when Render's `RENDER=true` variable is present. Reading the leftmost entry would let a client choose its own IP, and reading the last would put every visitor behind the same Cloudflare edge into one shared bucket. Render does not document this chain officially (it is based on a [Render staff note](https://feedback.render.com/features/p/send-the-correct-xforwardedfor) and an [observed header trace](https://rohitpaulk.com/articles/render-rails-remote-ip)), so set `TRUSTED_PROXY_HOPS` explicitly if you put another proxy in front or Render changes its edge.
 
 ## AI tool usage
 

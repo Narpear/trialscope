@@ -173,6 +173,9 @@ async def test_comparison_without_two_groups_is_rejected():
         ([("x-forwarded-for", "6.6.6.6, 203.0.113.9")], 1, "203.0.113.9"),
         ([("x-forwarded-for", "6.6.6.6"), ("x-forwarded-for", "203.0.113.9")], 1, "203.0.113.9"),
         ([], 1, "10.0.0.1"),
+        # Render: client -> Cloudflare -> Render proxy; a forged leading entry is ignored.
+        ([("x-forwarded-for", "6.6.6.6, 203.0.113.9, 104.22.17.40")], 2, "203.0.113.9"),
+        ([("x-forwarded-for", "203.0.113.9, 104.22.17.40")], 2, "203.0.113.9"),
     ],
 )
 def test_client_ip_trusts_only_proxy_appended_entries(headers, hops, expected):
@@ -198,3 +201,12 @@ def test_every_planner_error_code_has_an_http_status():
     raised |= set(re.findall(r'PlannerError\("(\w+)"', source))
     assert raised
     assert raised <= set(ERROR_STATUS)
+
+
+@pytest.mark.parametrize(("environment", "expected"), [({"RENDER": "true"}, 2), ({}, 0)])
+def test_trusted_proxy_hops_default_detects_render(monkeypatch, environment, expected):
+    monkeypatch.delenv("RENDER", raising=False)
+    monkeypatch.delenv("TRUSTED_PROXY_HOPS", raising=False)
+    for name, value in environment.items():
+        monkeypatch.setenv(name, value)
+    assert Settings(_env_file=None).trusted_proxy_hops == expected
