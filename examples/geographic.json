@@ -2463,7 +2463,7 @@
     "edges": null
   },
   "meta": {
-    "query_interpretation": "Assess the geographic distribution of recruiting melanoma trials across countries to identify which countries have the most trials.",
+    "query_interpretation": "Show the countries with the highest number of recruiting melanoma trials based on study site locations.",
     "plan": {
       "answerable": true,
       "unsupported_reason": null,
@@ -2478,10 +2478,11 @@
         "start_year": null,
         "end_year": null
       },
-      "group_by": "condition",
+      "group_by": null,
       "comparison_groups": [],
+      "comparison_group_type": null,
       "network_entity_types": [],
-      "interpretation": "Assess the geographic distribution of recruiting melanoma trials across countries to identify which countries have the most trials."
+      "interpretation": "Show the countries with the highest number of recruiting melanoma trials based on study site locations."
     },
     "planner_mode": "llm",
     "filters_applied": {
@@ -2491,14 +2492,19 @@
     "total_matching": 485,
     "trials_analyzed": 485,
     "truncated": false,
+    "plan_adjustments": [],
     "assumptions": [
-      "Each trial contributes once per distinct country with a reported study location."
+      "Each trial contributes once per distinct country with a reported study location.",
+      "All 485 matching trials were analyzed, so counts are exact registry totals."
     ],
     "warnings": [],
-    "api_query_url": "https://clinicaltrials.gov/api/v2/studies?format=json&countTotal=true&pageSize=500&fields=BriefTitle%2CLocationCountry%2CNCTId%2COverallStatus&query.cond=melanoma&filter.overallStatus=RECRUITING",
+    "api_query_url": "https://clinicaltrials.gov/api/v2/studies?format=json&countTotal=true&pageSize=1000&fields=BriefTitle%2CLocationCountry%2CNCTId%2COverallStatus&query.cond=melanoma&filter.overallStatus=RECRUITING",
     "source": "clinicaltrials.gov",
-    "generated_at": "2026-11-01T18:44:30.606035Z",
+    "generated_at": "2026-11-01T19:31:25.501487Z",
     "total_citations": 195,
+    "counts_exact": true,
+    "count_basis": "complete_records",
+    "group_queries": null,
     "network_top_n": null,
     "network_min_edge_weight": null,
     "network_excluded_interventions": null

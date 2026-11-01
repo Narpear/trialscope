@@ -1,5 +1,6 @@
 import json
 import os
+import time
 from pathlib import Path
 
 import httpx
@@ -8,43 +9,30 @@ BASE_URL = os.getenv("EXAMPLES_BASE_URL", "http://127.0.0.1:8000")
 OUTPUT_DIR = Path(__file__).resolve().parents[1] / "examples"
 EXAMPLES = {
     "time_trend": {
-        "query": "How have clinical trials for aspirin changed by start year?",
-        "analysis_type": "time_trend",
-        "drug_name": "aspirin",
-        "max_trials": 150,
+        "query": "How many rheumatoid arthritis trials started each year since 2015?",
     },
     "comparison": {
-        "query": "Compare trial phases for pembrolizumab versus nivolumab in melanoma studies.",
-        "analysis_type": "comparison",
-        "condition": "melanoma",
-        "max_trials": 500,
+        "query": "Compare phases for trials involving pembrolizumab vs nivolumab.",
     },
     "geographic": {
-        "query": "Which countries have the most recruiting melanoma trials?",
-        "analysis_type": "geographic",
-        "condition": "melanoma",
-        "recruitment_status": "RECRUITING",
-        "max_trials": 500,
+        "query": "Which countries have the most recruiting trials for melanoma?",
     },
     "network": {
-        "query": "Show sponsor and drug relationships in melanoma trials.",
-        "analysis_type": "network",
-        "condition": "melanoma",
-        "max_trials": 500,
+        "query": "Which drugs frequently co-occur in combination studies for pancreatic cancer?",
+        "max_trials": 10000,
     },
     "distribution": {
-        "query": "How are melanoma trials distributed across phases?",
-        "analysis_type": "distribution",
-        "condition": "melanoma",
-        "max_trials": 500,
+        "query": "How are breast cancer trials distributed across phases?",
     },
 }
 
 
 def main() -> None:
     OUTPUT_DIR.mkdir(exist_ok=True)
-    with httpx.Client(timeout=180) as client:
-        for name, request in EXAMPLES.items():
+    with httpx.Client(timeout=300) as client:
+        for index, (name, request) in enumerate(EXAMPLES.items()):
+            if index:
+                time.sleep(10)  # stay well under the service and ClinicalTrials.gov rate limits
             response = client.post(f"{BASE_URL.rstrip('/')}/api/query", json=request)
             if response.is_error:
                 raise RuntimeError(
@@ -55,9 +43,11 @@ def main() -> None:
                 raise RuntimeError(f"{name} response did not match the query response schema.")
             path = OUTPUT_DIR / f"{name}.json"
             path.write_text(json.dumps(output, indent=2, ensure_ascii=False) + "\n")
+            meta = output["meta"]
             print(
-                f"Wrote {path.name}: {output['meta']['trials_analyzed']} trials, "
-                f"{output['meta']['total_citations']} citations"
+                f"Wrote {path.name}: {meta['total_matching']} matching, "
+                f"{meta['trials_analyzed']} fetched, counts {meta['count_basis']}, "
+                f"{meta['total_citations']} citations"
             )
 
 
