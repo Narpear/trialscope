@@ -60,7 +60,9 @@ h2 { color:var(--green-dark); font:700 19px/1.35 Manrope,sans-serif; margin:0; l
 .icon-button { width:32px;height:32px;padding:0;font-size:17px; }
 #chart { display:block; width:100%; }
 .chart { min-height:310px; padding-top:14px; overflow:hidden; }.chart .vega-embed{width:100%}.chart svg{max-width:100%}
-.chart-footnote { display:flex; justify-content:space-between; border-top:1px solid #eff2ef; padding:12px 0 0; color:#98a49b; font-size:10px; }
+.chart-footnote { display:flex; justify-content:space-between; align-items:center; gap:10px; border-top:1px solid #eff2ef; padding:12px 0 0; color:#98a49b; font-size:10px; }
+.chart-footnote .text-button { padding:6px 9px; white-space:nowrap; }
+.chart-footnote .text-button:disabled { opacity:.5; cursor:not-allowed; }
 .interpretation { color:#334c3d; line-height:1.55; margin:0 0 20px; font-size:13px; }
 .metrics { display:grid; grid-template-columns:1fr 1fr; border-top:1px solid #edf1ed; border-bottom:1px solid #edf1ed; padding:14px 0; gap:12px; }
 .metric strong { display:block; font:700 20px Manrope,sans-serif; color:var(--green); }.metric span { display:block; margin-top:3px; color:#89968d; font-size:10px; line-height:1.3; }

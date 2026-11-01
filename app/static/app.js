@@ -6,6 +6,7 @@ const citationPanel = document.querySelector("#citation-panel");
 const scrim = document.querySelector("#scrim");
 let latestResponse = null;
 let latestPlanType = null;
+let latestCitationSelection = null;
 
 document.querySelectorAll(".chip").forEach((chip) => {
   chip.addEventListener("click", () => {
@@ -62,6 +63,8 @@ function showStatus(kind, message) {
 
 function renderResults(response) {
   const { visualization: viz, meta } = response;
+  latestCitationSelection = null;
+  document.querySelector("#reopen-citations").disabled = true;
   document.querySelector("#chart-title").textContent = viz.title;
   document.querySelector("#interpretation").textContent = meta.query_interpretation;
   document.querySelector("#metrics").innerHTML = `
@@ -202,6 +205,12 @@ function renderNetwork(viz) {
 function nodeLabel(nodes, node) { return nodes.find((item) => item.id === (typeof node === "string" ? node : node.id))?.label || "Study"; }
 
 function openCitations(datum, label) {
+  latestCitationSelection = { datum, label };
+  document.querySelector("#reopen-citations").disabled = false;
+  showCitationSelection(datum, label);
+}
+
+function showCitationSelection(datum, label) {
   const citations = datum.citations || [];
   document.querySelector("#citation-title").textContent = label;
   const content = document.querySelector("#citation-content");
@@ -218,6 +227,11 @@ function openCitations(datum, label) {
 
 function closeCitations() { citationPanel.classList.remove("open"); scrim.classList.remove("open"); }
 document.querySelector("#close-citations").addEventListener("click", closeCitations);
+document.querySelector("#reopen-citations").addEventListener("click", () => {
+  if (latestCitationSelection) {
+    showCitationSelection(latestCitationSelection.datum, latestCitationSelection.label);
+  }
+});
 scrim.addEventListener("click", closeCitations);
 document.querySelector("#json-toggle").addEventListener("click", (event) => {
   const view = document.querySelector("#json-view");
