@@ -1,0 +1,2681 @@
+{
+  "totalCount": 779,
+  "studies": [
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT02364609",
+          "briefTitle": "Pembrolizumab and Afatinib in Patients With Non-small Cell Lung Cancer With Resistance to Erlotinib"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "DRUG",
+              "name": "Afatinib Dimaleate"
+            },
+            {
+              "type": "BIOLOGICAL",
+              "name": "Pembrolizumab"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT03836352",
+          "briefTitle": "Study of an Immunotherapeutic, DPX-Survivac, in Combination With Low Dose Cyclophosphamide & Pembrolizumab, in Subjects With Selected Advanced & Recurrent Solid Tumors"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "OTHER",
+              "name": "DPX-Survivac"
+            },
+            {
+              "type": "DRUG",
+              "name": "Cyclophosphamide"
+            },
+            {
+              "type": "DRUG",
+              "name": "Pembrolizumab"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT03556228",
+          "briefTitle": "VMD-928 Monotherapy and in Combination With Pembrolizumab to Treat TrkA Overexpression Driven Solid Tumors or Lymphoma"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "DRUG",
+              "name": "VMD-928 100 mg Tablet"
+            },
+            {
+              "type": "DRUG",
+              "name": "VMD-928 Tablet and Pembrolizumab (200 mg)"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT03948763",
+          "briefTitle": "A Study of mRNA-5671/V941 as Monotherapy and in Combination With Pembrolizumab (V941-001)"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "BIOLOGICAL",
+              "name": "V941"
+            },
+            {
+              "type": "BIOLOGICAL",
+              "name": "Pembrolizumab"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT05222087",
+          "briefTitle": "PRIME_LUNG: Primary Radiotherapy In MEtastatic Lung Cancer - A Pilot Study"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "RADIATION",
+              "name": "Radiotherapy"
+            },
+            {
+              "type": "DRUG",
+              "name": "SoC systemic therapy"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT02909452",
+          "briefTitle": "Continuation Study of Entinostat in Combination With Pembrolizumab in Patients With Advanced Solid Tumors"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "DRUG",
+              "name": "Entinostat"
+            },
+            {
+              "type": "DRUG",
+              "name": "Pembrolizumab"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT06882174",
+          "briefTitle": "This Study is Comparing Morning vs Random Scheduling of Standard of Care Pembrolizumab Checkpoint Inhibitor Immunotherapy Infusions in Patients With Metastatic Non-small Cell Lung Cancer"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "DRUG",
+              "name": "Scheduling of the time of pembrolizumab infusions"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT06745882",
+          "briefTitle": "Prospective Trial Assessing Real World Outcomes Response to Pembro in Black Patients w/ NSCLC"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "DRUG",
+              "name": "Cisplatin"
+            },
+            {
+              "type": "DRUG",
+              "name": "Carboplatin"
+            },
+            {
+              "type": "DRUG",
+              "name": "Pemetrexed"
+            },
+            {
+              "type": "DRUG",
+              "name": "Pembrolizumab"
+            },
+            {
+              "type": "DRUG",
+              "name": "Abraxane"
+            },
+            {
+              "type": "DRUG",
+              "name": "Paclitaxel"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT02922764",
+          "briefTitle": "A Study of RGX-104 in Patients With Advanced Lung & Endometrial Cancer"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "DRUG",
+              "name": "RGX-104"
+            },
+            {
+              "type": "DRUG",
+              "name": "Ipilimumab"
+            },
+            {
+              "type": "DRUG",
+              "name": "Docetaxel"
+            },
+            {
+              "type": "DRUG",
+              "name": "Pembrolizumab"
+            },
+            {
+              "type": "DRUG",
+              "name": "Carboplatin"
+            },
+            {
+              "type": "DRUG",
+              "name": "Pemetrexed"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT03265080",
+          "briefTitle": "A Study of ADXS-NEO Expressing Personalized Tumor Antigens"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "BIOLOGICAL",
+              "name": "ADXS-NEO"
+            },
+            {
+              "type": "BIOLOGICAL",
+              "name": "Pembrolizumab"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT06704724",
+          "briefTitle": "A Study to Learn About the Study Medicine PF-07985045 When Given Alone or With Other Anti-cancer Therapies in People With Advanced Solid Tumors That Have a Change in a Gene."
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "DRUG",
+              "name": "PF-07985045"
+            },
+            {
+              "type": "COMBINATION_PRODUCT",
+              "name": "Gemcitabine"
+            },
+            {
+              "type": "COMBINATION_PRODUCT",
+              "name": "Nab-paclitaxel"
+            },
+            {
+              "type": "COMBINATION_PRODUCT",
+              "name": "Cetuximab"
+            },
+            {
+              "type": "COMBINATION_PRODUCT",
+              "name": "Fluorouracil"
+            },
+            {
+              "type": "COMBINATION_PRODUCT",
+              "name": "Oxaliplatin"
+            },
+            {
+              "type": "COMBINATION_PRODUCT",
+              "name": "Leucovorin"
+            },
+            {
+              "type": "COMBINATION_PRODUCT",
+              "name": "Bevacizumab"
+            },
+            {
+              "type": "COMBINATION_PRODUCT",
+              "name": "Pembrolizumab"
+            },
+            {
+              "type": "COMBINATION_PRODUCT",
+              "name": "Sasanlimab"
+            },
+            {
+              "type": "COMBINATION_PRODUCT",
+              "name": "pemetrexed"
+            },
+            {
+              "type": "COMBINATION_PRODUCT",
+              "name": "Cisplatin"
+            },
+            {
+              "type": "COMBINATION_PRODUCT",
+              "name": "Paclitaxel"
+            },
+            {
+              "type": "COMBINATION_PRODUCT",
+              "name": "Carboplatin"
+            },
+            {
+              "type": "COMBINATION_PRODUCT",
+              "name": "PF-07284892"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT06447662",
+          "briefTitle": "A Study to Learn About the Study Medicine PF-07934040 When Given Alone or With Other Anti-cancer Therapies in People With Advanced Solid Tumors That Have a Genetic Mutation."
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "DRUG",
+              "name": "PF-07934040"
+            },
+            {
+              "type": "COMBINATION_PRODUCT",
+              "name": "Gemcitabine"
+            },
+            {
+              "type": "COMBINATION_PRODUCT",
+              "name": "Nab-paclitaxel"
+            },
+            {
+              "type": "COMBINATION_PRODUCT",
+              "name": "Cetuximab"
+            },
+            {
+              "type": "COMBINATION_PRODUCT",
+              "name": "Fluorouracil"
+            },
+            {
+              "type": "COMBINATION_PRODUCT",
+              "name": "Oxaliplatin"
+            },
+            {
+              "type": "COMBINATION_PRODUCT",
+              "name": "Leucovorin"
+            },
+            {
+              "type": "COMBINATION_PRODUCT",
+              "name": "Bevacizumab"
+            },
+            {
+              "type": "COMBINATION_PRODUCT",
+              "name": "Pembrolizumab"
+            },
+            {
+              "type": "COMBINATION_PRODUCT",
+              "name": "pemetrexed"
+            },
+            {
+              "type": "COMBINATION_PRODUCT",
+              "name": "Cisplatin"
+            },
+            {
+              "type": "COMBINATION_PRODUCT",
+              "name": "Paclitaxel"
+            },
+            {
+              "type": "COMBINATION_PRODUCT",
+              "name": "Carboplatin"
+            },
+            {
+              "type": "COMBINATION_PRODUCT",
+              "name": "Sasanlimab"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT04964479",
+          "briefTitle": "A Clinical Study of TQB2450 Injection Combined With Anlotinib Hydrochloride Capsules Versus K Drug in the Treatment of First-line Non-small Cell Lung Cancer(NSCLC)"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "DRUG",
+              "name": "TQB2450 injection"
+            },
+            {
+              "type": "DRUG",
+              "name": "Anlotinib Hydrochloride Capsules"
+            },
+            {
+              "type": "DRUG",
+              "name": "Pembrolizumab injection"
+            },
+            {
+              "type": "DRUG",
+              "name": "Placebo"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT04394624",
+          "briefTitle": "Tusamitamab Ravtansine (SAR408701) in Combination With Ramucirumab or Ramucirumab and Pembrolizumab in Pretreated Patients With NSQ NSCLC (CARMEN-LC04)"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "DRUG",
+              "name": "SAR408701"
+            },
+            {
+              "type": "DRUG",
+              "name": "ramucirumab"
+            },
+            {
+              "type": "DRUG",
+              "name": "pembrolizumab"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT04746924",
+          "briefTitle": "A Study of Ociperlimab With Tislelizumab Compared to Pembrolizumab in Participants With Untreated Lung Cancer"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "DRUG",
+              "name": "Tislelizumab"
+            },
+            {
+              "type": "DRUG",
+              "name": "Ociperlimab"
+            },
+            {
+              "type": "DRUG",
+              "name": "Pembrolizumab"
+            },
+            {
+              "type": "DRUG",
+              "name": "Placebo"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT04040361",
+          "briefTitle": "Neoadjuvant Therapy of Pembrolizumab + Ramucirumab for PD-L1 Positive Stage IB-IIIA Lung Cancer (EAST ENERGY)"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "DRUG",
+              "name": "Pembrolizumab"
+            },
+            {
+              "type": "DRUG",
+              "name": "Ramucirumab"
+            },
+            {
+              "type": "PROCEDURE",
+              "name": "Surgery"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT02007070",
+          "briefTitle": "Study of Pembrolizumab (MK-3475) in Participants With Advanced Non-small Cell Lung Cancer (MK-3475-025/KEYNOTE-025)"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "BIOLOGICAL",
+              "name": "Pembrolizumab"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT05753722",
+          "briefTitle": "A First-in-human Study of PRTH-101 Monotherapy +/- Pembrolizumab in Subjects With Advanced Malignancies"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "BIOLOGICAL",
+              "name": "PRTH-101"
+            },
+            {
+              "type": "BIOLOGICAL",
+              "name": "Pembrolizumab"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT02402920",
+          "briefTitle": "Pembrolizumab and Concurrent Chemoradiotherapy or Radiation Therapy in Treating Patients With Small Cell Lung Cancer"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "DRUG",
+              "name": "Carboplatin"
+            },
+            {
+              "type": "DRUG",
+              "name": "Cisplatin"
+            },
+            {
+              "type": "DRUG",
+              "name": "Etoposide"
+            },
+            {
+              "type": "OTHER",
+              "name": "Laboratory Biomarker Analysis"
+            },
+            {
+              "type": "BIOLOGICAL",
+              "name": "Pembrolizumab"
+            },
+            {
+              "type": "PROCEDURE",
+              "name": "Radiation Therapy"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT03735290",
+          "briefTitle": "A Study to Evaluate the Safety and Effectiveness of ILIxadencel Administered Into Tumors in Combination With Checkpoint Inhibitor (CPI) in Patients With ADvanced Cancer"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "BIOLOGICAL",
+              "name": "ilixadencel"
+            },
+            {
+              "type": "DRUG",
+              "name": "Pembrolizumab"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT05653882",
+          "briefTitle": "A Study Evaluating AB248 Alone or in Combination With Pembrolizumab in Adult Patients With Solid Tumors"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "BIOLOGICAL",
+              "name": "etakafusp alfa (AB248)"
+            },
+            {
+              "type": "BIOLOGICAL",
+              "name": "pembrolizumab"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT06632327",
+          "briefTitle": "Comparing Impact of Treatment Before or After Surgery in Patients With Stage II-IIIB Resectable Non-small Cell Lung Cancer"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "PROCEDURE",
+              "name": "Surgical Procedure"
+            },
+            {
+              "type": "DRUG",
+              "name": "Cisplatin"
+            },
+            {
+              "type": "DRUG",
+              "name": "Carboplatin"
+            },
+            {
+              "type": "DRUG",
+              "name": "Pemetrexed"
+            },
+            {
+              "type": "DRUG",
+              "name": "Gemcitabine"
+            },
+            {
+              "type": "DRUG",
+              "name": "Docetaxel"
+            },
+            {
+              "type": "DRUG",
+              "name": "Vinorelbine"
+            },
+            {
+              "type": "DRUG",
+              "name": "Nivolumab"
+            },
+            {
+              "type": "DRUG",
+              "name": "Pembrolizumab"
+            },
+            {
+              "type": "DRUG",
+              "name": "Atezolizumab"
+            },
+            {
+              "type": "PROCEDURE",
+              "name": "Computed Tomography"
+            },
+            {
+              "type": "PROCEDURE",
+              "name": "Magnetic Resonance Imaging"
+            },
+            {
+              "type": "PROCEDURE",
+              "name": "Positron Emission Tomography"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT07622186",
+          "briefTitle": "A Study of SKB571 Combination Therapy in Participants With Non-Small Cell Lung Cancer (NSCLC)"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "DRUG",
+              "name": "SKB571 for injection"
+            },
+            {
+              "type": "DRUG",
+              "name": "Osimertinib"
+            },
+            {
+              "type": "DRUG",
+              "name": "Furmonertinib"
+            },
+            {
+              "type": "DRUG",
+              "name": "carboplatin"
+            },
+            {
+              "type": "DRUG",
+              "name": "Cisplatin"
+            },
+            {
+              "type": "DRUG",
+              "name": "Pembrolizumab"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT05787587",
+          "briefTitle": "A Study of PARG Inhibitor IDE161 in Participants With Advanced Solid Tumors"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "DRUG",
+              "name": "IDE-161"
+            },
+            {
+              "type": "DRUG",
+              "name": "Pembrolizumab"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT03631706",
+          "briefTitle": "M7824 Versus Pembrolizumab as a First-line (1L) Treatment in Participants With Programmed Death-ligand 1 (PD-L1) Expressing Advanced Non-small Cell Lung Cancer (NSCLC)"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "DRUG",
+              "name": "M7824"
+            },
+            {
+              "type": "DRUG",
+              "name": "Pembrolizumab"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT02758587",
+          "briefTitle": "Study of FAK (Defactinib) and PD-1 (Pembrolizumab) Inhibition in Advanced Solid Malignancies (FAK-PD1)"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "DRUG",
+              "name": "Defactinib"
+            },
+            {
+              "type": "DRUG",
+              "name": "Pembrolizumab"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT05128487",
+          "briefTitle": "A Study of NDI 1150-101 in Patients With Solid Tumors"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "DRUG",
+              "name": "NDI-101150"
+            },
+            {
+              "type": "DRUG",
+              "name": "Pembrolizumab"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT02591615",
+          "briefTitle": "Optimal Sequencing of Pembrolizumab (MK-3475) and Standard Platinum-based Chemotherapy in First-Line NSCLC"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "DRUG",
+              "name": "MK-3475"
+            },
+            {
+              "type": "DRUG",
+              "name": "Carboplatin"
+            },
+            {
+              "type": "DRUG",
+              "name": "Paclitaxel"
+            },
+            {
+              "type": "DRUG",
+              "name": "Pemetrexed"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT05086692",
+          "briefTitle": "A Beta-only IL-2 ImmunoTherapY Study"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "DRUG",
+              "name": "MDNA11"
+            },
+            {
+              "type": "DRUG",
+              "name": "Pembrolizumab (KEYTRUDA®)"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT03809624",
+          "briefTitle": "Study of INBRX-105 and INBRX-105 With Pembrolizumab in Patients With Solid Tumors Including Head and Neck Cancer"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "DRUG",
+              "name": "INBRX-105 - PDL1x41BB antibody"
+            },
+            {
+              "type": "DRUG",
+              "name": "Pembrolizumab"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT05215574",
+          "briefTitle": "Study of NGM831 as Monotherapy and in Combination With Pembrolizumab or Pembrolizumab and NGM438 in Advanced or Metastatic Solid Tumors"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "DRUG",
+              "name": "NGM831"
+            },
+            {
+              "type": "DRUG",
+              "name": "NGM831 plus pembrolizumab (KEYTRUDA®)"
+            },
+            {
+              "type": "DRUG",
+              "name": "NGM831 and NGM438 plus pembrolizumab (KEYTRUDA®)"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT07130032",
+          "briefTitle": "Efficacy And Safety Of Anti-PD-1/PD-L1 Antibodies In Combination With Bevacizumab And Metronomic Cyclophosphamide In Patients With Non-Small Cell Lung Cancer And Cutaneous Melanoma Previously Treated With Immune Checkpoint Blockade"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "COMBINATION_PRODUCT",
+              "name": "reICB regimen (NSCLC)"
+            },
+            {
+              "type": "COMBINATION_PRODUCT",
+              "name": "reICB regimen (melanoma)"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT02359019",
+          "briefTitle": "MK-3475 as Maintenance Therapy in Extensive Stage SCLC"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "BIOLOGICAL",
+              "name": "Pembrolizumab"
+            },
+            {
+              "type": "OTHER",
+              "name": "Laboratory Biomarker Analysis"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT06731907",
+          "briefTitle": "A Study of Pembrolizumab With or Without Chemotherapy in Combination With Additional Treatments for Advanced Non-Small Cell Lung Cancer (NSCLC) (MK-3475-01G/KEYMAKER U01)"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "BIOLOGICAL",
+              "name": "Pembrolizumab"
+            },
+            {
+              "type": "DRUG",
+              "name": "Carboplatin"
+            },
+            {
+              "type": "DRUG",
+              "name": "Paclitaxel"
+            },
+            {
+              "type": "DRUG",
+              "name": "Nab-paclitaxel"
+            },
+            {
+              "type": "DRUG",
+              "name": "Pemetrexed"
+            },
+            {
+              "type": "BIOLOGICAL",
+              "name": "HER3-DXd"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT04557007",
+          "briefTitle": "Drug Concentration Monitoring of Pembrolizumab in Non-Small Cell Lung Cancer Patients"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "DRUG",
+              "name": "Pembrolizumab"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT05479812",
+          "briefTitle": "Dose Escalation and Expansion Study of WTX-124 as Monotherapy and in Combination With Pembrolizumab (Pembro) in Patients With Selected Advanced or Metastatic Solid Tumors"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "DRUG",
+              "name": "WTX-124"
+            },
+            {
+              "type": "DRUG",
+              "name": "pembrolizumab"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT04622007",
+          "briefTitle": "Tomivosertib Combined With Pembrolizumab in Subjects With PD-L1 Positive NSCLC (KICKSTART)"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "DRUG",
+              "name": "Tomivosertib"
+            },
+            {
+              "type": "BIOLOGICAL",
+              "name": "Pembrolizumab"
+            },
+            {
+              "type": "DRUG",
+              "name": "Pemetrexed"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT02399371",
+          "briefTitle": "Pembrolizumab in Treating Patients With Malignant Mesothelioma"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "BIOLOGICAL",
+              "name": "Pembrolizumab"
+            },
+            {
+              "type": "OTHER",
+              "name": "Laboratory Biomarker Analysis"
+            },
+            {
+              "type": "OTHER",
+              "name": "Pharmacogenomic Study"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT05860296",
+          "briefTitle": "Testing Experimental Anti-cancer Drug SLC-391 With an Approved Immunotherapy Drug, Pembrolizumab, for Advanced Lung Cancers"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "DRUG",
+              "name": "SLC-391"
+            },
+            {
+              "type": "BIOLOGICAL",
+              "name": "pembrolizumab"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT03861793",
+          "briefTitle": "A Dose Escalation and Cohort Expansion Study of Subcutaneously-Administered Cytokine ALKS 4230 (Nemvaleukin Alfa) as a Single Agent and in Combination With Anti-PD-1 Antibody (Pembrolizumab) in Subjects With Select Advanced or Metastatic Solid Tumors (ARTISTRY-2)"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "BIOLOGICAL",
+              "name": "ALKS 4230"
+            },
+            {
+              "type": "BIOLOGICAL",
+              "name": "Pembrolizumab"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT06311981",
+          "briefTitle": "Carbon Ion Radiotherapy for Locally Advanced Lung Cancer in Elderly Patients"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "RADIATION",
+              "name": "carbon ion radiotherapy"
+            },
+            {
+              "type": "OTHER",
+              "name": "targeted therapy"
+            },
+            {
+              "type": "OTHER",
+              "name": "single regimen chemotherapy in sequence with radiotherapy"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT03850444",
+          "briefTitle": "Study of Pembrolizumab (MK-3475) Versus Platinum-Based Chemotherapy for Participants With Programmed Cell Death-Ligand 1 (PD-L1)-Positive Advanced or Metastatic Non-Small Cell Lung Cancer (MK-3475-042/KEYNOTE-042)-China Extension Study"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "BIOLOGICAL",
+              "name": "pembrolizumab"
+            },
+            {
+              "type": "DRUG",
+              "name": "carboplatin"
+            },
+            {
+              "type": "DRUG",
+              "name": "paclitaxel"
+            },
+            {
+              "type": "DRUG",
+              "name": "pemetrexed"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT05383716",
+          "briefTitle": "Neoadjuvant/Adjuvant Pembrolizumab Plus Chemotherapy"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "DRUG",
+              "name": "Pembrolizumab"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT02661100",
+          "briefTitle": "A Trial of CDX-1401 in Combination With Poly-ICLC and Pembrolizumab, in Previously Treated Advanced Solid Tumor Patients"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "DRUG",
+              "name": "Pembrolizumab"
+            },
+            {
+              "type": "BIOLOGICAL",
+              "name": "CDX-1401"
+            },
+            {
+              "type": "BIOLOGICAL",
+              "name": "Poly-ICLC"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT03924869",
+          "briefTitle": "Efficacy and Safety Study of Stereotactic Body Radiotherapy (SBRT) With or Without Pembrolizumab (MK-3475) in Adults With Unresected Stage I or II Non-Small Cell Lung Cancer (NSCLC) (MK-3475-867/KEYNOTE-867)"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "RADIATION",
+              "name": "Stereotactic Body Radiotherapy (SBRT)"
+            },
+            {
+              "type": "BIOLOGICAL",
+              "name": "Pembrolizumab"
+            },
+            {
+              "type": "DRUG",
+              "name": "Placebo"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT02331251",
+          "briefTitle": "Study of Pembrolizumab Plus Chemotherapy in Patients With Advanced Cancer (PembroPlus)"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "DRUG",
+              "name": "Pembrolizumab"
+            },
+            {
+              "type": "DRUG",
+              "name": "Gemcitabine"
+            },
+            {
+              "type": "DRUG",
+              "name": "Docetaxel"
+            },
+            {
+              "type": "DRUG",
+              "name": "Nab-paclitaxel"
+            },
+            {
+              "type": "DRUG",
+              "name": "Vinorelbine"
+            },
+            {
+              "type": "DRUG",
+              "name": "Irinotecan"
+            },
+            {
+              "type": "DRUG",
+              "name": "Liposomal Doxorubicin"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT05633602",
+          "briefTitle": "Ramucirumab Plus Pembrolizumab vs Usual Care for Treatment of Stage IV or Recurrent Non-Small Cell Lung Cancer Following Immunotherapy, Pragmatica-Lung Study"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "DRUG",
+              "name": "Chemotherapy"
+            },
+            {
+              "type": "BIOLOGICAL",
+              "name": "Pembrolizumab"
+            },
+            {
+              "type": "BIOLOGICAL",
+              "name": "Ramucirumab"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT06049212",
+          "briefTitle": "Sacituzumab Tirumotecan (MK-2870) as Monotherapy and in Combination With Pembrolizumab in Participants With Advanced Solid Tumors (MK-2870-008)"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "BIOLOGICAL",
+              "name": "Sacituzumab tirumotecan"
+            },
+            {
+              "type": "BIOLOGICAL",
+              "name": "Pembrolizumab"
+            },
+            {
+              "type": "DRUG",
+              "name": "Supportive care measures"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT04613596",
+          "briefTitle": "Phase 2 Trial of Adagrasib Monotherapy and in Combination With Pembrolizumab and a Phase 3 Trial of Adagrasib in Combination in Patients With a KRAS G12C Mutation KRYSTAL-7"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "DRUG",
+              "name": "Adagrasib"
+            },
+            {
+              "type": "DRUG",
+              "name": "Adagrasib"
+            },
+            {
+              "type": "DRUG",
+              "name": "Adagrasib"
+            },
+            {
+              "type": "DRUG",
+              "name": "Adagrasib"
+            },
+            {
+              "type": "DRUG",
+              "name": "Pembrolizumab"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT03976362",
+          "briefTitle": "A Study of Pembrolizumab (MK-3475) With or Without Maintenance Olaparib in First-line Metastatic Squamous Non-small Cell Lung Cancer (NSCLC, MK-7339-008/KEYLYNK-008)"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "BIOLOGICAL",
+              "name": "Pembrolizumab"
+            },
+            {
+              "type": "DRUG",
+              "name": "Carboplatin"
+            },
+            {
+              "type": "DRUG",
+              "name": "Paclitaxel"
+            },
+            {
+              "type": "DRUG",
+              "name": "Nab-paclitaxel"
+            },
+            {
+              "type": "DRUG",
+              "name": "Olaparib"
+            },
+            {
+              "type": "DRUG",
+              "name": "Placebo"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT05669846",
+          "briefTitle": "Study of Healthy Donor FMT (hdFMT) and Pembrolizumab in Relapsed/Refractory (R/R) PD-L1 Positive NSCLC"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "DRUG",
+              "name": "Healthy Donor Fecal Microbiota Transplant (hdFMT)"
+            },
+            {
+              "type": "DRUG",
+              "name": "Pembrolizumab"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT03633110",
+          "briefTitle": "Safety, Tolerability, Immunogenicity, and Antitumor Activity of GEN-009 Adjuvanted Vaccine"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "BIOLOGICAL",
+              "name": "GEN-009 Adjuvanted Vaccine"
+            },
+            {
+              "type": "DRUG",
+              "name": "Nivolumab"
+            },
+            {
+              "type": "DRUG",
+              "name": "Pembrolizumab"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT07513376",
+          "briefTitle": "A Clinical Trial of Adjuvant Intismeran (V940) With or Without Pembrolizumab Coformulated With Berahyaluronidase Alfa (MK-3475A) in High-Risk Stage I Non-Small Cell Lung Cancer (V940-014)"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "BIOLOGICAL",
+              "name": "Intismeran"
+            },
+            {
+              "type": "BIOLOGICAL",
+              "name": "Pembrolizumab coformulated with berahyaluronidase alfa"
+            },
+            {
+              "type": "OTHER",
+              "name": "Placebo"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT05492682",
+          "briefTitle": "START: Safety and Anti-Tumor Activity of PeptiCRAd-1 in Treatment of Cancer"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "DRUG",
+              "name": "PeptiCRAd-1"
+            },
+            {
+              "type": "DRUG",
+              "name": "Cyclophosphamide"
+            },
+            {
+              "type": "DRUG",
+              "name": "Pembrolizumab"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT04699123",
+          "briefTitle": "The Study of NC318 Alone or in Combination With Pembrolizumab in Patients With Advanced Non-small Cell Lung Cancer"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "DRUG",
+              "name": "NC318 800 mg"
+            },
+            {
+              "type": "DRUG",
+              "name": "NC318 400 mg"
+            },
+            {
+              "type": "DRUG",
+              "name": "Pembrolizumab"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT03473925",
+          "briefTitle": "Efficacy and Safety Study of Navarixin (MK-7123) in Combination With Pembrolizumab (MK-3475) in Adults With Selected Advanced/Metastatic Solid Tumors (MK-7123-034)"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "DRUG",
+              "name": "Navarixin"
+            },
+            {
+              "type": "BIOLOGICAL",
+              "name": "Pembrolizumab"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT04061590",
+          "briefTitle": "Pembrolizumab With or Without Chemotherapy Before Surgery in Treating Patients With Stage I-IIIA Non-Small Cell Lung Cancer"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "DRUG",
+              "name": "Cisplatin"
+            },
+            {
+              "type": "BIOLOGICAL",
+              "name": "Pembrolizumab"
+            },
+            {
+              "type": "DRUG",
+              "name": "Pemetrexed"
+            },
+            {
+              "type": "DRUG",
+              "name": "Pemetrexed Disodium"
+            },
+            {
+              "type": "PROCEDURE",
+              "name": "Therapeutic Conventional Surgery"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT03035890",
+          "briefTitle": "Hypofractionated Radiation Therapy to Improve Immunotherapy Response in Non-Small Cell Lung Cancer"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "RADIATION",
+              "name": "Radiation"
+            },
+            {
+              "type": "DRUG",
+              "name": "Immuno-Therapeutic Agent"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT03307759",
+          "briefTitle": "Sequencing of Stereotactic Ablative Body Radiotherapy in Combination With PD-1 Blockade Using Pembrolizumab in Metastatic Non-Small Cell Lung Carcinoma"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "DRUG",
+              "name": "Pembrolizumab"
+            },
+            {
+              "type": "RADIATION",
+              "name": "Radiotherapy (SABR)"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT06917079",
+          "briefTitle": "BBO-11818 in Adult Subjects With KRAS Mutant Cancer"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "DRUG",
+              "name": "BBO-11818"
+            },
+            {
+              "type": "DRUG",
+              "name": "Pembrolizumab"
+            },
+            {
+              "type": "DRUG",
+              "name": "Platinum chemotherapy (cisplatin or carboplatin)"
+            },
+            {
+              "type": "DRUG",
+              "name": "Pemetrexed"
+            },
+            {
+              "type": "DRUG",
+              "name": "Cetuximab"
+            },
+            {
+              "type": "DRUG",
+              "name": "mFOLFOX6"
+            },
+            {
+              "type": "DRUG",
+              "name": "mFOLFOX6"
+            },
+            {
+              "type": "DRUG",
+              "name": "BBO-10203"
+            },
+            {
+              "type": "DRUG",
+              "name": "mFOLFIRINOX"
+            },
+            {
+              "type": "DRUG",
+              "name": "Gemcitabine"
+            },
+            {
+              "type": "DRUG",
+              "name": "Nab-paclitaxel"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT05267470",
+          "briefTitle": "A Study of Bemarituzumab Monotherapy and Combination With Other Anti-cancer Therapy in SqNSCLC With FGFR2b Overexpression (FORTITUDE-201)"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "DRUG",
+              "name": "Bemarituzumab"
+            },
+            {
+              "type": "DRUG",
+              "name": "Docetaxel"
+            },
+            {
+              "type": "DRUG",
+              "name": "Pembrolizumab"
+            },
+            {
+              "type": "DRUG",
+              "name": "Carboplatin"
+            },
+            {
+              "type": "DRUG",
+              "name": "Paclitaxel"
+            },
+            {
+              "type": "DRUG",
+              "name": "Nab-paclitaxel"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT06280196",
+          "briefTitle": "A Study to Evaluate PK, Efficacy, and Safety of BAT3306 Plus Chemo and Compare With Keytruda®(EU/US) in Participants With IV nqNSCLC"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "DRUG",
+              "name": "BAT3306"
+            },
+            {
+              "type": "DRUG",
+              "name": "EU-Keytruda®"
+            },
+            {
+              "type": "DRUG",
+              "name": "US-Keytruda®"
+            },
+            {
+              "type": "DRUG",
+              "name": "Pemetrexed"
+            },
+            {
+              "type": "DRUG",
+              "name": "Carboplatin"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT07603856",
+          "briefTitle": "A Study Evaluating The Combination of Immunotherapy With Radiotherapy in Non-Small Cell Lung Cancer"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "DRUG",
+              "name": "Investigator Choice Immunotherapy (for example: pembrolizumab, cemiplimab, durvalumab, ipilimumab plus nivolumab)"
+            },
+            {
+              "type": "DRUG",
+              "name": "Investigator Choice Chemotherapy (for example docetaxel with or without ramucirumab, gemcitabine, or other National Comprehensive Cancer Network (NCCN)-recommended treatments)"
+            },
+            {
+              "type": "RADIATION",
+              "name": "Ablative Hypofractionated Radiotherapy"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT04287829",
+          "briefTitle": "Pembrolizumab Plus Lenvatinib In Second Line and Third Line Malignant Pleural mesotheLioma Patients"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "DRUG",
+              "name": "Pembrolizumab"
+            },
+            {
+              "type": "DRUG",
+              "name": "Lenvatinib"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT02595866",
+          "briefTitle": "Testing the Addition of an Experimental Medication MK-3475 (Pembrolizumab) to Usual Anti-Retroviral Medications in Patients With HIV and Cancer"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "DRUG",
+              "name": "Antiretroviral Therapy"
+            },
+            {
+              "type": "PROCEDURE",
+              "name": "Biopsy"
+            },
+            {
+              "type": "PROCEDURE",
+              "name": "Biospecimen Collection"
+            },
+            {
+              "type": "PROCEDURE",
+              "name": "Computed Tomography"
+            },
+            {
+              "type": "BIOLOGICAL",
+              "name": "Pembrolizumab"
+            },
+            {
+              "type": "PROCEDURE",
+              "name": "Positron Emission Tomography"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT06868277",
+          "briefTitle": "A Global Phase III Study of Rilvegostomig or Pembrolizumab Monotherapy for First-Line Treatment of PD-L1-high Metastatic Non-small Cell Lung Cancer"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "BIOLOGICAL",
+              "name": "Rilvegostomig"
+            },
+            {
+              "type": "BIOLOGICAL",
+              "name": "Pembrolizumab"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT05317858",
+          "briefTitle": "Blood-brain Barrier (BBB) Opening Using Exablate Focused Ultrasound With Standard of Care Treatment of NSCLC Brain Mets"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "DEVICE",
+              "name": "Blood Brain Barrier Opening - Oncology"
+            },
+            {
+              "type": "DRUG",
+              "name": "Pembrolizumab"
+            },
+            {
+              "type": "DRUG",
+              "name": "Atezolizumab"
+            },
+            {
+              "type": "DRUG",
+              "name": "Cemiplimab"
+            },
+            {
+              "type": "DRUG",
+              "name": "Nivolumab"
+            },
+            {
+              "type": "DRUG",
+              "name": "Iptilimumab"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT06268613",
+          "briefTitle": "A Study to Compare the Pharmacokinetics, Efficacy, Safety, and Immunogenicity of Pembrolizumab (SB27, EU Sourced Keytruda, and US Sourced Keytruda) in Subjects With Stage II-IIIA NSCLC Following Complete Resection and Adjuvant Platinum-based Chemotherapy"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "DRUG",
+              "name": "SB27"
+            },
+            {
+              "type": "DRUG",
+              "name": "EU sourced Keytruda"
+            },
+            {
+              "type": "DRUG",
+              "name": "US sourced Keytruda"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT03066778",
+          "briefTitle": "A Study of Pembrolizumab (MK-3475) in Combination With Etoposide/Platinum (Cisplatin or Carboplatin) for Participants With Extensive Stage Small Cell Lung Cancer (MK-3475-604/KEYNOTE-604)"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "BIOLOGICAL",
+              "name": "Pembrolizumab"
+            },
+            {
+              "type": "DRUG",
+              "name": "Normal saline solution"
+            },
+            {
+              "type": "DRUG",
+              "name": "Carboplatin"
+            },
+            {
+              "type": "DRUG",
+              "name": "Cisplatin"
+            },
+            {
+              "type": "DRUG",
+              "name": "Etoposide"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT05430009",
+          "briefTitle": "Liver SBRT in Combination With Immune Checkpoint Inhibition in Patients With Metastatic Non-small Cell Lung Cancer"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "RADIATION",
+              "name": "Liver SBRT"
+            },
+            {
+              "type": "DRUG",
+              "name": "Pembrolizumab"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT05215340",
+          "briefTitle": "Study of Dato-DXd Plus Pembrolizumab vs Pembrolizumab Alone in the First-line Treatment of Subjects With Advanced or Metastatic NSCLC Without Actionable Genomic Alterations"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "DRUG",
+              "name": "Datopotamab Deruxtecan"
+            },
+            {
+              "type": "DRUG",
+              "name": "Pembrolizumab"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT06228326",
+          "briefTitle": "A Study Assessing KB707 for the Treatment of Advanced Solid Tumor Malignancies Affecting the Lungs"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "BIOLOGICAL",
+              "name": "KB707"
+            },
+            {
+              "type": "DRUG",
+              "name": "Pembrolizumab (KEYTRUDA®)"
+            },
+            {
+              "type": "DRUG",
+              "name": "Chemotherapy"
+            },
+            {
+              "type": "DRUG",
+              "name": "Docetaxel"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT06747585",
+          "briefTitle": "A Study to Investigate ALE.P02 as a Monotherapy or in Combination With Pembrolizumab in Adult Patients With Selected CLDN1+ Solid Tumors"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "DRUG",
+              "name": "ALE.P02"
+            },
+            {
+              "type": "DRUG",
+              "name": "Pembrolizumab"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT05393635",
+          "briefTitle": "ITIL-168 in Advanced Solid Tumors"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "BIOLOGICAL",
+              "name": "ITIL-168"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT05668650",
+          "briefTitle": "Double-blind Study to Evaluate the PK, Efficacy, Safety and Immunogenicity of MB12 Versus Keytruda® in Stage IV NSCLC"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "DRUG",
+              "name": "Pembrolizumab"
+            },
+            {
+              "type": "DRUG",
+              "name": "Pembrolizumab biosimilar"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT05384015",
+          "briefTitle": "Study of Pembrolizumab, Lenvatinib and Chemotherapy Combination in First Line Extensive-stage Small Cell Lung Cancer"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "DRUG",
+              "name": "Lenvatinib"
+            },
+            {
+              "type": "DRUG",
+              "name": "Pembrolizumab"
+            },
+            {
+              "type": "DRUG",
+              "name": "Etoposide"
+            },
+            {
+              "type": "DRUG",
+              "name": "Carboplatin"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT07885709",
+          "briefTitle": "MRD and Imaging Guided Adaptive Neoadjuvant Therapy for Resectable NSCLC"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "DRUG",
+              "name": "PD-1 inhibitor"
+            },
+            {
+              "type": "DRUG",
+              "name": "Carboplatin"
+            },
+            {
+              "type": "DRUG",
+              "name": "Nab-paclitaxel"
+            },
+            {
+              "type": "DRUG",
+              "name": "Pemetrexed"
+            },
+            {
+              "type": "DRUG",
+              "name": "Anlotinib"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT04130516",
+          "briefTitle": "Study Assessing MTD, Safety, Tolerability, PK and Anti-tumor Effects of LNS8801alone and With Pembrolizumab"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "DRUG",
+              "name": "LNS8801 -Small molecule, orally bioavailable, selective agonist of GPER"
+            },
+            {
+              "type": "BIOLOGICAL",
+              "name": "Pembrolizumab - anti-PD-1 antibody"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT02009449",
+          "briefTitle": "A Phase 1 Study of Pegilodecakin (LY3500518) in Participants With Advanced Solid Tumors"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "DRUG",
+              "name": "Pegilodecakin"
+            },
+            {
+              "type": "DRUG",
+              "name": "Paclitaxel or Docetaxel and Carboplatin or Cisplatin"
+            },
+            {
+              "type": "DRUG",
+              "name": "FOLFOX (Oxaliplatin/Leucovorin/5-Fluorouracil)"
+            },
+            {
+              "type": "DRUG",
+              "name": "gemcitabine/nab-paclitaxel"
+            },
+            {
+              "type": "DRUG",
+              "name": "Capecitabine"
+            },
+            {
+              "type": "DRUG",
+              "name": "Pazopanib"
+            },
+            {
+              "type": "DRUG",
+              "name": "Pembrolizumab"
+            },
+            {
+              "type": "DRUG",
+              "name": "Paclitaxel"
+            },
+            {
+              "type": "DRUG",
+              "name": "nivolumab"
+            },
+            {
+              "type": "DRUG",
+              "name": "Gemcitabine/carboplatin"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT04032704",
+          "briefTitle": "A Study of Ladiratuzumab Vedotin in Advanced Solid Tumors"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "DRUG",
+              "name": "ladiratuzumab vedotin"
+            },
+            {
+              "type": "DRUG",
+              "name": "pembrolizumab"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT04291755",
+          "briefTitle": "Development and Analysis of a Stool Bank for Cancer Patients"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "DRUG",
+              "name": "Pembrolizumab Injection"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT02760225",
+          "briefTitle": "Pembrolizumab-PET Imaging"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "DRUG",
+              "name": "89Zr-Pembrolizumab"
+            },
+            {
+              "type": "DEVICE",
+              "name": "89Zr-Pembrolizumab PET"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT05609968",
+          "briefTitle": "Study of Pembrolizumab (MK-3475) Monotherapy Versus Sacituzumab Govitecan in Combination With Pembrolizumab for Participants With Metastatic Non-small Cell Lung Cancer (NSCLC) With Programmed Cell Death Ligand 1 (PD-L1) Tumor Proportion Score (TPS) ≥50% (MK-3475-D46)"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "BIOLOGICAL",
+              "name": "Sacituzumab Govitecan"
+            },
+            {
+              "type": "BIOLOGICAL",
+              "name": "Pembrolizumab"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT06607185",
+          "briefTitle": "A Study of the Pan-KRAS Inhibitor LY4066434 in Participants With KRAS Mutant Solid Tumors"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "DRUG",
+              "name": "LY4066434."
+            },
+            {
+              "type": "DRUG",
+              "name": "Cetuximab"
+            },
+            {
+              "type": "DRUG",
+              "name": "Nab paclitaxel"
+            },
+            {
+              "type": "DRUG",
+              "name": "Gemcitabine"
+            },
+            {
+              "type": "DRUG",
+              "name": "Oxaliplatin"
+            },
+            {
+              "type": "DRUG",
+              "name": "Leucovorin"
+            },
+            {
+              "type": "DRUG",
+              "name": "Irinotecan"
+            },
+            {
+              "type": "DRUG",
+              "name": "5Fluorouracil"
+            },
+            {
+              "type": "DRUG",
+              "name": "Carboplatin"
+            },
+            {
+              "type": "DRUG",
+              "name": "Cisplatin"
+            },
+            {
+              "type": "DRUG",
+              "name": "Pemetrexed"
+            },
+            {
+              "type": "DRUG",
+              "name": "Pembrolizumab"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT07221474",
+          "briefTitle": "A Study of Intismeran Autogene (V940)/Placebo + Pembrolizumab and Chemotherapy in Metastatic Squamous Non-Small Cell Lung Cancer (V940-013)"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "BIOLOGICAL",
+              "name": "Intismeran Autogene"
+            },
+            {
+              "type": "BIOLOGICAL",
+              "name": "Pembrolizumab"
+            },
+            {
+              "type": "DRUG",
+              "name": "Carboplatin"
+            },
+            {
+              "type": "DRUG",
+              "name": "Paclitaxel"
+            },
+            {
+              "type": "DRUG",
+              "name": "Nab-paclitaxel"
+            },
+            {
+              "type": "OTHER",
+              "name": "Placebo"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT02733159",
+          "briefTitle": "Pembrolizumab in Patients With Non-Small Cell Lung Cancer and a Performance Status 2"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "DRUG",
+              "name": "pembrolizumab"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT02934503",
+          "briefTitle": "Study of Pembrolizumab and Chemotherapy With or Without Radiation in Small Cell Lung Cancer (SCLC)"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "BIOLOGICAL",
+              "name": "Pembrolizumab"
+            },
+            {
+              "type": "DRUG",
+              "name": "Cisplatin"
+            },
+            {
+              "type": "DRUG",
+              "name": "Carboplatin"
+            },
+            {
+              "type": "DRUG",
+              "name": "Etoposide"
+            },
+            {
+              "type": "RADIATION",
+              "name": "Radiation therapy"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT02039674",
+          "briefTitle": "A Study of Pembrolizumab (MK-3475) in Combination With Chemotherapy or Immunotherapy in Participants With Non-small Cell Lung Cancer (MK-3475-021/KEYNOTE-021)"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "BIOLOGICAL",
+              "name": "Pembrolizumab"
+            },
+            {
+              "type": "DRUG",
+              "name": "Paclitaxel"
+            },
+            {
+              "type": "DRUG",
+              "name": "Carboplatin"
+            },
+            {
+              "type": "BIOLOGICAL",
+              "name": "Bevacizumab"
+            },
+            {
+              "type": "DRUG",
+              "name": "Pemetrexed"
+            },
+            {
+              "type": "BIOLOGICAL",
+              "name": "Ipilimumab"
+            },
+            {
+              "type": "DRUG",
+              "name": "Erlotinib"
+            },
+            {
+              "type": "DRUG",
+              "name": "Gefitinib"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT07192926",
+          "briefTitle": "Body Composition and Inflammatory-Metabolic Indices in Immunotherapy-Treated Metastatic Non-Small Cell Lung Cancer: The SARC-CTI Study"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "DRUG",
+              "name": "Immune Checkpoint Inhibitor-Based Therapy"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT07251582",
+          "briefTitle": "Effect of Infusion Timing on Pathologic Response to Neoadjuvant Immunotherapy in Resectable Non-Small Cell Lung Cancer"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "OTHER",
+              "name": "Time of Day-based Assignment for Infusion of Immune Checkpoint Inhibitor (e.g., toripalimab, or pembrolizumab) + platinum-based chemotherapy"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT05902260",
+          "briefTitle": "The Effects of an Nutritional Intervention on PD-1 ICI in NSCLC"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "DIETARY_SUPPLEMENT",
+              "name": "Nutritional intervention"
+            },
+            {
+              "type": "DRUG",
+              "name": "Immunotherapy"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT03087760",
+          "briefTitle": "Trial of Consolidation Pembrolizumab After Concurrent Chemotherapy and Proton Reirradiation for Thoracic Recurrences of Non-Small Cell Lung Cancer"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "DRUG",
+              "name": "Pembrolizumab"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT06151574",
+          "briefTitle": "Beamion LUNG-2: A Study to Test Whether Zongertinib (BI 1810631) Helps People With Advanced Non-small Cell Lung Cancer With HER2 Mutations Compared With Standard Treatment"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "DRUG",
+              "name": "zongertinib"
+            },
+            {
+              "type": "DRUG",
+              "name": "pembrolizumab"
+            },
+            {
+              "type": "DRUG",
+              "name": "cisplatin"
+            },
+            {
+              "type": "DRUG",
+              "name": "carboplatin"
+            },
+            {
+              "type": "DRUG",
+              "name": "pemetrexed"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT05627960",
+          "briefTitle": "First in Human Phase 1 Study of AG01 Anti-Progranulin/GP88 Antibody in Advanced Solid Tumor Malignancies"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "DRUG",
+              "name": "AG-01 Compound"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT06430866",
+          "briefTitle": "Pharmacokinetic Similarity Between ABP 234 and Keytruda® (Pembrolizumab)"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "DRUG",
+              "name": "ABP 234"
+            },
+            {
+              "type": "DRUG",
+              "name": "Pembrolizumab"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT02959437",
+          "briefTitle": "Azacitidine Combined With Pembrolizumab and Epacadostat in Subjects With Advanced Solid Tumors (ECHO-206)"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "DRUG",
+              "name": "Azacitidine"
+            },
+            {
+              "type": "DRUG",
+              "name": "Pembrolizumab"
+            },
+            {
+              "type": "DRUG",
+              "name": "Epacadostat"
+            },
+            {
+              "type": "DRUG",
+              "name": "INCB057643"
+            },
+            {
+              "type": "DRUG",
+              "name": "Pembrolizumab"
+            },
+            {
+              "type": "DRUG",
+              "name": "Epacadostat"
+            },
+            {
+              "type": "DRUG",
+              "name": "INCB059872"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT06627647",
+          "briefTitle": "A Global Phase III Study of Rilvegostomig or Pembrolizumab Plus Chemotherapy for First-Line Treatment of Locally Advanced or Metastatic Non-Squamous NSCLC"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "DRUG",
+              "name": "Rilvegostomig"
+            },
+            {
+              "type": "DRUG",
+              "name": "Pembrolizumab"
+            },
+            {
+              "type": "DRUG",
+              "name": "Carboplatin"
+            },
+            {
+              "type": "DRUG",
+              "name": "Cisplatin"
+            },
+            {
+              "type": "DRUG",
+              "name": "Pemetrexed"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT04624204",
+          "briefTitle": "Placebo-controlled, Study of Concurrent Chemoradiation Therapy With Pembrolizumab Followed by Pembrolizumab and Olaparib in Newly Diagnosed Treatment-Naïve Limited-Stage Small Cell Lung Cancer (LS-SCLC) (MK 7339-013/KEYLYNK-013)"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "BIOLOGICAL",
+              "name": "Pembrolizumab 200 mg"
+            },
+            {
+              "type": "BIOLOGICAL",
+              "name": "Pembrolizumab 400 mg"
+            },
+            {
+              "type": "DRUG",
+              "name": "Pembrolizumab placebo (saline)"
+            },
+            {
+              "type": "DRUG",
+              "name": "Pembrolizumab placebo (saline)"
+            },
+            {
+              "type": "DRUG",
+              "name": "Olaparib 300 mg BID"
+            },
+            {
+              "type": "DRUG",
+              "name": "Olaparib matching placebo"
+            },
+            {
+              "type": "DRUG",
+              "name": "Etoposide 100 mg/m^2"
+            },
+            {
+              "type": "DRUG",
+              "name": "Platinum, investigator's choice"
+            },
+            {
+              "type": "RADIATION",
+              "name": "Standard Thoracic Radiotherapy"
+            },
+            {
+              "type": "RADIATION",
+              "name": "Prophylactic Cranial Irradiation (PCI)"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT04340882",
+          "briefTitle": "Phase 2 DoceRamPem for Patients With Metastatic or Recurrent NSCLC Who Progressed on Platinum-Doublet and PD-1/PD-L1 Blockade"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "DRUG",
+              "name": "Docetaxel"
+            },
+            {
+              "type": "BIOLOGICAL",
+              "name": "Pembrolizumab"
+            },
+            {
+              "type": "BIOLOGICAL",
+              "name": "Ramucirumab"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT07410676",
+          "briefTitle": "EBNK-001 Allogeneic NK Cells With Low-Dose IL-15 ± Pembrolizumab in Advanced Solid Tumors"
+        },
+        "armsInterventionsModule": {
+          "interventions": [
+            {
+              "type": "BIOLOGICAL",
+              "name": "EBNK-001 + IL-15 + Pembrolizumab"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

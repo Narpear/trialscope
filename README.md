@@ -223,7 +223,7 @@ The top-ten edge list is unchanged because no excluded label appeared in those e
 
 ## Tests and examples
 
-The repository includes two raw ClinicalTrials.gov records captured before implementation in `tests/fixtures/aspirin_studies.json`; they demonstrate real response structure, date precision, array-valued fields, optional fields, and intervention/location multiplicity.
+The repository includes raw ClinicalTrials.gov fixtures in `tests/fixtures/`: two aspirin records captured before implementation (for date precision, array-valued fields, optional fields, and multiplicity) and 100 records for `query.cond=lung cancer&query.intr=pembrolizumab`. The combination fixture backs a network test that independently reconstructs drug pairs from each raw record and verifies every emitted edge weight and supporting NCT ID.
 
 ```bash
 pytest -q -m "not live"   # deterministic unit, schema, planner-mock, client, and endpoint tests

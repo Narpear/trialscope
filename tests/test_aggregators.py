@@ -1,3 +1,6 @@
+from collections import defaultdict
+from itertools import combinations
+
 from app.aggregators import aggregate
 from app.aggregators.core import (
     comparison,
@@ -111,6 +114,41 @@ def test_network_excludes_configured_generic_interventions(studies, make_plan):
     assert all(node["label"].casefold() != "placebo" for node in result.nodes)
     assert all("drug:placebo" not in (edge["source"], edge["target"]) for edge in result.edges)
     assert any("placebo" in assumption for assumption in result.assumptions)
+
+
+def test_combination_network_weights_match_raw_api_fixture(pembrolizumab_studies, make_plan):
+    exclusions = ["placebo", "standard of care", "saline", "best supportive care"]
+    excluded = set(exclusions)
+    expected: dict[tuple[str, str], set[str]] = defaultdict(set)
+    for study in pembrolizumab_studies:
+        protocol = study["protocolSection"]
+        nct_id = protocol["identificationModule"]["nctId"]
+        interventions = protocol.get("armsInterventionsModule", {}).get("interventions", [])
+        drugs = {
+            " ".join(intervention["name"].casefold().split())
+            for intervention in interventions
+            if intervention.get("type") == "DRUG"
+            and intervention.get("name")
+            and " ".join(intervention["name"].casefold().split()) not in excluded
+        }
+        for left, right in combinations(sorted(drugs), 2):
+            expected[(f"drug:{left}", f"drug:{right}")].add(nct_id)
+
+    plan = make_plan("network", network_entity_types=["drug"])
+    result = network(
+        pembrolizumab_studies,
+        plan,
+        top_n=1000,
+        min_edge_weight=1,
+        excluded_interventions=exclusions,
+    )
+    actual = {
+        (edge["source"], edge["target"]): (edge["weight"], set(edge["nct_ids"]))
+        for edge in result.edges
+    }
+
+    assert set(actual) == set(expected)
+    assert all(actual[pair] == (len(nct_ids), nct_ids) for pair, nct_ids in expected.items())
 
 
 def test_histogram_and_scatter_enrollment_provenance(studies, make_plan):

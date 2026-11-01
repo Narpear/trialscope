@@ -14,6 +14,12 @@ def studies():
 
 
 @pytest.fixture
+def pembrolizumab_studies():
+    path = Path(__file__).parent / "fixtures" / "pembrolizumab_lung_cancer_studies.json"
+    return json.loads(path.read_text())["studies"]
+
+
+@pytest.fixture
 def make_plan():
     def factory(analysis_type, **overrides):
         values = {
