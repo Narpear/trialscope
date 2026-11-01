@@ -45,7 +45,6 @@ CHART_ENCODING: dict[AnalysisType, dict[str, Any]] = {
     AnalysisType.SCATTER: {
         "x": {"field": "start_year", "type": "quantitative", "title": "Start year"},
         "y": {"field": "enrollment", "type": "quantitative", "title": "Enrollment"},
-        "color": {"field": "nct_id", "type": "nominal"},
         "units": {"enrollment": "participants", "start_year": "calendar year"},
         "tooltip": ["nct_id", "title", "start_year", "enrollment"],
     },

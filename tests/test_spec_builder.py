@@ -1,3 +1,5 @@
+from conftest import scope
+
 from app.aggregators import Scope, aggregate
 from app.spec_builder import build_visualization
 
@@ -17,3 +19,10 @@ def test_grouped_comparison_encoding_specifies_series_and_offset(studies, make_p
     assert encoding["x"]["field"] == "category"
     assert encoding["xOffset"]["field"] == "group"
     assert encoding["color"]["field"] == "group"
+
+
+def test_scatter_has_no_per_trial_color_channel(studies, make_plan):
+    plan = make_plan("scatter")
+    visualization = build_visualization(plan, aggregate(scope(studies), plan))
+    assert visualization.encoding.color is None
+    assert "nct_id" in visualization.encoding.tooltip
