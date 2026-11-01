@@ -159,6 +159,36 @@ Malformed input returns HTTP 422 with `code: "validation_error"`; unsupported qu
 3. **Aggregate deterministically.** A dispatch registry selects one independent aggregator by `analysis_type`. No query-text branching produces data. Study IDs and exact source values remain attached through aggregation.
 4. **Build a renderable spec.** The spec builder attaches an encoding with explicit channels, field names, types, units, sort and temporal granularity. The no-build frontend renders from those returned types/encodings and supports citation inspection, CSV export of chart rows or graph nodes/edges, and copyable query links that restore query inputs without automatically sending a request.
 
+## Planner evaluation
+
+The real-planner evaluation set is in `evals/planner_cases.json`; it covers all seven analysis types, two comparisons, two network requests, ambiguous prompts, and two questions that the registry cannot answer. Run it with the configured OpenAI key:
+
+```bash
+python scripts/eval_planner.py
+```
+
+Results from `gpt-5.4-mini` with the current planner prompt:
+
+| Case | Expected plan | Result |
+|---|---|---|
+| time-trend-drug | time_trend; pembrolizumab; start year 2018 | PASS |
+| phase-distribution | distribution by phase; melanoma | PASS |
+| comparison-phase-counts | compare pembrolizumab vs nivolumab by phase; melanoma | PASS |
+| comparison-drugs | compare pembrolizumab vs nivolumab | PASS |
+| geographic-recruiting | recruiting trials; type 2 diabetes | PASS |
+| network-sponsor-drug | sponsor-drug network; melanoma | PASS |
+| network-combination-drugs | drug co-occurrence network; lung cancer | PASS |
+| enrollment-histogram | histogram; breast cancer | PASS |
+| enrollment-scatter | scatter enrollment vs start year; melanoma | PASS |
+| ambiguous-trial-activity | time_trend; melanoma | PASS |
+| ambiguous-trial-characteristics | compare pembrolizumab vs nivolumab | PASS |
+| unsupported-best-treatment | structured unanswerable plan | PASS |
+| unsupported-survival-benefit | structured unanswerable plan | PASS |
+| time-trend-condition | time_trend; rheumatoid arthritis; 2015–2020 | PASS |
+| intervention-type-distribution | distribution by intervention type; asthma | PASS |
+
+**15/15 passed.** The first run passed 12/15: two single-population distribution questions were misclassified as comparisons, and one descriptive enrollment/start-year scatter was marked unanswerable. The prompt was adjusted to distinguish grouped distributions from explicit multi-group comparisons and descriptive registry-field plots from clinical effectiveness/causality questions. Unsupported cases are checked for `answerable=false` and a non-empty unsupported reason; their unused analysis-type field is not scored. This is a small, curated evaluation set rather than a broad statistical guarantee; model/provider updates can change results, so rerun it after planner changes.
+
 ### Messy-data decisions and limitations
 
 - Start dates use ClinicalTrials.gov `YYYY-MM`/`YYYY-MM-DD` strings and are bucketed by calendar year; records missing a usable date are excluded with a warning. A time-series data point includes an ISO date for unambiguous temporal rendering.

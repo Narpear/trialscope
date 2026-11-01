@@ -36,7 +36,20 @@ class OpenAIPlanner:
                                 "unanswerable when the question asks for clinical conclusions, "
                                 "outcomes absent from the returned registry fields, or unrelated "
                                 "information. Never produce counts, data points, or citations. "
-                                "Filters should reflect the user's intent."
+                                "Filters should reflect the user's intent. Choose distribution "
+                                "when one study population is grouped by a single registry "
+                                "category such as phase, intervention type, condition, or sponsor; "
+                                "phrases like 'across phases', 'by phase', 'most common "
+                                "intervention types', and 'distribution' do not by themselves "
+                                "mean comparison. Choose comparison only when the user explicitly "
+                                "asks to compare two or more named groups, such as drug A versus "
+                                "drug B or condition A against condition B. For an unanswerable "
+                                "question, set answerable=false and provide a concise "
+                                "unsupported_reason; the analysis_type is unused in that case. "
+                                "Descriptive plots of supported registry fields are answerable: "
+                                "in particular, a request to plot numeric enrollment against study "
+                                "start year is a scatter query, not a request for clinical "
+                                "effectiveness or causation."
                             ),
                         },
                         {

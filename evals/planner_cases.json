@@ -1,0 +1,115 @@
+[
+  {
+    "id": "time-trend-drug",
+    "query": "Show the number of trials involving pembrolizumab that started each year since 2018.",
+    "expected_analysis_type": "time_trend",
+    "expected_answerable": true,
+    "expected_filters": {"drug_name": "pembrolizumab", "start_year": 2018}
+  },
+  {
+    "id": "phase-distribution",
+    "query": "How are melanoma clinical trials distributed across phases?",
+    "expected_analysis_type": "distribution",
+    "expected_answerable": true,
+    "expected_filters": {"condition": "melanoma"},
+    "expected_group_by": "phase"
+  },
+  {
+    "id": "comparison-phase-counts",
+    "query": "Compare the phase distribution of pembrolizumab and nivolumab trials in melanoma.",
+    "expected_analysis_type": "comparison",
+    "expected_answerable": true,
+    "expected_filters": {"condition": "melanoma"},
+    "expected_comparison_groups": ["pembrolizumab", "nivolumab"],
+    "expected_group_by": "phase"
+  },
+  {
+    "id": "comparison-drugs",
+    "query": "Compare trial activity for drug A pembrolizumab versus drug B nivolumab.",
+    "expected_analysis_type": "comparison",
+    "expected_answerable": true,
+    "expected_filters": {},
+    "expected_comparison_groups": ["pembrolizumab", "nivolumab"]
+  },
+  {
+    "id": "geographic-recruiting",
+    "query": "Which countries have recruiting trials for type 2 diabetes?",
+    "expected_analysis_type": "geographic",
+    "expected_answerable": true,
+    "expected_filters": {"condition": "type 2 diabetes", "recruitment_status": "RECRUITING"}
+  },
+  {
+    "id": "network-sponsor-drug",
+    "query": "Show a network of sponsors connected to drugs in melanoma trials.",
+    "expected_analysis_type": "network",
+    "expected_answerable": true,
+    "expected_filters": {"condition": "melanoma"},
+    "expected_network_entity_types": ["sponsor", "drug"]
+  },
+  {
+    "id": "network-combination-drugs",
+    "query": "Which drugs most often appear together in combination studies for lung cancer?",
+    "expected_analysis_type": "network",
+    "expected_answerable": true,
+    "expected_filters": {"condition": "lung cancer"},
+    "expected_network_entity_types": ["drug"]
+  },
+  {
+    "id": "enrollment-histogram",
+    "query": "Show a histogram of enrollment sizes for breast cancer trials.",
+    "expected_analysis_type": "histogram",
+    "expected_answerable": true,
+    "expected_filters": {"condition": "breast cancer"}
+  },
+  {
+    "id": "enrollment-scatter",
+    "query": "Plot trial enrollment against start year for melanoma studies.",
+    "expected_analysis_type": "scatter",
+    "expected_answerable": true,
+    "expected_filters": {"condition": "melanoma"}
+  },
+  {
+    "id": "ambiguous-trial-activity",
+    "query": "Show melanoma trial activity over time.",
+    "expected_analysis_type": "time_trend",
+    "expected_answerable": true,
+    "expected_filters": {"condition": "melanoma"}
+  },
+  {
+    "id": "ambiguous-trial-characteristics",
+    "query": "Compare the trial characteristics of pembrolizumab and nivolumab.",
+    "expected_analysis_type": "comparison",
+    "expected_answerable": true,
+    "expected_filters": {},
+    "expected_comparison_groups": ["pembrolizumab", "nivolumab"]
+  },
+  {
+    "id": "unsupported-best-treatment",
+    "query": "Which cancer drug is the most effective treatment for melanoma?",
+    "expected_analysis_type": "distribution",
+    "expected_answerable": false,
+    "expected_filters": {}
+  },
+  {
+    "id": "unsupported-survival-benefit",
+    "query": "How many months of survival does pembrolizumab add compared with nivolumab?",
+    "expected_analysis_type": "comparison",
+    "expected_answerable": false,
+    "expected_filters": {}
+  },
+  {
+    "id": "time-trend-condition",
+    "query": "How many trials for rheumatoid arthritis began each year between 2015 and 2020?",
+    "expected_analysis_type": "time_trend",
+    "expected_answerable": true,
+    "expected_filters": {"condition": "rheumatoid arthritis", "start_year": 2015, "end_year": 2020}
+  },
+  {
+    "id": "intervention-type-distribution",
+    "query": "What are the most common intervention types in asthma studies?",
+    "expected_analysis_type": "distribution",
+    "expected_answerable": true,
+    "expected_filters": {"condition": "asthma"},
+    "expected_group_by": "intervention_type"
+  }
+]
