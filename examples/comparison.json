@@ -1,0 +1,415 @@
+{
+  "visualization": {
+    "type": "grouped_bar_chart",
+    "title": "Trials by phase: comparison",
+    "encoding": {
+      "x": {
+        "field": "category",
+        "type": "nominal"
+      },
+      "xOffset": {
+        "field": "group",
+        "type": "nominal"
+      },
+      "y": {
+        "field": "trial_count",
+        "type": "quantitative",
+        "title": "Trials"
+      },
+      "color": {
+        "field": "group",
+        "type": "nominal"
+      },
+      "tooltip": [
+        "category",
+        "group",
+        "trial_count"
+      ],
+      "sort": {
+        "field": "category",
+        "order": "ascending"
+      },
+      "units": {
+        "trial_count": "trials"
+      },
+      "time_granularity": null,
+      "nodes": null,
+      "edges": null
+    },
+    "data": [
+      {
+        "group": "nivolumab",
+        "category": "Early Phase1",
+        "trial_count": 1,
+        "nct_ids": [
+          "NCT05704933"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT05704933",
+            "field_path": "protocolSection.armsInterventionsModule.interventions[].name",
+            "exact_value": "Nivolumab",
+            "title": "Pilot Study of Nivolumab w/Ipilimumab or Relatlimab in Surgically Resectable Melanoma Brain Metastases"
+          },
+          {
+            "nct_id": "NCT05704933",
+            "field_path": "protocolSection.designModule.phases",
+            "exact_value": [
+              "EARLY_PHASE1"
+            ],
+            "title": "Pilot Study of Nivolumab w/Ipilimumab or Relatlimab in Surgically Resectable Melanoma Brain Metastases"
+          }
+        ]
+      },
+      {
+        "group": "nivolumab",
+        "category": "Not specified",
+        "trial_count": 2,
+        "nct_ids": [
+          "NCT06163170",
+          "NCT05714371"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT06163170",
+            "field_path": "protocolSection.armsInterventionsModule.interventions[].name",
+            "exact_value": "Nivolumab",
+            "title": "A Study to Evaluate Treatment With Nivolumab Alone and Nivolumab Combined With Ipilimumab in Children With Melanoma"
+          },
+          {
+            "nct_id": "NCT06163170",
+            "field_path": "protocolSection.designModule.phases",
+            "exact_value": [],
+            "title": "A Study to Evaluate Treatment With Nivolumab Alone and Nivolumab Combined With Ipilimumab in Children With Melanoma"
+          },
+          {
+            "nct_id": "NCT05714371",
+            "field_path": "protocolSection.armsInterventionsModule.interventions[].name",
+            "exact_value": "Nivolumab",
+            "title": "Retrospective Assessment of Adverse Events-related Healthcare Resource Utilization and Costs of Immune Checkpoint Inhibitor and Targeted Therapy for Adjuvant Treatment of Melanoma"
+          },
+          {
+            "nct_id": "NCT05714371",
+            "field_path": "protocolSection.designModule.phases",
+            "exact_value": [],
+            "title": "Retrospective Assessment of Adverse Events-related Healthcare Resource Utilization and Costs of Immune Checkpoint Inhibitor and Targeted Therapy for Adjuvant Treatment of Melanoma"
+          }
+        ]
+      },
+      {
+        "group": "nivolumab",
+        "category": "Phase1",
+        "trial_count": 13,
+        "nct_ids": [
+          "NCT02913417",
+          "NCT04463368",
+          "NCT04060407",
+          "NCT04125719",
+          "NCT06362369",
+          "NCT04495257",
+          "NCT03633110",
+          "NCT03475134",
+          "NCT02009449",
+          "NCT05169957",
+          "NCT02817633",
+          "NCT07631325",
+          "NCT04423029"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT02913417",
+            "field_path": "protocolSection.armsInterventionsModule.interventions[].name",
+            "exact_value": "nivolumab",
+            "title": "Yttrium90, Ipilimumab, & Nivolumab for Uveal Melanoma With Liver Metastases"
+          },
+          {
+            "nct_id": "NCT02913417",
+            "field_path": "protocolSection.designModule.phases",
+            "exact_value": [
+              "PHASE1",
+              "PHASE2"
+            ],
+            "title": "Yttrium90, Ipilimumab, & Nivolumab for Uveal Melanoma With Liver Metastases"
+          },
+          {
+            "nct_id": "NCT04463368",
+            "field_path": "protocolSection.armsInterventionsModule.interventions[].name",
+            "exact_value": "Nivolumab",
+            "title": "Isolated Hepatic Perfusion in Combination With Ipilimumab and Nivolumab in Patients With Uveal Melanoma Metastases"
+          },
+          {
+            "nct_id": "NCT04463368",
+            "field_path": "protocolSection.designModule.phases",
+            "exact_value": [
+              "PHASE1"
+            ],
+            "title": "Isolated Hepatic Perfusion in Combination With Ipilimumab and Nivolumab in Patients With Uveal Melanoma Metastases"
+          },
+          {
+            "nct_id": "NCT04060407",
+            "field_path": "protocolSection.armsInterventionsModule.interventions[].name",
+            "exact_value": "Nivolumab",
+            "title": "CD24Fc With Ipilimumab and Nivolumab to Decrease irAE (CINDI)"
+          }
+        ]
+      },
+      {
+        "group": "nivolumab",
+        "category": "Phase2",
+        "trial_count": 8,
+        "nct_ids": [
+          "NCT02913417",
+          "NCT04060407",
+          "NCT03126461",
+          "NCT06362369",
+          "NCT03633110",
+          "NCT02054520",
+          "NCT02626962",
+          "NCT07631325"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT02913417",
+            "field_path": "protocolSection.armsInterventionsModule.interventions[].name",
+            "exact_value": "nivolumab",
+            "title": "Yttrium90, Ipilimumab, & Nivolumab for Uveal Melanoma With Liver Metastases"
+          },
+          {
+            "nct_id": "NCT02913417",
+            "field_path": "protocolSection.designModule.phases",
+            "exact_value": [
+              "PHASE1",
+              "PHASE2"
+            ],
+            "title": "Yttrium90, Ipilimumab, & Nivolumab for Uveal Melanoma With Liver Metastases"
+          },
+          {
+            "nct_id": "NCT04060407",
+            "field_path": "protocolSection.armsInterventionsModule.interventions[].name",
+            "exact_value": "Nivolumab",
+            "title": "CD24Fc With Ipilimumab and Nivolumab to Decrease irAE (CINDI)"
+          },
+          {
+            "nct_id": "NCT04060407",
+            "field_path": "protocolSection.designModule.phases",
+            "exact_value": [
+              "PHASE1",
+              "PHASE2"
+            ],
+            "title": "CD24Fc With Ipilimumab and Nivolumab to Decrease irAE (CINDI)"
+          },
+          {
+            "nct_id": "NCT03126461",
+            "field_path": "protocolSection.armsInterventionsModule.interventions[].name",
+            "exact_value": "Nivolumab",
+            "title": "SAbR Plus Ipilimumab Plus Nivolumab in Metastatic Melanoma Patients"
+          }
+        ]
+      },
+      {
+        "group": "pembrolizumab",
+        "category": "Not specified",
+        "trial_count": 1,
+        "nct_ids": [
+          "NCT05714371"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT05714371",
+            "field_path": "protocolSection.armsInterventionsModule.interventions[].name",
+            "exact_value": "Pembrolizumab",
+            "title": "Retrospective Assessment of Adverse Events-related Healthcare Resource Utilization and Costs of Immune Checkpoint Inhibitor and Targeted Therapy for Adjuvant Treatment of Melanoma"
+          },
+          {
+            "nct_id": "NCT05714371",
+            "field_path": "protocolSection.designModule.phases",
+            "exact_value": [],
+            "title": "Retrospective Assessment of Adverse Events-related Healthcare Resource Utilization and Costs of Immune Checkpoint Inhibitor and Targeted Therapy for Adjuvant Treatment of Melanoma"
+          }
+        ]
+      },
+      {
+        "group": "pembrolizumab",
+        "category": "Phase1",
+        "trial_count": 11,
+        "nct_ids": [
+          "NCT06171178",
+          "NCT03809624",
+          "NCT05479812",
+          "NCT02661100",
+          "NCT03633110",
+          "NCT04129515",
+          "NCT05492682",
+          "NCT02009449",
+          "NCT04971499",
+          "NCT05669352",
+          "NCT05709821"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT06171178",
+            "field_path": "protocolSection.armsInterventionsModule.interventions[].name",
+            "exact_value": "Pembrolizumab",
+            "title": "A Study of ASP1012 in Adults With Solid Tumors"
+          },
+          {
+            "nct_id": "NCT06171178",
+            "field_path": "protocolSection.designModule.phases",
+            "exact_value": [
+              "PHASE1"
+            ],
+            "title": "A Study of ASP1012 in Adults With Solid Tumors"
+          },
+          {
+            "nct_id": "NCT03809624",
+            "field_path": "protocolSection.armsInterventionsModule.interventions[].name",
+            "exact_value": "Pembrolizumab",
+            "title": "Study of INBRX-105 and INBRX-105 With Pembrolizumab in Patients With Solid Tumors Including Head and Neck Cancer"
+          },
+          {
+            "nct_id": "NCT03809624",
+            "field_path": "protocolSection.designModule.phases",
+            "exact_value": [
+              "PHASE1"
+            ],
+            "title": "Study of INBRX-105 and INBRX-105 With Pembrolizumab in Patients With Solid Tumors Including Head and Neck Cancer"
+          },
+          {
+            "nct_id": "NCT05479812",
+            "field_path": "protocolSection.armsInterventionsModule.interventions[].name",
+            "exact_value": "pembrolizumab",
+            "title": "Dose Escalation and Expansion Study of WTX-124 as Monotherapy and in Combination With Pembrolizumab (Pembro) in Patients With Selected Advanced or Metastatic Solid Tumors"
+          }
+        ]
+      },
+      {
+        "group": "pembrolizumab",
+        "category": "Phase2",
+        "trial_count": 17,
+        "nct_ids": [
+          "NCT02621021",
+          "NCT04318717",
+          "NCT02661100",
+          "NCT03633110",
+          "NCT04129515",
+          "NCT04207086",
+          "NCT04032704",
+          "NCT03757689",
+          "NCT02740920",
+          "NCT03476174",
+          "NCT05304546",
+          "NCT04955743",
+          "NCT04971499",
+          "NCT05669352",
+          "NCT02054520",
+          "NCT05709821",
+          "NCT03842943"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT02621021",
+            "field_path": "protocolSection.armsInterventionsModule.interventions[].name",
+            "exact_value": "Pembrolizumab",
+            "title": "A Phase 2 Trial for Metastatic Melanoma Using Adoptive Cell Therapy With Tumor Infiltrating Lymphocytes Plus IL-2 Either Alone or Following the Administration of Pembrolizumab"
+          },
+          {
+            "nct_id": "NCT02621021",
+            "field_path": "protocolSection.designModule.phases",
+            "exact_value": [
+              "PHASE2"
+            ],
+            "title": "A Phase 2 Trial for Metastatic Melanoma Using Adoptive Cell Therapy With Tumor Infiltrating Lymphocytes Plus IL-2 Either Alone or Following the Administration of Pembrolizumab"
+          },
+          {
+            "nct_id": "NCT04318717",
+            "field_path": "protocolSection.armsInterventionsModule.interventions[].name",
+            "exact_value": "Pembrolizumab",
+            "title": "Pembrolizumab and Hypofractionated Radiation Therapy for the Treatment of Mucosal Melanoma"
+          },
+          {
+            "nct_id": "NCT04318717",
+            "field_path": "protocolSection.designModule.phases",
+            "exact_value": [
+              "PHASE2"
+            ],
+            "title": "Pembrolizumab and Hypofractionated Radiation Therapy for the Treatment of Mucosal Melanoma"
+          },
+          {
+            "nct_id": "NCT02661100",
+            "field_path": "protocolSection.armsInterventionsModule.interventions[].name",
+            "exact_value": "Pembrolizumab",
+            "title": "A Trial of CDX-1401 in Combination With Poly-ICLC and Pembrolizumab, in Previously Treated Advanced Solid Tumor Patients"
+          }
+        ]
+      },
+      {
+        "group": "pembrolizumab",
+        "category": "Phase3",
+        "trial_count": 1,
+        "nct_ids": [
+          "NCT04657991"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT04657991",
+            "field_path": "protocolSection.armsInterventionsModule.interventions[].name",
+            "exact_value": "Pembrolizumab",
+            "title": "A Clinical Trial of Three Study Medicines (Encorafenib, Binimetinib, and Pembrolizumab) in Patients With Advanced or Metastatic Melanoma"
+          },
+          {
+            "nct_id": "NCT04657991",
+            "field_path": "protocolSection.designModule.phases",
+            "exact_value": [
+              "PHASE3"
+            ],
+            "title": "A Clinical Trial of Three Study Medicines (Encorafenib, Binimetinib, and Pembrolizumab) in Patients With Advanced or Metastatic Melanoma"
+          }
+        ]
+      }
+    ],
+    "nodes": null,
+    "edges": null
+  },
+  "meta": {
+    "query_interpretation": "Compare the distribution of trial phases for melanoma studies involving pembrolizumab versus nivolumab, using phase as the grouping variable and drug name as the comparison dimension.",
+    "plan": {
+      "answerable": true,
+      "unsupported_reason": null,
+      "analysis_type": "comparison",
+      "filters": {
+        "drug_name": null,
+        "condition": "melanoma",
+        "sponsor": null,
+        "phase": null,
+        "country": null,
+        "recruitment_status": null,
+        "start_year": null,
+        "end_year": null
+      },
+      "group_by": "phase",
+      "comparison_groups": [
+        "pembrolizumab",
+        "nivolumab"
+      ],
+      "network_entity_types": [],
+      "interpretation": "Compare the distribution of trial phases for melanoma studies involving pembrolizumab versus nivolumab, using phase as the grouping variable and drug name as the comparison dimension."
+    },
+    "planner_mode": "llm",
+    "filters_applied": {
+      "condition": "melanoma"
+    },
+    "total_matching": 3781,
+    "trials_analyzed": 500,
+    "truncated": true,
+    "assumptions": [
+      "Intervention names are matched case-insensitively after whitespace normalization; brand and generic names are not merged."
+    ],
+    "warnings": [],
+    "api_query_url": "https://clinicaltrials.gov/api/v2/studies?format=json&countTotal=true&pageSize=500&fields=BriefTitle%2CInterventionName%2CInterventionType%2CNCTId%2CPhase&query.cond=melanoma",
+    "source": "clinicaltrials.gov",
+    "generated_at": "2026-11-01T18:12:12.898397Z",
+    "total_citations": 30,
+    "network_top_n": null,
+    "network_min_edge_weight": null
+  }
+}

@@ -1,0 +1,2505 @@
+{
+  "visualization": {
+    "type": "bar_chart",
+    "title": "Clinical trials by country",
+    "encoding": {
+      "x": {
+        "field": "country",
+        "type": "nominal"
+      },
+      "xOffset": null,
+      "y": {
+        "field": "trial_count",
+        "type": "quantitative",
+        "title": "Trials"
+      },
+      "color": null,
+      "tooltip": [
+        "country",
+        "trial_count"
+      ],
+      "sort": {
+        "field": "trial_count",
+        "order": "descending"
+      },
+      "units": {
+        "trial_count": "trials"
+      },
+      "time_granularity": null,
+      "nodes": null,
+      "edges": null
+    },
+    "data": [
+      {
+        "country": "United States",
+        "trial_count": 246,
+        "nct_ids": [
+          "NCT06831071",
+          "NCT05968690",
+          "NCT06439979",
+          "NCT02621021",
+          "NCT06330064",
+          "NCT03860883",
+          "NCT04318717",
+          "NCT06626516",
+          "NCT04895709",
+          "NCT07136181",
+          "NCT06362369",
+          "NCT07661966",
+          "NCT05549297",
+          "NCT07318051",
+          "NCT07237100",
+          "NCT04598009",
+          "NCT04697576",
+          "NCT07115043",
+          "NCT03093909",
+          "NCT07628634",
+          "NCT07155317",
+          "NCT05107674",
+          "NCT07276386",
+          "NCT07281924",
+          "NCT00001823",
+          "NCT05970497",
+          "NCT05077137",
+          "NCT04474301",
+          "NCT05669430",
+          "NCT07288112",
+          "NCT07415564",
+          "NCT06624644",
+          "NCT07070232",
+          "NCT07631325",
+          "NCT03842943",
+          "NCT06295159",
+          "NCT05704647",
+          "NCT01205815",
+          "NCT06414590",
+          "NCT02775461",
+          "NCT07317505",
+          "NCT05267626",
+          "NCT03340506",
+          "NCT06599619",
+          "NCT06712927",
+          "NCT07015190",
+          "NCT05076760",
+          "NCT06194929",
+          "NCT05546827",
+          "NCT06272864",
+          "NCT07621614",
+          "NCT04567706",
+          "NCT07751042",
+          "NCT05588453",
+          "NCT04903119",
+          "NCT06946225",
+          "NCT06265285",
+          "NCT04548817",
+          "NCT05896839",
+          "NCT06529822",
+          "NCT07237594",
+          "NCT00040352",
+          "NCT04038619",
+          "NCT07224425",
+          "NCT07492680",
+          "NCT06246149",
+          "NCT04899908",
+          "NCT05562791",
+          "NCT06398418",
+          "NCT05280314",
+          "NCT07201376",
+          "NCT04119024",
+          "NCT03050268",
+          "NCT06249048",
+          "NCT06298734",
+          "NCT05428007",
+          "NCT06112314",
+          "NCT06246916",
+          "NCT02012699",
+          "NCT07027488",
+          "NCT05373823",
+          "NCT07519655",
+          "NCT05144698",
+          "NCT05361174",
+          "NCT06242470",
+          "NCT06488365",
+          "NCT05837767",
+          "NCT05655312",
+          "NCT04389281",
+          "NCT06047379",
+          "NCT06060613",
+          "NCT06953089",
+          "NCT06805825",
+          "NCT06264180",
+          "NCT07042243",
+          "NCT04913285",
+          "NCT06090266",
+          "NCT04693377",
+          "NCT05026983",
+          "NCT07634380",
+          "NCT06880549",
+          "NCT06594991",
+          "NCT05039801",
+          "NCT04594187",
+          "NCT06666790",
+          "NCT07215988",
+          "NCT07379138",
+          "NCT06066138",
+          "NCT07584226",
+          "NCT06675643",
+          "NCT02332668",
+          "NCT03906253",
+          "NCT05463796",
+          "NCT07740941",
+          "NCT07287917",
+          "NCT05379985",
+          "NCT04778449",
+          "NCT06683755",
+          "NCT04752826",
+          "NCT06444815",
+          "NCT07405086",
+          "NCT05779423",
+          "NCT07504796",
+          "NCT03686124",
+          "NCT07225036",
+          "NCT02000089",
+          "NCT06216938",
+          "NCT07364474",
+          "NCT06956690",
+          "NCT06961006",
+          "NCT02896335",
+          "NCT07664735",
+          "NCT06771544",
+          "NCT06418204",
+          "NCT04792463",
+          "NCT05877430",
+          "NCT06887205",
+          "NCT05037825",
+          "NCT06400550",
+          "NCT04354064",
+          "NCT07704918",
+          "NCT07049276",
+          "NCT05098210",
+          "NCT05297734",
+          "NCT05969860",
+          "NCT03567889",
+          "NCT07223424",
+          "NCT06022029",
+          "NCT07796061",
+          "NCT07555210",
+          "NCT04741997",
+          "NCT07749586",
+          "NCT07327489",
+          "NCT03452774",
+          "NCT06284590",
+          "NCT06940739",
+          "NCT05727904",
+          "NCT06932757",
+          "NCT06223659",
+          "NCT06326411",
+          "NCT05592626",
+          "NCT07339176",
+          "NCT06887348",
+          "NCT06627244",
+          "NCT02870244",
+          "NCT06425926",
+          "NCT06660420",
+          "NCT01638676",
+          "NCT04771520",
+          "NCT07068074",
+          "NCT05607095",
+          "NCT05269381",
+          "NCT03947385",
+          "NCT05155033",
+          "NCT04897321",
+          "NCT05384496",
+          "NCT07040280",
+          "NCT04658303",
+          "NCT06580002",
+          "NCT06070012",
+          "NCT03819296",
+          "NCT02830724",
+          "NCT05629546",
+          "NCT07223411",
+          "NCT06472661",
+          "NCT06814496",
+          "NCT07830225",
+          "NCT07636785",
+          "NCT06270706",
+          "NCT06697301",
+          "NCT05839912",
+          "NCT06585410",
+          "NCT05746897",
+          "NCT04511013",
+          "NCT05859074",
+          "NCT06545682",
+          "NCT04851119",
+          "NCT01776905",
+          "NCT06413680",
+          "NCT03941756",
+          "NCT02333604",
+          "NCT06961357",
+          "NCT07280715",
+          "NCT06548789",
+          "NCT03454035",
+          "NCT06199713",
+          "NCT06332755",
+          "NCT06172478",
+          "NCT04844528",
+          "NCT05824975",
+          "NCT02402244",
+          "NCT06466434",
+          "NCT07285044",
+          "NCT06605404",
+          "NCT04282044",
+          "NCT05334069",
+          "NCT06281678",
+          "NCT04787042",
+          "NCT01772771",
+          "NCT05914116",
+          "NCT05059444",
+          "NCT05498792",
+          "NCT06910657",
+          "NCT04114136",
+          "NCT06150664",
+          "NCT07406087",
+          "NCT07804186",
+          "NCT03809585",
+          "NCT06743126",
+          "NCT07124000",
+          "NCT04513028",
+          "NCT04198766",
+          "NCT05136196",
+          "NCT07148245",
+          "NCT04370587",
+          "NCT06428721",
+          "NCT07675967",
+          "NCT03054584",
+          "NCT05830058",
+          "NCT07890415",
+          "NCT05053555",
+          "NCT02775643",
+          "NCT06581406",
+          "NCT06075524",
+          "NCT04751396",
+          "NCT06121180"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT06831071",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "United States",
+            "title": "Evaluation of Hypoxia in Primary Melanoma"
+          },
+          {
+            "nct_id": "NCT05968690",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "United States",
+            "title": "Naltrexone and Propranolol Combined With Immunotherapy"
+          },
+          {
+            "nct_id": "NCT06439979",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "United States",
+            "title": "Rural Adult and Youth Sun Protection Study"
+          },
+          {
+            "nct_id": "NCT02621021",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "United States",
+            "title": "A Phase 2 Trial for Metastatic Melanoma Using Adoptive Cell Therapy With Tumor Infiltrating Lymphocytes Plus IL-2 Either Alone or Following the Administration of Pembrolizumab"
+          },
+          {
+            "nct_id": "NCT06330064",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "United States",
+            "title": "A Study to Evaluate the Efficacy and Safety of Ifinatamab Deruxtecan (I-DXd) in Subjects With Recurrent or Metastatic Solid Tumors (IDeate-PanTumor02)"
+          }
+        ]
+      },
+      {
+        "country": "China",
+        "trial_count": 61,
+        "nct_ids": [
+          "NCT07371663",
+          "NCT06008106",
+          "NCT05366478",
+          "NCT07070518",
+          "NCT06942143",
+          "NCT07260591",
+          "NCT07410676",
+          "NCT07070232",
+          "NCT07177937",
+          "NCT05983237",
+          "NCT07760012",
+          "NCT06209580",
+          "NCT03340506",
+          "NCT07445022",
+          "NCT07847359",
+          "NCT07841925",
+          "NCT06081920",
+          "NCT06708663",
+          "NCT07492680",
+          "NCT07586904",
+          "NCT06596915",
+          "NCT07376707",
+          "NCT05512481",
+          "NCT06889610",
+          "NCT06703398",
+          "NCT07627698",
+          "NCT07099430",
+          "NCT06953089",
+          "NCT04616443",
+          "NCT04913285",
+          "NCT04331093",
+          "NCT07848243",
+          "NCT07106827",
+          "NCT07518043",
+          "NCT07244835",
+          "NCT07336979",
+          "NCT07584291",
+          "NCT07400302",
+          "NCT07750067",
+          "NCT06203249",
+          "NCT05098184",
+          "NCT07170293",
+          "NCT07310784",
+          "NCT07644897",
+          "NCT07586891",
+          "NCT07410494",
+          "NCT07562841",
+          "NCT03755739",
+          "NCT06965231",
+          "NCT07406724",
+          "NCT06359860",
+          "NCT05789043",
+          "NCT06172478",
+          "NCT07552467",
+          "NCT07280832",
+          "NCT06839105",
+          "NCT05914116",
+          "NCT06727630",
+          "NCT06797297",
+          "NCT05868707",
+          "NCT06214156"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT07371663",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "China",
+            "title": "An Phase Ib/II Clinical Trial of TCC1727 Combination Therapy in Advanced Solid Tumors"
+          },
+          {
+            "nct_id": "NCT06008106",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "China",
+            "title": "Comparing Tunlametinib Capsules and Combination Chemotherapy in Advanced NRAS-mutant Melanoma"
+          },
+          {
+            "nct_id": "NCT05366478",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "China",
+            "title": "A Clinical Study of LM103 Injection in the Treatment of Advanced Solid Tumors"
+          },
+          {
+            "nct_id": "NCT07070518",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "China",
+            "title": "Study of GV20-0251 in Participants With Solid Tumor Malignancies"
+          },
+          {
+            "nct_id": "NCT06942143",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "China",
+            "title": "An Open-label, Phase I Clinical Trial of Super1 TCR-T in NY-ESO-1-positive Patients With Advanced Solid Tumors"
+          }
+        ]
+      },
+      {
+        "country": "France",
+        "trial_count": 50,
+        "nct_ids": [
+          "NCT06330064",
+          "NCT04576429",
+          "NCT05549297",
+          "NCT03315468",
+          "NCT04498767",
+          "NCT03340506",
+          "NCT07015190",
+          "NCT04424719",
+          "NCT05527795",
+          "NCT07492680",
+          "NCT06246149",
+          "NCT06550674",
+          "NCT05280314",
+          "NCT06112314",
+          "NCT07519655",
+          "NCT05429138",
+          "NCT07302607",
+          "NCT06264180",
+          "NCT06774989",
+          "NCT04913285",
+          "NCT05029791",
+          "NCT02828202",
+          "NCT02332668",
+          "NCT06861023",
+          "NCT06154668",
+          "NCT06961006",
+          "NCT06605417",
+          "NCT05794035",
+          "NCT07376512",
+          "NCT05727904",
+          "NCT05592626",
+          "NCT04068155",
+          "NCT06828822",
+          "NCT03787056",
+          "NCT06971848",
+          "NCT06697301",
+          "NCT05307289",
+          "NCT06172478",
+          "NCT06967961",
+          "NCT07354152",
+          "NCT05059444",
+          "NCT07031830",
+          "NCT04605146",
+          "NCT06627595",
+          "NCT03888950",
+          "NCT06743126",
+          "NCT05867004",
+          "NCT05856565",
+          "NCT07230613",
+          "NCT05649683"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT06330064",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "France",
+            "title": "A Study to Evaluate the Efficacy and Safety of Ifinatamab Deruxtecan (I-DXd) in Subjects With Recurrent or Metastatic Solid Tumors (IDeate-PanTumor02)"
+          },
+          {
+            "nct_id": "NCT04576429",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "France",
+            "title": "Immune Profiles Evolution Under Immunotherapy for Melanoma"
+          },
+          {
+            "nct_id": "NCT05549297",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "France",
+            "title": "Tebentafusp Regimen Versus Investigator's Choice in Previously Treated Advanced Melanoma (TEBE-AM)"
+          },
+          {
+            "nct_id": "NCT03315468",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "France",
+            "title": "French Clinical Datbase of Melanoma Patients (RIC-Mel)"
+          },
+          {
+            "nct_id": "NCT04498767",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "France",
+            "title": "Stereotactic Body Radiotherapy in Patients With Rare Oligometastatic Cancers (OligoRARE)"
+          }
+        ]
+      },
+      {
+        "country": "Australia",
+        "trial_count": 49,
+        "nct_ids": [
+          "NCT07203391",
+          "NCT06330064",
+          "NCT03860883",
+          "NCT04895709",
+          "NCT07138222",
+          "NCT05549297",
+          "NCT07115043",
+          "NCT07070232",
+          "NCT05267626",
+          "NCT07015190",
+          "NCT07751042",
+          "NCT06767306",
+          "NCT03340129",
+          "NCT05280314",
+          "NCT02821013",
+          "NCT06249048",
+          "NCT06112314",
+          "NCT06242470",
+          "NCT06060613",
+          "NCT06999980",
+          "NCT06953089",
+          "NCT04913285",
+          "NCT07086105",
+          "NCT07072728",
+          "NCT06956690",
+          "NCT06961006",
+          "NCT07049276",
+          "NCT06022029",
+          "NCT06940739",
+          "NCT05727904",
+          "NCT05570227",
+          "NCT06326411",
+          "NCT07565285",
+          "NCT07339176",
+          "NCT06887348",
+          "NCT07063875",
+          "NCT03947385",
+          "NCT06697301",
+          "NCT06585410",
+          "NCT06305962",
+          "NCT06172478",
+          "NCT02402244",
+          "NCT06536257",
+          "NCT06163820",
+          "NCT05914116",
+          "NCT06910657",
+          "NCT04370587",
+          "NCT06581406",
+          "NCT07341737"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT07203391",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Australia",
+            "title": "Tebentafusp and Roginolisib in Uveal Melanoma to Prolong T-cell Homeostasis"
+          },
+          {
+            "nct_id": "NCT06330064",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Australia",
+            "title": "A Study to Evaluate the Efficacy and Safety of Ifinatamab Deruxtecan (I-DXd) in Subjects With Recurrent or Metastatic Solid Tumors (IDeate-PanTumor02)"
+          },
+          {
+            "nct_id": "NCT03860883",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Australia",
+            "title": "Melanoma Margins Trial-II: 1cm v 2cm Wide Surgical Excision Margins for AJCC Stage II Primary Cutaneous Melanoma"
+          },
+          {
+            "nct_id": "NCT04895709",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Australia",
+            "title": "A Study of BMS-986340 as Monotherapy and as Combination Therapy in Participants With Advanced Solid Tumors"
+          },
+          {
+            "nct_id": "NCT07138222",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Australia",
+            "title": "IMmune checkPoint Inhibitor Related gonAdal toxiCiTy in Premenopausal Women and Men With Melanoma"
+          }
+        ]
+      },
+      {
+        "country": "Italy",
+        "trial_count": 41,
+        "nct_ids": [
+          "NCT06330064",
+          "NCT03860883",
+          "NCT07469709",
+          "NCT05940311",
+          "NCT04895709",
+          "NCT05492682",
+          "NCT05549297",
+          "NCT06899789",
+          "NCT05478876",
+          "NCT05621837",
+          "NCT07070232",
+          "NCT05522660",
+          "NCT04498767",
+          "NCT07015190",
+          "NCT07251335",
+          "NCT04095195",
+          "NCT06880198",
+          "NCT07492680",
+          "NCT07691255",
+          "NCT07403630",
+          "NCT06112314",
+          "NCT06994208",
+          "NCT04913285",
+          "NCT02332668",
+          "NCT06028724",
+          "NCT06753136",
+          "NCT06961006",
+          "NCT06602648",
+          "NCT07049276",
+          "NCT06284590",
+          "NCT05727904",
+          "NCT07072143",
+          "NCT07221734",
+          "NCT06621810",
+          "NCT05797415",
+          "NCT07092670",
+          "NCT06697301",
+          "NCT06172478",
+          "NCT05059444",
+          "NCT07050940",
+          "NCT07277920"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT06330064",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Italy",
+            "title": "A Study to Evaluate the Efficacy and Safety of Ifinatamab Deruxtecan (I-DXd) in Subjects With Recurrent or Metastatic Solid Tumors (IDeate-PanTumor02)"
+          },
+          {
+            "nct_id": "NCT03860883",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Italy",
+            "title": "Melanoma Margins Trial-II: 1cm v 2cm Wide Surgical Excision Margins for AJCC Stage II Primary Cutaneous Melanoma"
+          },
+          {
+            "nct_id": "NCT07469709",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Italy",
+            "title": "A Study of Biological, Genetic, and Constitutional Factors and Non-invasive Monitoring to Assess Personal Cancer Risks"
+          },
+          {
+            "nct_id": "NCT05940311",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Italy",
+            "title": "Versatile Ampification Single-Molecule Detection in Liquid Biopsy"
+          },
+          {
+            "nct_id": "NCT04895709",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Italy",
+            "title": "A Study of BMS-986340 as Monotherapy and as Combination Therapy in Participants With Advanced Solid Tumors"
+          }
+        ]
+      },
+      {
+        "country": "Germany",
+        "trial_count": 37,
+        "nct_ids": [
+          "NCT06330064",
+          "NCT07680452",
+          "NCT04895709",
+          "NCT07057596",
+          "NCT06765850",
+          "NCT05492682",
+          "NCT05549297",
+          "NCT07070232",
+          "NCT06508775",
+          "NCT07600476",
+          "NCT04498767",
+          "NCT03340506",
+          "NCT07015190",
+          "NCT06980740",
+          "NCT07492680",
+          "NCT06246149",
+          "NCT07564570",
+          "NCT05280314",
+          "NCT06985056",
+          "NCT04045691",
+          "NCT06112314",
+          "NCT07161310",
+          "NCT06264180",
+          "NCT02332668",
+          "NCT07788729",
+          "NCT03686124",
+          "NCT06961006",
+          "NCT06284590",
+          "NCT05727904",
+          "NCT06621810",
+          "NCT06697301",
+          "NCT07883954",
+          "NCT07649681",
+          "NCT06784778",
+          "NCT06172478",
+          "NCT05059444",
+          "NCT06743126"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT06330064",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Germany",
+            "title": "A Study to Evaluate the Efficacy and Safety of Ifinatamab Deruxtecan (I-DXd) in Subjects With Recurrent or Metastatic Solid Tumors (IDeate-PanTumor02)"
+          },
+          {
+            "nct_id": "NCT07680452",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Germany",
+            "title": "Clinical Study on High-fiber Diet and Short-term Fasting in Melanoma Under Immunotherapy With Checkpoint Inhibition"
+          },
+          {
+            "nct_id": "NCT04895709",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Germany",
+            "title": "A Study of BMS-986340 as Monotherapy and as Combination Therapy in Participants With Advanced Solid Tumors"
+          },
+          {
+            "nct_id": "NCT07057596",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Germany",
+            "title": "Neoadjuvant Tebentafusp in Patients With Metastatic Uveal Melanoma"
+          },
+          {
+            "nct_id": "NCT06765850",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Germany",
+            "title": "The Study Aims to Measure the Metabolome in Melanoma Patients Using NMR Spectroscopy and Gas Chromatography and to Analyse Differences Depending on the Course of the Disease."
+          }
+        ]
+      },
+      {
+        "country": "Spain",
+        "trial_count": 37,
+        "nct_ids": [
+          "NCT06605443",
+          "NCT06330064",
+          "NCT04895709",
+          "NCT07057596",
+          "NCT05549297",
+          "NCT07476326",
+          "NCT07070232",
+          "NCT05522660",
+          "NCT03340506",
+          "NCT07015190",
+          "NCT07492680",
+          "NCT06246149",
+          "NCT06887088",
+          "NCT05280314",
+          "NCT06608420",
+          "NCT06112314",
+          "NCT06685562",
+          "NCT07519655",
+          "NCT06264180",
+          "NCT04913285",
+          "NCT05673681",
+          "NCT04855435",
+          "NCT04752826",
+          "NCT06961006",
+          "NCT06605417",
+          "NCT06630611",
+          "NCT03567889",
+          "NCT05727904",
+          "NCT05592626",
+          "NCT07221734",
+          "NCT06621810",
+          "NCT06270706",
+          "NCT06697301",
+          "NCT07883954",
+          "NCT06172478",
+          "NCT05059444",
+          "NCT06970236"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT06605443",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Spain",
+            "title": "Precision Medicine for L/GCMN and Melanoma 2"
+          },
+          {
+            "nct_id": "NCT06330064",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Spain",
+            "title": "A Study to Evaluate the Efficacy and Safety of Ifinatamab Deruxtecan (I-DXd) in Subjects With Recurrent or Metastatic Solid Tumors (IDeate-PanTumor02)"
+          },
+          {
+            "nct_id": "NCT04895709",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Spain",
+            "title": "A Study of BMS-986340 as Monotherapy and as Combination Therapy in Participants With Advanced Solid Tumors"
+          },
+          {
+            "nct_id": "NCT07057596",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Spain",
+            "title": "Neoadjuvant Tebentafusp in Patients With Metastatic Uveal Melanoma"
+          },
+          {
+            "nct_id": "NCT05549297",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Spain",
+            "title": "Tebentafusp Regimen Versus Investigator's Choice in Previously Treated Advanced Melanoma (TEBE-AM)"
+          }
+        ]
+      },
+      {
+        "country": "Canada",
+        "trial_count": 33,
+        "nct_ids": [
+          "NCT03860883",
+          "NCT04895709",
+          "NCT05549297",
+          "NCT05663775",
+          "NCT06623461",
+          "NCT03340506",
+          "NCT07015190",
+          "NCT07112170",
+          "NCT06767306",
+          "NCT07492680",
+          "NCT02821013",
+          "NCT06112314",
+          "NCT06246916",
+          "NCT05645510",
+          "NCT03740503",
+          "NCT06961006",
+          "NCT07524114",
+          "NCT05196087",
+          "NCT06319196",
+          "NCT07049276",
+          "NCT05727904",
+          "NCT05592626",
+          "NCT02906943",
+          "NCT03947385",
+          "NCT06697301",
+          "NCT06172478",
+          "NCT02402244",
+          "NCT03702309",
+          "NCT05955924",
+          "NCT05620290",
+          "NCT07804186",
+          "NCT05403177",
+          "NCT06743126"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT03860883",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Canada",
+            "title": "Melanoma Margins Trial-II: 1cm v 2cm Wide Surgical Excision Margins for AJCC Stage II Primary Cutaneous Melanoma"
+          },
+          {
+            "nct_id": "NCT04895709",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Canada",
+            "title": "A Study of BMS-986340 as Monotherapy and as Combination Therapy in Participants With Advanced Solid Tumors"
+          },
+          {
+            "nct_id": "NCT05549297",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Canada",
+            "title": "Tebentafusp Regimen Versus Investigator's Choice in Previously Treated Advanced Melanoma (TEBE-AM)"
+          },
+          {
+            "nct_id": "NCT05663775",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Canada",
+            "title": "Prophylactic Mesalamine to Prevent Colitis Following Treatment With Ipilimumab/Nivolumab (Ipi/Nivo)"
+          },
+          {
+            "nct_id": "NCT06623461",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Canada",
+            "title": "LND101 for Fecal Microbiota Transplantation in Combination With Immune Checkpoint Blockade in Advanced Melanoma"
+          }
+        ]
+      },
+      {
+        "country": "United Kingdom",
+        "trial_count": 30,
+        "nct_ids": [
+          "NCT03860883",
+          "NCT05770102",
+          "NCT07718243",
+          "NCT05549297",
+          "NCT07144306",
+          "NCT05107674",
+          "NCT07070232",
+          "NCT05522660",
+          "NCT07440290",
+          "NCT04498767",
+          "NCT07015190",
+          "NCT06246149",
+          "NCT06560905",
+          "NCT06112314",
+          "NCT06242470",
+          "NCT06264180",
+          "NCT03829254",
+          "NCT02332668",
+          "NCT04752826",
+          "NCT07049276",
+          "NCT05727904",
+          "NCT05770544",
+          "NCT06697301",
+          "NCT07883954",
+          "NCT05768178",
+          "NCT06172478",
+          "NCT04493723",
+          "NCT06743126",
+          "NCT05231655",
+          "NCT06581406"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT03860883",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "United Kingdom",
+            "title": "Melanoma Margins Trial-II: 1cm v 2cm Wide Surgical Excision Margins for AJCC Stage II Primary Cutaneous Melanoma"
+          },
+          {
+            "nct_id": "NCT05770102",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "United Kingdom",
+            "title": "DETERMINE Trial Treatment Arm 02: Atezolizumab in Adult, Paediatric and Teenage/Young Adult Patients With Cancers With High Tumour Mutational Burden (TMB) or Microsatellite Instability-high (MSI-high) or Proven Constitutional Mismatch Repair Deficiency (CMMRD) Disposition"
+          },
+          {
+            "nct_id": "NCT07718243",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "United Kingdom",
+            "title": "Investigating the Combination of Bexmarilimab and Nivolumab in Solid Tumours, Melanoma and NSCLC"
+          },
+          {
+            "nct_id": "NCT05549297",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "United Kingdom",
+            "title": "Tebentafusp Regimen Versus Investigator's Choice in Previously Treated Advanced Melanoma (TEBE-AM)"
+          },
+          {
+            "nct_id": "NCT07144306",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "United Kingdom",
+            "title": "AI-Driven Early Detection of Skin Cancer"
+          }
+        ]
+      },
+      {
+        "country": "Netherlands",
+        "trial_count": 28,
+        "nct_ids": [
+          "NCT07696715",
+          "NCT06330064",
+          "NCT03860883",
+          "NCT07501780",
+          "NCT05522660",
+          "NCT03340506",
+          "NCT07015190",
+          "NCT07224425",
+          "NCT06246149",
+          "NCT07686835",
+          "NCT06240143",
+          "NCT07511933",
+          "NCT06754904",
+          "NCT06685562",
+          "NCT05251389",
+          "NCT07206017",
+          "NCT07310758",
+          "NCT05727904",
+          "NCT04126876",
+          "NCT06172478",
+          "NCT05652673",
+          "NCT05483400",
+          "NCT04729543",
+          "NCT07530887",
+          "NCT06743126",
+          "NCT03685890",
+          "NCT06767332",
+          "NCT06643286"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT07696715",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Netherlands",
+            "title": "Timing of Immunotherapy in Melanoma"
+          },
+          {
+            "nct_id": "NCT06330064",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Netherlands",
+            "title": "A Study to Evaluate the Efficacy and Safety of Ifinatamab Deruxtecan (I-DXd) in Subjects With Recurrent or Metastatic Solid Tumors (IDeate-PanTumor02)"
+          },
+          {
+            "nct_id": "NCT03860883",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Netherlands",
+            "title": "Melanoma Margins Trial-II: 1cm v 2cm Wide Surgical Excision Margins for AJCC Stage II Primary Cutaneous Melanoma"
+          },
+          {
+            "nct_id": "NCT07501780",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Netherlands",
+            "title": "Real-world Evaluation of the Implementation of LC-OCT in Daily Clinical Practice"
+          },
+          {
+            "nct_id": "NCT05522660",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Netherlands",
+            "title": "Immunotherapy or Targeted Therapy With or Without Stereotactic Radiosurgery for Patients With Brain Metastases From Melanoma or Non-small Cell Lung Cancer"
+          }
+        ]
+      },
+      {
+        "country": "Sweden",
+        "trial_count": 18,
+        "nct_ids": [
+          "NCT03860883",
+          "NCT05502900",
+          "NCT06246149",
+          "NCT06112314",
+          "NCT06488482",
+          "NCT05446155",
+          "NCT02332668",
+          "NCT06519266",
+          "NCT04752826",
+          "NCT05727904",
+          "NCT06697301",
+          "NCT06363591",
+          "NCT04793737",
+          "NCT03116412",
+          "NCT07349303",
+          "NCT06794775",
+          "NCT03685890",
+          "NCT05033678"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT03860883",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Sweden",
+            "title": "Melanoma Margins Trial-II: 1cm v 2cm Wide Surgical Excision Margins for AJCC Stage II Primary Cutaneous Melanoma"
+          },
+          {
+            "nct_id": "NCT05502900",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Sweden",
+            "title": "Adjuvant Melatonin for Uveal Melanoma"
+          },
+          {
+            "nct_id": "NCT06246149",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Sweden",
+            "title": "Adjuvant Tebentafusp in High Risk Ocular Melanoma"
+          },
+          {
+            "nct_id": "NCT06112314",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Sweden",
+            "title": "IMC-F106C Regimen Versus Nivolumab Regimens in Previously Untreated Advanced Melanoma (PRISM-MEL-301)"
+          },
+          {
+            "nct_id": "NCT06488482",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Sweden",
+            "title": "Assessment of Short Immunotherapy After Radical Surgery of High-risk Malignant Melanoma"
+          }
+        ]
+      },
+      {
+        "country": "Denmark",
+        "trial_count": 17,
+        "nct_ids": [
+          "NCT05253872",
+          "NCT03340506",
+          "NCT07015190",
+          "NCT06206707",
+          "NCT06204991",
+          "NCT05280314",
+          "NCT06112314",
+          "NCT06685562",
+          "NCT04855435",
+          "NCT04752826",
+          "NCT07215182",
+          "NCT07694414",
+          "NCT07501117",
+          "NCT06697301",
+          "NCT06783270",
+          "NCT05899465",
+          "NCT03563729"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT05253872",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Denmark",
+            "title": "The MELAcare Study: A New Method for Surveillance of Melanoma Patients"
+          },
+          {
+            "nct_id": "NCT03340506",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Denmark",
+            "title": "Dabrafenib and/or Trametinib Rollover Study"
+          },
+          {
+            "nct_id": "NCT07015190",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Denmark",
+            "title": "Neoadjuvant Darovasertib in Primary Uveal Melanoma"
+          },
+          {
+            "nct_id": "NCT06206707",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Denmark",
+            "title": "FMT in Checkpoint Inhibitor-mediated Diarrhea and Colitis"
+          },
+          {
+            "nct_id": "NCT06204991",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Denmark",
+            "title": "To Evaluate the Safety and Efficacy of ADP-TILIL7 in Patients With Locally Advanced or Metastatic Melanoma"
+          }
+        ]
+      },
+      {
+        "country": "Belgium",
+        "trial_count": 15,
+        "nct_ids": [
+          "NCT06330064",
+          "NCT05549297",
+          "NCT07070232",
+          "NCT04498767",
+          "NCT07015190",
+          "NCT07448831",
+          "NCT07224425",
+          "NCT07492680",
+          "NCT06246149",
+          "NCT07266142",
+          "NCT06112314",
+          "NCT05727904",
+          "NCT06697301",
+          "NCT07883954",
+          "NCT06172478"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT06330064",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Belgium",
+            "title": "A Study to Evaluate the Efficacy and Safety of Ifinatamab Deruxtecan (I-DXd) in Subjects With Recurrent or Metastatic Solid Tumors (IDeate-PanTumor02)"
+          },
+          {
+            "nct_id": "NCT05549297",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Belgium",
+            "title": "Tebentafusp Regimen Versus Investigator's Choice in Previously Treated Advanced Melanoma (TEBE-AM)"
+          },
+          {
+            "nct_id": "NCT07070232",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Belgium",
+            "title": "A Clinical Study to Test if an Investigational Treatment Called BNT326 is Safe and Potentially Beneficial When Used Alone or in Combination With Other Investigational Treatments Such as BNT327, for People With Advanced Malignant Tumors"
+          },
+          {
+            "nct_id": "NCT04498767",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Belgium",
+            "title": "Stereotactic Body Radiotherapy in Patients With Rare Oligometastatic Cancers (OligoRARE)"
+          },
+          {
+            "nct_id": "NCT07015190",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Belgium",
+            "title": "Neoadjuvant Darovasertib in Primary Uveal Melanoma"
+          }
+        ]
+      },
+      {
+        "country": "Switzerland",
+        "trial_count": 13,
+        "nct_ids": [
+          "NCT02280889",
+          "NCT05549297",
+          "NCT06384053",
+          "NCT05522660",
+          "NCT04498767",
+          "NCT07015190",
+          "NCT04045691",
+          "NCT06112314",
+          "NCT06889766",
+          "NCT03567889",
+          "NCT05727904",
+          "NCT07574047",
+          "NCT06697301"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT02280889",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Switzerland",
+            "title": "Quality of Life and Stigmatization in Children With Congenital Melanocytic Nevi Before and After Nevus Excision"
+          },
+          {
+            "nct_id": "NCT05549297",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Switzerland",
+            "title": "Tebentafusp Regimen Versus Investigator's Choice in Previously Treated Advanced Melanoma (TEBE-AM)"
+          },
+          {
+            "nct_id": "NCT06384053",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Switzerland",
+            "title": "Skin Cancer and Hyperthermia and Radiotherapy"
+          },
+          {
+            "nct_id": "NCT05522660",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Switzerland",
+            "title": "Immunotherapy or Targeted Therapy With or Without Stereotactic Radiosurgery for Patients With Brain Metastases From Melanoma or Non-small Cell Lung Cancer"
+          },
+          {
+            "nct_id": "NCT04498767",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Switzerland",
+            "title": "Stereotactic Body Radiotherapy in Patients With Rare Oligometastatic Cancers (OligoRARE)"
+          }
+        ]
+      },
+      {
+        "country": "Israel",
+        "trial_count": 12,
+        "nct_ids": [
+          "NCT04895709",
+          "NCT07015190",
+          "NCT01438658",
+          "NCT01898039",
+          "NCT02332668",
+          "NCT06961006",
+          "NCT00722228",
+          "NCT07049276",
+          "NCT05909618",
+          "NCT05727904",
+          "NCT06697301",
+          "NCT05296564"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT04895709",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Israel",
+            "title": "A Study of BMS-986340 as Monotherapy and as Combination Therapy in Participants With Advanced Solid Tumors"
+          },
+          {
+            "nct_id": "NCT07015190",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Israel",
+            "title": "Neoadjuvant Darovasertib in Primary Uveal Melanoma"
+          },
+          {
+            "nct_id": "NCT01438658",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Israel",
+            "title": "Assessing the Clinical Effectiveness of Serum Biomarkers in the Diagnosis of Metastatic Uveal Melanoma"
+          },
+          {
+            "nct_id": "NCT01898039",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Israel",
+            "title": "Modified Vaccine for High Risk or Low Residual Melanoma Patients"
+          },
+          {
+            "nct_id": "NCT02332668",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Israel",
+            "title": "A Study of Pembrolizumab (MK-3475) in Pediatric Participants With an Advanced Solid Tumor or Lymphoma (MK-3475-051/KEYNOTE-051)"
+          }
+        ]
+      },
+      {
+        "country": "South Korea",
+        "trial_count": 12,
+        "nct_ids": [
+          "NCT07115043",
+          "NCT06265025",
+          "NCT07449754",
+          "NCT07492680",
+          "NCT07519655",
+          "NCT02332668",
+          "NCT05877430",
+          "NCT05727904",
+          "NCT06697301",
+          "NCT06172478",
+          "NCT05824975",
+          "NCT04198766"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT07115043",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "South Korea",
+            "title": "A Study to Investigate Safety of AZD6750 in Adult Participants With Select Advanced or Metastatic Solid Tumors"
+          },
+          {
+            "nct_id": "NCT06265025",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "South Korea",
+            "title": "GM103 Intratumoral Injection in Patients With Locally Advanced, Unresectable, Refractory and/or Metastatic Solid Tumors"
+          },
+          {
+            "nct_id": "NCT07449754",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "South Korea",
+            "title": "Belvarafenib in Combination With Cobimetinib in Patients With Locally Advanced or Metastatic NRAS-Mutant Melanoma"
+          },
+          {
+            "nct_id": "NCT07492680",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "South Korea",
+            "title": "A Study of BMS-986504 Monotherapy and in Combination With Other Agents in Participants With Advanced and/or Metastatic Solid Tumors With Homozygous MTAP Deletion (MountainTAP-5)"
+          },
+          {
+            "nct_id": "NCT07519655",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "South Korea",
+            "title": "Phase 1 Study of PF-08046033 in Advanced Solid Tumors"
+          }
+        ]
+      },
+      {
+        "country": "Poland",
+        "trial_count": 9,
+        "nct_ids": [
+          "NCT06330064",
+          "NCT05549297",
+          "NCT04498767",
+          "NCT07015190",
+          "NCT06246149",
+          "NCT06112314",
+          "NCT06264180",
+          "NCT06961006",
+          "NCT06697301"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT06330064",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Poland",
+            "title": "A Study to Evaluate the Efficacy and Safety of Ifinatamab Deruxtecan (I-DXd) in Subjects With Recurrent or Metastatic Solid Tumors (IDeate-PanTumor02)"
+          },
+          {
+            "nct_id": "NCT05549297",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Poland",
+            "title": "Tebentafusp Regimen Versus Investigator's Choice in Previously Treated Advanced Melanoma (TEBE-AM)"
+          },
+          {
+            "nct_id": "NCT04498767",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Poland",
+            "title": "Stereotactic Body Radiotherapy in Patients With Rare Oligometastatic Cancers (OligoRARE)"
+          },
+          {
+            "nct_id": "NCT07015190",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Poland",
+            "title": "Neoadjuvant Darovasertib in Primary Uveal Melanoma"
+          },
+          {
+            "nct_id": "NCT06246149",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Poland",
+            "title": "Adjuvant Tebentafusp in High Risk Ocular Melanoma"
+          }
+        ]
+      },
+      {
+        "country": "Austria",
+        "trial_count": 8,
+        "nct_ids": [
+          "NCT05549297",
+          "NCT03340506",
+          "NCT07015190",
+          "NCT05733728",
+          "NCT07635732",
+          "NCT04045691",
+          "NCT06112314",
+          "NCT06697301"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT05549297",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Austria",
+            "title": "Tebentafusp Regimen Versus Investigator's Choice in Previously Treated Advanced Melanoma (TEBE-AM)"
+          },
+          {
+            "nct_id": "NCT03340506",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Austria",
+            "title": "Dabrafenib and/or Trametinib Rollover Study"
+          },
+          {
+            "nct_id": "NCT07015190",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Austria",
+            "title": "Neoadjuvant Darovasertib in Primary Uveal Melanoma"
+          },
+          {
+            "nct_id": "NCT05733728",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Austria",
+            "title": "Retrospective Register for Uveal Melanoma"
+          },
+          {
+            "nct_id": "NCT07635732",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Austria",
+            "title": "Urinary Microbiome as a Biomarker for Melanoma Diagnosis and Response Prediction to Systemic Tumour Therapy"
+          }
+        ]
+      },
+      {
+        "country": "Brazil",
+        "trial_count": 8,
+        "nct_ids": [
+          "NCT06330064",
+          "NCT07381972",
+          "NCT07476326",
+          "NCT06112314",
+          "NCT02332668",
+          "NCT07221734",
+          "NCT07680699",
+          "NCT07581509"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT06330064",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Brazil",
+            "title": "A Study to Evaluate the Efficacy and Safety of Ifinatamab Deruxtecan (I-DXd) in Subjects With Recurrent or Metastatic Solid Tumors (IDeate-PanTumor02)"
+          },
+          {
+            "nct_id": "NCT07381972",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Brazil",
+            "title": "Photodynamic Therapy Associated With Sonodynamic Therapy for the Treatment of Nodular Basal Cell Carcinoma"
+          },
+          {
+            "nct_id": "NCT07476326",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Brazil",
+            "title": "Pharmacokinetics, Safety, and Immunogenicity Comparison of Bmab1700 and Opdivo® as Adjuvant Monotherapy in Participants With Melanoma"
+          },
+          {
+            "nct_id": "NCT06112314",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Brazil",
+            "title": "IMC-F106C Regimen Versus Nivolumab Regimens in Previously Untreated Advanced Melanoma (PRISM-MEL-301)"
+          },
+          {
+            "nct_id": "NCT02332668",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Brazil",
+            "title": "A Study of Pembrolizumab (MK-3475) in Pediatric Participants With an Advanced Solid Tumor or Lymphoma (MK-3475-051/KEYNOTE-051)"
+          }
+        ]
+      },
+      {
+        "country": "Japan",
+        "trial_count": 8,
+        "nct_ids": [
+          "NCT06330064",
+          "NCT04895709",
+          "NCT07115043",
+          "NCT06636435",
+          "NCT03340506",
+          "NCT07492680",
+          "NCT05423262",
+          "NCT06172478"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT06330064",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Japan",
+            "title": "A Study to Evaluate the Efficacy and Safety of Ifinatamab Deruxtecan (I-DXd) in Subjects With Recurrent or Metastatic Solid Tumors (IDeate-PanTumor02)"
+          },
+          {
+            "nct_id": "NCT04895709",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Japan",
+            "title": "A Study of BMS-986340 as Monotherapy and as Combination Therapy in Participants With Advanced Solid Tumors"
+          },
+          {
+            "nct_id": "NCT07115043",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Japan",
+            "title": "A Study to Investigate Safety of AZD6750 in Adult Participants With Select Advanced or Metastatic Solid Tumors"
+          },
+          {
+            "nct_id": "NCT06636435",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Japan",
+            "title": "A Phase I, First in Human Study of CBA-1205, Anti-DLK1 Monoclonal Antibody in Patients With Advanced Solid Tumors, Hepatocellular Carcinoma (HCC), Melanoma, and Pediatric Cancer"
+          },
+          {
+            "nct_id": "NCT03340506",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Japan",
+            "title": "Dabrafenib and/or Trametinib Rollover Study"
+          }
+        ]
+      },
+      {
+        "country": "Norway",
+        "trial_count": 7,
+        "nct_ids": [
+          "NCT03340129",
+          "NCT07492680",
+          "NCT06112314",
+          "NCT06488482",
+          "NCT06651151",
+          "NCT06697301",
+          "NCT06172478"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT03340129",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Norway",
+            "title": "Anti-PD 1 Brain Collaboration + Radiotherapy Extension (ABC-X Study)"
+          },
+          {
+            "nct_id": "NCT07492680",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Norway",
+            "title": "A Study of BMS-986504 Monotherapy and in Combination With Other Agents in Participants With Advanced and/or Metastatic Solid Tumors With Homozygous MTAP Deletion (MountainTAP-5)"
+          },
+          {
+            "nct_id": "NCT06112314",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Norway",
+            "title": "IMC-F106C Regimen Versus Nivolumab Regimens in Previously Untreated Advanced Melanoma (PRISM-MEL-301)"
+          },
+          {
+            "nct_id": "NCT06488482",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Norway",
+            "title": "Assessment of Short Immunotherapy After Radical Surgery of High-risk Malignant Melanoma"
+          },
+          {
+            "nct_id": "NCT06651151",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Norway",
+            "title": "NeoLIPA: Neoadjuvant LTX-315 in Combination with Pembrolizumab in Resectable Stage III/IV Melanoma"
+          }
+        ]
+      },
+      {
+        "country": "Taiwan",
+        "trial_count": 7,
+        "nct_ids": [
+          "NCT06330064",
+          "NCT06953089",
+          "NCT04913285",
+          "NCT06952400",
+          "NCT06172478",
+          "NCT05914116",
+          "NCT04198766"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT06330064",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Taiwan",
+            "title": "A Study to Evaluate the Efficacy and Safety of Ifinatamab Deruxtecan (I-DXd) in Subjects With Recurrent or Metastatic Solid Tumors (IDeate-PanTumor02)"
+          },
+          {
+            "nct_id": "NCT06953089",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Taiwan",
+            "title": "DB-1311 in Combination With BNT327 or DB-1305 in Advanced/Metastatic Solid Tumors"
+          },
+          {
+            "nct_id": "NCT04913285",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Taiwan",
+            "title": "A Study to Evaluate KIN-2787 in Participants With BRAF and/or NRAS Mutation Positive Solid Tumors"
+          },
+          {
+            "nct_id": "NCT06952400",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Taiwan",
+            "title": "The Registry Study of Genetic Alterations of Melanoma in Taiwan"
+          },
+          {
+            "nct_id": "NCT06172478",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Taiwan",
+            "title": "A Study of HER3-DXd in Subjects With Locally Advanced or Metastatic Solid Tumors"
+          }
+        ]
+      },
+      {
+        "country": "Czechia",
+        "trial_count": 6,
+        "nct_ids": [
+          "NCT03340506",
+          "NCT07015190",
+          "NCT06112314",
+          "NCT07349940",
+          "NCT06697301",
+          "NCT07870265"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT03340506",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Czechia",
+            "title": "Dabrafenib and/or Trametinib Rollover Study"
+          },
+          {
+            "nct_id": "NCT07015190",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Czechia",
+            "title": "Neoadjuvant Darovasertib in Primary Uveal Melanoma"
+          },
+          {
+            "nct_id": "NCT06112314",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Czechia",
+            "title": "IMC-F106C Regimen Versus Nivolumab Regimens in Previously Untreated Advanced Melanoma (PRISM-MEL-301)"
+          },
+          {
+            "nct_id": "NCT07349940",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Czechia",
+            "title": "Early Detection of Skin Tumors Using a Telemedicine Tool in Primary Care"
+          },
+          {
+            "nct_id": "NCT06697301",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Czechia",
+            "title": "Safety and Efficacy of EIK1001 in Combo With Pembro Versus Placebo and Pembro as First-Line Therapy in Patients With Advanced Melanoma."
+          }
+        ]
+      },
+      {
+        "country": "Portugal",
+        "trial_count": 6,
+        "nct_ids": [
+          "NCT06330064",
+          "NCT06112314",
+          "NCT02332668",
+          "NCT06961006",
+          "NCT07221734",
+          "NCT06697301"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT06330064",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Portugal",
+            "title": "A Study to Evaluate the Efficacy and Safety of Ifinatamab Deruxtecan (I-DXd) in Subjects With Recurrent or Metastatic Solid Tumors (IDeate-PanTumor02)"
+          },
+          {
+            "nct_id": "NCT06112314",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Portugal",
+            "title": "IMC-F106C Regimen Versus Nivolumab Regimens in Previously Untreated Advanced Melanoma (PRISM-MEL-301)"
+          },
+          {
+            "nct_id": "NCT02332668",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Portugal",
+            "title": "A Study of Pembrolizumab (MK-3475) in Pediatric Participants With an Advanced Solid Tumor or Lymphoma (MK-3475-051/KEYNOTE-051)"
+          },
+          {
+            "nct_id": "NCT06961006",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Portugal",
+            "title": "A Clinical Study of Intismeran Autogene (V940) and Pembrolizumab (MK-3475) in People With Melanoma (V940-012/INTerpath-012)"
+          },
+          {
+            "nct_id": "NCT07221734",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Portugal",
+            "title": "Study to Compare Pharmacokinetics, Efficacy, Safety, and Immunogenicity of MB11 Versus EU-/US-Opdivo® in Subjects With Previously Untreated Advanced [Unresectable or Metastatic] Melanoma"
+          }
+        ]
+      },
+      {
+        "country": "Slovenia",
+        "trial_count": 6,
+        "nct_ids": [
+          "NCT03860883",
+          "NCT07015190",
+          "NCT07404605",
+          "NCT05878977",
+          "NCT07422779",
+          "NCT07407166"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT03860883",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Slovenia",
+            "title": "Melanoma Margins Trial-II: 1cm v 2cm Wide Surgical Excision Margins for AJCC Stage II Primary Cutaneous Melanoma"
+          },
+          {
+            "nct_id": "NCT07015190",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Slovenia",
+            "title": "Neoadjuvant Darovasertib in Primary Uveal Melanoma"
+          },
+          {
+            "nct_id": "NCT07404605",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Slovenia",
+            "title": "Electrochemotherapy-Induced Changes in Tumor Microenvironment in Cutaneous Melanoma"
+          },
+          {
+            "nct_id": "NCT05878977",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Slovenia",
+            "title": "Biomarkers in Immunotherapy of Melanoma"
+          },
+          {
+            "nct_id": "NCT07422779",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Slovenia",
+            "title": "Immunotherapy Efficacy and PD-L1 as a Predictive Biomarker in Metastatic Melanoma in Slovenia"
+          }
+        ]
+      },
+      {
+        "country": "Hungary",
+        "trial_count": 5,
+        "nct_ids": [
+          "NCT03340506",
+          "NCT06112314",
+          "NCT04752826",
+          "NCT06697301",
+          "NCT06172478"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT03340506",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Hungary",
+            "title": "Dabrafenib and/or Trametinib Rollover Study"
+          },
+          {
+            "nct_id": "NCT06112314",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Hungary",
+            "title": "IMC-F106C Regimen Versus Nivolumab Regimens in Previously Untreated Advanced Melanoma (PRISM-MEL-301)"
+          },
+          {
+            "nct_id": "NCT04752826",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Hungary",
+            "title": "BI-1808 as a Single Agent and With Pembrolizumab (KEYTRUDA® ) in Treatment of Advanced Malignancies(Keynote-D20)"
+          },
+          {
+            "nct_id": "NCT06697301",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Hungary",
+            "title": "Safety and Efficacy of EIK1001 in Combo With Pembro Versus Placebo and Pembro as First-Line Therapy in Patients With Advanced Melanoma."
+          },
+          {
+            "nct_id": "NCT06172478",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Hungary",
+            "title": "A Study of HER3-DXd in Subjects With Locally Advanced or Metastatic Solid Tumors"
+          }
+        ]
+      },
+      {
+        "country": "New Zealand",
+        "trial_count": 5,
+        "nct_ids": [
+          "NCT03860883",
+          "NCT07015190",
+          "NCT06961006",
+          "NCT06697301",
+          "NCT02402244"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT03860883",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "New Zealand",
+            "title": "Melanoma Margins Trial-II: 1cm v 2cm Wide Surgical Excision Margins for AJCC Stage II Primary Cutaneous Melanoma"
+          },
+          {
+            "nct_id": "NCT07015190",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "New Zealand",
+            "title": "Neoadjuvant Darovasertib in Primary Uveal Melanoma"
+          },
+          {
+            "nct_id": "NCT06961006",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "New Zealand",
+            "title": "A Clinical Study of Intismeran Autogene (V940) and Pembrolizumab (MK-3475) in People With Melanoma (V940-012/INTerpath-012)"
+          },
+          {
+            "nct_id": "NCT06697301",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "New Zealand",
+            "title": "Safety and Efficacy of EIK1001 in Combo With Pembro Versus Placebo and Pembro as First-Line Therapy in Patients With Advanced Melanoma."
+          },
+          {
+            "nct_id": "NCT02402244",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "New Zealand",
+            "title": "Project: Every Child for Younger Patients With Cancer"
+          }
+        ]
+      },
+      {
+        "country": "Turkey (Türkiye)",
+        "trial_count": 5,
+        "nct_ids": [
+          "NCT06330064",
+          "NCT07476326",
+          "NCT07070232",
+          "NCT06112314",
+          "NCT07221734"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT06330064",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Turkey (Türkiye)",
+            "title": "A Study to Evaluate the Efficacy and Safety of Ifinatamab Deruxtecan (I-DXd) in Subjects With Recurrent or Metastatic Solid Tumors (IDeate-PanTumor02)"
+          },
+          {
+            "nct_id": "NCT07476326",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Turkey (Türkiye)",
+            "title": "Pharmacokinetics, Safety, and Immunogenicity Comparison of Bmab1700 and Opdivo® as Adjuvant Monotherapy in Participants With Melanoma"
+          },
+          {
+            "nct_id": "NCT07070232",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Turkey (Türkiye)",
+            "title": "A Clinical Study to Test if an Investigational Treatment Called BNT326 is Safe and Potentially Beneficial When Used Alone or in Combination With Other Investigational Treatments Such as BNT327, for People With Advanced Malignant Tumors"
+          },
+          {
+            "nct_id": "NCT06112314",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Turkey (Türkiye)",
+            "title": "IMC-F106C Regimen Versus Nivolumab Regimens in Previously Untreated Advanced Melanoma (PRISM-MEL-301)"
+          },
+          {
+            "nct_id": "NCT07221734",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Turkey (Türkiye)",
+            "title": "Study to Compare Pharmacokinetics, Efficacy, Safety, and Immunogenicity of MB11 Versus EU-/US-Opdivo® in Subjects With Previously Untreated Advanced [Unresectable or Metastatic] Melanoma"
+          }
+        ]
+      },
+      {
+        "country": "Finland",
+        "trial_count": 4,
+        "nct_ids": [
+          "NCT06112314",
+          "NCT06488482",
+          "NCT05727904",
+          "NCT06697301"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT06112314",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Finland",
+            "title": "IMC-F106C Regimen Versus Nivolumab Regimens in Previously Untreated Advanced Melanoma (PRISM-MEL-301)"
+          },
+          {
+            "nct_id": "NCT06488482",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Finland",
+            "title": "Assessment of Short Immunotherapy After Radical Surgery of High-risk Malignant Melanoma"
+          },
+          {
+            "nct_id": "NCT05727904",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Finland",
+            "title": "Study to Investigate Lifileucel Regimen Plus Pembrolizumab Compared With Pembrolizumab Alone in Participants With Untreated Advanced Melanoma."
+          },
+          {
+            "nct_id": "NCT06697301",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Finland",
+            "title": "Safety and Efficacy of EIK1001 in Combo With Pembro Versus Placebo and Pembro as First-Line Therapy in Patients With Advanced Melanoma."
+          }
+        ]
+      },
+      {
+        "country": "Greece",
+        "trial_count": 4,
+        "nct_ids": [
+          "NCT07015190",
+          "NCT06264180",
+          "NCT06961006",
+          "NCT07221734"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT07015190",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Greece",
+            "title": "Neoadjuvant Darovasertib in Primary Uveal Melanoma"
+          },
+          {
+            "nct_id": "NCT06264180",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Greece",
+            "title": "VO and Nivolumab vs Physician's Choice in Advanced Melanoma That Progressed on Anti-PD-1 & Anti-CTLA-4 Drugs [IGNYTE-3]"
+          },
+          {
+            "nct_id": "NCT06961006",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Greece",
+            "title": "A Clinical Study of Intismeran Autogene (V940) and Pembrolizumab (MK-3475) in People With Melanoma (V940-012/INTerpath-012)"
+          },
+          {
+            "nct_id": "NCT07221734",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Greece",
+            "title": "Study to Compare Pharmacokinetics, Efficacy, Safety, and Immunogenicity of MB11 Versus EU-/US-Opdivo® in Subjects With Previously Untreated Advanced [Unresectable or Metastatic] Melanoma"
+          }
+        ]
+      },
+      {
+        "country": "Puerto Rico",
+        "trial_count": 4,
+        "nct_ids": [
+          "NCT07519655",
+          "NCT06418204",
+          "NCT03452774",
+          "NCT02402244"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT07519655",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Puerto Rico",
+            "title": "Phase 1 Study of PF-08046033 in Advanced Solid Tumors"
+          },
+          {
+            "nct_id": "NCT06418204",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Puerto Rico",
+            "title": "Assessing Benefits and Harms of Cannabis/Cannabinoid Use Among Cancer Patients Treated in Community Oncology Clinics"
+          },
+          {
+            "nct_id": "NCT03452774",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Puerto Rico",
+            "title": "SYNERGY-AI: Artificial Intelligence Based Precision Oncology Clinical Trial Matching and Registry"
+          },
+          {
+            "nct_id": "NCT02402244",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Puerto Rico",
+            "title": "Project: Every Child for Younger Patients With Cancer"
+          }
+        ]
+      },
+      {
+        "country": "Russia",
+        "trial_count": 4,
+        "nct_ids": [
+          "NCT07130032",
+          "NCT03340506",
+          "NCT04752826",
+          "NCT05539677"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT07130032",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Russia",
+            "title": "Efficacy And Safety Of Anti-PD-1/PD-L1 Antibodies In Combination With Bevacizumab And Metronomic Cyclophosphamide In Patients With Non-Small Cell Lung Cancer And Cutaneous Melanoma Previously Treated With Immune Checkpoint Blockade"
+          },
+          {
+            "nct_id": "NCT03340506",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Russia",
+            "title": "Dabrafenib and/or Trametinib Rollover Study"
+          },
+          {
+            "nct_id": "NCT04752826",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Russia",
+            "title": "BI-1808 as a Single Agent and With Pembrolizumab (KEYTRUDA® ) in Treatment of Advanced Malignancies(Keynote-D20)"
+          },
+          {
+            "nct_id": "NCT05539677",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Russia",
+            "title": "Biobank and Register of Patients With Agresive Tumors for Translational and Analytical Research"
+          }
+        ]
+      },
+      {
+        "country": "Ukraine",
+        "trial_count": 4,
+        "nct_ids": [
+          "NCT07476326",
+          "NCT07221734",
+          "NCT07475572",
+          "NCT06506643"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT07476326",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Ukraine",
+            "title": "Pharmacokinetics, Safety, and Immunogenicity Comparison of Bmab1700 and Opdivo® as Adjuvant Monotherapy in Participants With Melanoma"
+          },
+          {
+            "nct_id": "NCT07221734",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Ukraine",
+            "title": "Study to Compare Pharmacokinetics, Efficacy, Safety, and Immunogenicity of MB11 Versus EU-/US-Opdivo® in Subjects With Previously Untreated Advanced [Unresectable or Metastatic] Melanoma"
+          },
+          {
+            "nct_id": "NCT07475572",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Ukraine",
+            "title": "Pharmacokinetic Similarity Study to Compare AVT32-DRL_PB With Keytruda® in Participants With Fully Resected Melanoma"
+          },
+          {
+            "nct_id": "NCT06506643",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Ukraine",
+            "title": "Safety and Efficacy of KLS-1 Monotherapy in Malignant Neoplasms"
+          }
+        ]
+      },
+      {
+        "country": "Argentina",
+        "trial_count": 3,
+        "nct_ids": [
+          "NCT06330064",
+          "NCT03340506",
+          "NCT06112314"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT06330064",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Argentina",
+            "title": "A Study to Evaluate the Efficacy and Safety of Ifinatamab Deruxtecan (I-DXd) in Subjects With Recurrent or Metastatic Solid Tumors (IDeate-PanTumor02)"
+          },
+          {
+            "nct_id": "NCT03340506",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Argentina",
+            "title": "Dabrafenib and/or Trametinib Rollover Study"
+          },
+          {
+            "nct_id": "NCT06112314",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Argentina",
+            "title": "IMC-F106C Regimen Versus Nivolumab Regimens in Previously Untreated Advanced Melanoma (PRISM-MEL-301)"
+          }
+        ]
+      },
+      {
+        "country": "Chile",
+        "trial_count": 3,
+        "nct_ids": [
+          "NCT06330064",
+          "NCT07476326",
+          "NCT07221734"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT06330064",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Chile",
+            "title": "A Study to Evaluate the Efficacy and Safety of Ifinatamab Deruxtecan (I-DXd) in Subjects With Recurrent or Metastatic Solid Tumors (IDeate-PanTumor02)"
+          },
+          {
+            "nct_id": "NCT07476326",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Chile",
+            "title": "Pharmacokinetics, Safety, and Immunogenicity Comparison of Bmab1700 and Opdivo® as Adjuvant Monotherapy in Participants With Melanoma"
+          },
+          {
+            "nct_id": "NCT07221734",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Chile",
+            "title": "Study to Compare Pharmacokinetics, Efficacy, Safety, and Immunogenicity of MB11 Versus EU-/US-Opdivo® in Subjects With Previously Untreated Advanced [Unresectable or Metastatic] Melanoma"
+          }
+        ]
+      },
+      {
+        "country": "Ireland",
+        "trial_count": 3,
+        "nct_ids": [
+          "NCT06330064",
+          "NCT03860883",
+          "NCT07492680"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT06330064",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Ireland",
+            "title": "A Study to Evaluate the Efficacy and Safety of Ifinatamab Deruxtecan (I-DXd) in Subjects With Recurrent or Metastatic Solid Tumors (IDeate-PanTumor02)"
+          },
+          {
+            "nct_id": "NCT03860883",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Ireland",
+            "title": "Melanoma Margins Trial-II: 1cm v 2cm Wide Surgical Excision Margins for AJCC Stage II Primary Cutaneous Melanoma"
+          },
+          {
+            "nct_id": "NCT07492680",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Ireland",
+            "title": "A Study of BMS-986504 Monotherapy and in Combination With Other Agents in Participants With Advanced and/or Metastatic Solid Tumors With Homozygous MTAP Deletion (MountainTAP-5)"
+          }
+        ]
+      },
+      {
+        "country": "Romania",
+        "trial_count": 3,
+        "nct_ids": [
+          "NCT07476326",
+          "NCT06112314",
+          "NCT07221734"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT07476326",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Romania",
+            "title": "Pharmacokinetics, Safety, and Immunogenicity Comparison of Bmab1700 and Opdivo® as Adjuvant Monotherapy in Participants With Melanoma"
+          },
+          {
+            "nct_id": "NCT06112314",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Romania",
+            "title": "IMC-F106C Regimen Versus Nivolumab Regimens in Previously Untreated Advanced Melanoma (PRISM-MEL-301)"
+          },
+          {
+            "nct_id": "NCT07221734",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Romania",
+            "title": "Study to Compare Pharmacokinetics, Efficacy, Safety, and Immunogenicity of MB11 Versus EU-/US-Opdivo® in Subjects With Previously Untreated Advanced [Unresectable or Metastatic] Melanoma"
+          }
+        ]
+      },
+      {
+        "country": "Singapore",
+        "trial_count": 3,
+        "nct_ids": [
+          "NCT05727904",
+          "NCT04986748",
+          "NCT04198766"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT05727904",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Singapore",
+            "title": "Study to Investigate Lifileucel Regimen Plus Pembrolizumab Compared With Pembrolizumab Alone in Participants With Untreated Advanced Melanoma."
+          },
+          {
+            "nct_id": "NCT04986748",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Singapore",
+            "title": "Using QPOP to Predict Treatment for Sarcomas and Melanomas"
+          },
+          {
+            "nct_id": "NCT04198766",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Singapore",
+            "title": "Study of INBRX-106 and INBRX-106 in Combination With Pembrolizumab (Keytruda®) in Subjects With Locally Advanced or Metastatic Solid Tumors (Hexavalent OX40 Agonist)"
+          }
+        ]
+      },
+      {
+        "country": "Georgia",
+        "trial_count": 2,
+        "nct_ids": [
+          "NCT07476326",
+          "NCT07221734"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT07476326",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Georgia",
+            "title": "Pharmacokinetics, Safety, and Immunogenicity Comparison of Bmab1700 and Opdivo® as Adjuvant Monotherapy in Participants With Melanoma"
+          },
+          {
+            "nct_id": "NCT07221734",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Georgia",
+            "title": "Study to Compare Pharmacokinetics, Efficacy, Safety, and Immunogenicity of MB11 Versus EU-/US-Opdivo® in Subjects With Previously Untreated Advanced [Unresectable or Metastatic] Melanoma"
+          }
+        ]
+      },
+      {
+        "country": "Mexico",
+        "trial_count": 2,
+        "nct_ids": [
+          "NCT06330064",
+          "NCT06112314"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT06330064",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Mexico",
+            "title": "A Study to Evaluate the Efficacy and Safety of Ifinatamab Deruxtecan (I-DXd) in Subjects With Recurrent or Metastatic Solid Tumors (IDeate-PanTumor02)"
+          },
+          {
+            "nct_id": "NCT06112314",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Mexico",
+            "title": "IMC-F106C Regimen Versus Nivolumab Regimens in Previously Untreated Advanced Melanoma (PRISM-MEL-301)"
+          }
+        ]
+      },
+      {
+        "country": "Serbia",
+        "trial_count": 2,
+        "nct_ids": [
+          "NCT07476326",
+          "NCT06697301"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT07476326",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Serbia",
+            "title": "Pharmacokinetics, Safety, and Immunogenicity Comparison of Bmab1700 and Opdivo® as Adjuvant Monotherapy in Participants With Melanoma"
+          },
+          {
+            "nct_id": "NCT06697301",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Serbia",
+            "title": "Safety and Efficacy of EIK1001 in Combo With Pembro Versus Placebo and Pembro as First-Line Therapy in Patients With Advanced Melanoma."
+          }
+        ]
+      },
+      {
+        "country": "Slovakia",
+        "trial_count": 2,
+        "nct_ids": [
+          "NCT07015190",
+          "NCT07221734"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT07015190",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Slovakia",
+            "title": "Neoadjuvant Darovasertib in Primary Uveal Melanoma"
+          },
+          {
+            "nct_id": "NCT07221734",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Slovakia",
+            "title": "Study to Compare Pharmacokinetics, Efficacy, Safety, and Immunogenicity of MB11 Versus EU-/US-Opdivo® in Subjects With Previously Untreated Advanced [Unresectable or Metastatic] Melanoma"
+          }
+        ]
+      },
+      {
+        "country": "South Africa",
+        "trial_count": 2,
+        "nct_ids": [
+          "NCT07476326",
+          "NCT06697301"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT07476326",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "South Africa",
+            "title": "Pharmacokinetics, Safety, and Immunogenicity Comparison of Bmab1700 and Opdivo® as Adjuvant Monotherapy in Participants With Melanoma"
+          },
+          {
+            "nct_id": "NCT06697301",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "South Africa",
+            "title": "Safety and Efficacy of EIK1001 in Combo With Pembro Versus Placebo and Pembro as First-Line Therapy in Patients With Advanced Melanoma."
+          }
+        ]
+      },
+      {
+        "country": "Bosnia and Herzegovina",
+        "trial_count": 1,
+        "nct_ids": [
+          "NCT07221734"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT07221734",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Bosnia and Herzegovina",
+            "title": "Study to Compare Pharmacokinetics, Efficacy, Safety, and Immunogenicity of MB11 Versus EU-/US-Opdivo® in Subjects With Previously Untreated Advanced [Unresectable or Metastatic] Melanoma"
+          }
+        ]
+      },
+      {
+        "country": "Bulgaria",
+        "trial_count": 1,
+        "nct_ids": [
+          "NCT06112314"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT06112314",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Bulgaria",
+            "title": "IMC-F106C Regimen Versus Nivolumab Regimens in Previously Untreated Advanced Melanoma (PRISM-MEL-301)"
+          }
+        ]
+      },
+      {
+        "country": "Estonia",
+        "trial_count": 1,
+        "nct_ids": [
+          "NCT07015190"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT07015190",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Estonia",
+            "title": "Neoadjuvant Darovasertib in Primary Uveal Melanoma"
+          }
+        ]
+      },
+      {
+        "country": "Hong Kong",
+        "trial_count": 1,
+        "nct_ids": [
+          "NCT07492680"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT07492680",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Hong Kong",
+            "title": "A Study of BMS-986504 Monotherapy and in Combination With Other Agents in Participants With Advanced and/or Metastatic Solid Tumors With Homozygous MTAP Deletion (MountainTAP-5)"
+          }
+        ]
+      },
+      {
+        "country": "Lithuania",
+        "trial_count": 1,
+        "nct_ids": [
+          "NCT06112314"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT06112314",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Lithuania",
+            "title": "IMC-F106C Regimen Versus Nivolumab Regimens in Previously Untreated Advanced Melanoma (PRISM-MEL-301)"
+          }
+        ]
+      },
+      {
+        "country": "Moldova",
+        "trial_count": 1,
+        "nct_ids": [
+          "NCT07476326"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT07476326",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Moldova",
+            "title": "Pharmacokinetics, Safety, and Immunogenicity Comparison of Bmab1700 and Opdivo® as Adjuvant Monotherapy in Participants With Melanoma"
+          }
+        ]
+      },
+      {
+        "country": "Peru",
+        "trial_count": 1,
+        "nct_ids": [
+          "NCT07221734"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT07221734",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Peru",
+            "title": "Study to Compare Pharmacokinetics, Efficacy, Safety, and Immunogenicity of MB11 Versus EU-/US-Opdivo® in Subjects With Previously Untreated Advanced [Unresectable or Metastatic] Melanoma"
+          }
+        ]
+      },
+      {
+        "country": "Saudi Arabia",
+        "trial_count": 1,
+        "nct_ids": [
+          "NCT02402244"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT02402244",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Saudi Arabia",
+            "title": "Project: Every Child for Younger Patients With Cancer"
+          }
+        ]
+      },
+      {
+        "country": "Thailand",
+        "trial_count": 1,
+        "nct_ids": [
+          "NCT03340506"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT03340506",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Thailand",
+            "title": "Dabrafenib and/or Trametinib Rollover Study"
+          }
+        ]
+      },
+      {
+        "country": "Vietnam",
+        "trial_count": 1,
+        "nct_ids": [
+          "NCT07808164"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT07808164",
+            "field_path": "protocolSection.contactsLocationsModule.locations[].country",
+            "exact_value": "Vietnam",
+            "title": "ENPP1/cGAS (EG) and FAP Expression Profiles in Solid Tumors: An Immunohistochemical Study in a Vietnamese Cohort"
+          }
+        ]
+      }
+    ],
+    "nodes": null,
+    "edges": null
+  },
+  "meta": {
+    "query_interpretation": "Identify countries with the highest number of recruiting clinical trials for melanoma, using the condition and recruitment-status filters provided.",
+    "plan": {
+      "answerable": true,
+      "unsupported_reason": null,
+      "analysis_type": "geographic",
+      "filters": {
+        "drug_name": null,
+        "condition": "melanoma",
+        "sponsor": null,
+        "phase": null,
+        "country": null,
+        "recruitment_status": "RECRUITING",
+        "start_year": null,
+        "end_year": null
+      },
+      "group_by": "condition",
+      "comparison_groups": [],
+      "network_entity_types": [],
+      "interpretation": "Identify countries with the highest number of recruiting clinical trials for melanoma, using the condition and recruitment-status filters provided."
+    },
+    "planner_mode": "llm",
+    "filters_applied": {
+      "condition": "melanoma",
+      "recruitment_status": "RECRUITING"
+    },
+    "total_matching": 485,
+    "trials_analyzed": 485,
+    "truncated": false,
+    "assumptions": [
+      "Each trial contributes once per distinct country with a reported study location."
+    ],
+    "warnings": [],
+    "api_query_url": "https://clinicaltrials.gov/api/v2/studies?format=json&countTotal=true&pageSize=500&fields=BriefTitle%2CLocationCountry%2CNCTId%2COverallStatus&query.cond=melanoma&filter.overallStatus=RECRUITING",
+    "source": "clinicaltrials.gov",
+    "generated_at": "2026-11-01T18:12:13.862725Z",
+    "total_citations": 195,
+    "network_top_n": null,
+    "network_min_edge_weight": null
+  }
+}

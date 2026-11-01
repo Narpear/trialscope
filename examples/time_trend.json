@@ -1,0 +1,1136 @@
+{
+  "visualization": {
+    "type": "time_series",
+    "title": "Clinical trials by start year",
+    "encoding": {
+      "x": {
+        "field": "year_date",
+        "type": "temporal",
+        "timeUnit": "year"
+      },
+      "xOffset": null,
+      "y": {
+        "field": "trial_count",
+        "type": "quantitative",
+        "title": "Trials"
+      },
+      "color": null,
+      "tooltip": [
+        "year",
+        "trial_count"
+      ],
+      "sort": {
+        "field": "year_date",
+        "order": "ascending"
+      },
+      "units": {
+        "trial_count": "trials"
+      },
+      "time_granularity": "year",
+      "nodes": null,
+      "edges": null
+    },
+    "data": [
+      {
+        "year": 1986,
+        "year_date": "1986-01-01",
+        "trial_count": 1,
+        "nct_ids": [
+          "NCT00000527"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT00000527",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "1986-08",
+            "title": "Recurrent Carotid Stenosis"
+          }
+        ]
+      },
+      {
+        "year": 1997,
+        "year_date": "1997-01-01",
+        "trial_count": 1,
+        "nct_ids": [
+          "NCT00175838"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT00175838",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "1997-07",
+            "title": "Primary Thrombocythaemia 1 Trial"
+          }
+        ]
+      },
+      {
+        "year": 2002,
+        "year_date": "2002-01-01",
+        "trial_count": 3,
+        "nct_ids": [
+          "NCT02187562",
+          "NCT00055731",
+          "NCT00906035"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT02187562",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2002-07",
+            "title": "Effect of Steady State Meloxicam on Low Dose Aspirin Induced Inhibition of Platelet Aggregation and Thromboxane Synthesis in Healthy Males and Females"
+          },
+          {
+            "nct_id": "NCT00055731",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2002-11-14",
+            "title": "Hormone Therapy With or Without Docetaxel And Estramustine in Treating Patients With Prostate Cancer That is Locally Advanced or At High Risk of Relapse"
+          },
+          {
+            "nct_id": "NCT00906035",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2002-09",
+            "title": "The Vascular Biology of Dipyridamole in Peripheral Arterial Disease (PAD)"
+          }
+        ]
+      },
+      {
+        "year": 2003,
+        "year_date": "2003-01-01",
+        "trial_count": 2,
+        "nct_ids": [
+          "NCT00664040",
+          "NCT00067119"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT00664040",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2003-05",
+            "title": "Heredity and Phenotype Intervention (HAPI) Heart Study"
+          },
+          {
+            "nct_id": "NCT00067119",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2003-01-01",
+            "title": "Aggrenox Prevention of Access Stenosis"
+          }
+        ]
+      },
+      {
+        "year": 2004,
+        "year_date": "2004-01-01",
+        "trial_count": 1,
+        "nct_ids": [
+          "NCT00843063"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT00843063",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2004-08",
+            "title": "Famotidine Compared With Pantoprazole to Prevent Recurrent Aspirin-Induced Peptic Ulcer/Erosion"
+          }
+        ]
+      },
+      {
+        "year": 2005,
+        "year_date": "2005-01-01",
+        "trial_count": 1,
+        "nct_ids": [
+          "NCT00234299"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT00234299",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2005-12",
+            "title": "Effects of ASA on Prostate Tissue"
+          }
+        ]
+      },
+      {
+        "year": 2006,
+        "year_date": "2006-01-01",
+        "trial_count": 5,
+        "nct_ids": [
+          "NCT00398463",
+          "NCT00241904",
+          "NCT00286416",
+          "NCT00349661",
+          "NCT00358735"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT00398463",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2006-05",
+            "title": "Study of Tirofiban Administration in Patients With Aspirin and or Clopidogrel Resistance"
+          },
+          {
+            "nct_id": "NCT00241904",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2006-05",
+            "title": "Reducing Total Cardiovascular Risk in an Urban Community"
+          },
+          {
+            "nct_id": "NCT00286416",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2006-01",
+            "title": "Effect of Omalizumab (Xolair) in Treatment of Patients With AERD and Allergy Asthma"
+          },
+          {
+            "nct_id": "NCT00349661",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2006-06",
+            "title": "Influence Of Omeprazole On The Anti-Platelet Action Of Clopidogrel"
+          },
+          {
+            "nct_id": "NCT00358735",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2006-06",
+            "title": "Deep Vein Thrombosis (DVT) Prevention in Total Hip Arthroplasty: Continuous Enhanced Circulation Therapy (CECT) Versus Low Molecular Weight Heparin (LMWH)"
+          }
+        ]
+      },
+      {
+        "year": 2007,
+        "year_date": "2007-01-01",
+        "trial_count": 6,
+        "nct_ids": [
+          "NCT00449618",
+          "NCT00562289",
+          "NCT00464997",
+          "NCT01353144",
+          "NCT00688961",
+          "NCT00590174"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT00449618",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2007-01",
+            "title": "Comparison of Awakening Versus Bedtime Dosing of Aspirin in Pre-Hypertension or Mild Essential Hypertension"
+          },
+          {
+            "nct_id": "NCT00562289",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2007-12",
+            "title": "Patent Foramen Ovale Closure or Anticoagulants Versus Antiplatelet Therapy to Prevent Stroke Recurrence"
+          },
+          {
+            "nct_id": "NCT00464997",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2007-06",
+            "title": "The Effect of Low Dose Aspirin on the Pharmacokinetics of Methotrexate"
+          },
+          {
+            "nct_id": "NCT01353144",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2007-06",
+            "title": "A Comparison of Two Therapeutic Strategies for the Treatment of Aspirin-associated Peptic Ulcers"
+          },
+          {
+            "nct_id": "NCT00688961",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2007-06",
+            "title": "Effects of Omacor and Aspirin on Platelet Function"
+          }
+        ]
+      },
+      {
+        "year": 2008,
+        "year_date": "2008-01-01",
+        "trial_count": 4,
+        "nct_ids": [
+          "NCT00728286",
+          "NCT00630877",
+          "NCT00753753",
+          "NCT00818337"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT00728286",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2008-10",
+            "title": "Assessment of Thrombogenicity in Acute Coronary Syndrome"
+          },
+          {
+            "nct_id": "NCT00630877",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2008-02",
+            "title": "Evaluation of a Flushing ASsessment Tool (FAST) in Subjects Receiving Niacin Extended-release Plus Aspirin"
+          },
+          {
+            "nct_id": "NCT00753753",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2008-02",
+            "title": "VerifyNow French Registry"
+          },
+          {
+            "nct_id": "NCT00818337",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2008-11",
+            "title": "Aspirin Responsiveness in Women at Risk for Cardiac Events"
+          }
+        ]
+      },
+      {
+        "year": 2009,
+        "year_date": "2009-01-01",
+        "trial_count": 9,
+        "nct_ids": [
+          "NCT00886574",
+          "NCT02483169",
+          "NCT02384070",
+          "NCT01830491",
+          "NCT01018355",
+          "NCT00977938",
+          "NCT00995410",
+          "NCT01015729",
+          "NCT01011257"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT00886574",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2009-04",
+            "title": "Cilostazol Versus Aspirin for Primary Prevention of Atherosclerotic Events"
+          },
+          {
+            "nct_id": "NCT02483169",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2009-06",
+            "title": "PreventIon of IMT Progression in iSchemic Stroke Patients With High Risk of Cerebral HemOrrhage-IMT Study"
+          },
+          {
+            "nct_id": "NCT02384070",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2009-01",
+            "title": "Simplified Anti-Thrombotic Therapy for FFR"
+          },
+          {
+            "nct_id": "NCT01830491",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2009-03",
+            "title": "Comparison of Effect & Safety of Clopidogrel Napadisilate With Clopidogrel Bisulfate in Coronary Artery Disease Patients"
+          },
+          {
+            "nct_id": "NCT01018355",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2009-10",
+            "title": "The Effect of Device Closure of Patent Foramen Ovale in Elderly Patients With Crytogenic Stoke/TCI"
+          }
+        ]
+      },
+      {
+        "year": 2010,
+        "year_date": "2010-01-01",
+        "trial_count": 7,
+        "nct_ids": [
+          "NCT01023243",
+          "NCT02099682",
+          "NCT01617031",
+          "NCT01147419",
+          "NCT01329224",
+          "NCT02120092",
+          "NCT01173094"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT01023243",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2010-01",
+            "title": "Natural Language Processing and Quality Assessment in Primary Care"
+          },
+          {
+            "nct_id": "NCT02099682",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2010-08",
+            "title": "Long-term Use of Takepron Capsules on the Prevention of Recurrence of Gastric/Duodenal Ulcer in Patients Receiving Low-dose Aspirin"
+          },
+          {
+            "nct_id": "NCT01617031",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2010-09",
+            "title": "Aspirin Twice Daily in Diabetic Patients With Coronary Artery Disease"
+          },
+          {
+            "nct_id": "NCT01147419",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2010-06",
+            "title": "Comparison of Stent and Prothesis Bypass in Superficial Femoral Artery"
+          },
+          {
+            "nct_id": "NCT01329224",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2010-11",
+            "title": "The Antiaggregation Monitoring (TAM) Registry"
+          }
+        ]
+      },
+      {
+        "year": 2011,
+        "year_date": "2011-01-01",
+        "trial_count": 5,
+        "nct_ids": [
+          "NCT01096706",
+          "NCT01398410",
+          "NCT01251757",
+          "NCT01740921",
+          "NCT01369186"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT01096706",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2011-07",
+            "title": "Effects of Urocortins on Forearm Arterial Blood Flow in Healthy Volunteers (Protocol 3)"
+          },
+          {
+            "nct_id": "NCT01398410",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2011-12",
+            "title": "Long-term Prevention of Recurrent Gastric or Duodenal Ulcers Caused by Low-dose Aspirin With Rabeprazole (E3810) Treatment (Planetarium Study)"
+          },
+          {
+            "nct_id": "NCT01251757",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2011-08",
+            "title": "Promoting Adherence to Improve Effectiveness of Cardiovascular Disease Therapies"
+          },
+          {
+            "nct_id": "NCT01740921",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2011-01",
+            "title": "GLP-1 and Microvascular Function in Type 2 Diabetes"
+          },
+          {
+            "nct_id": "NCT01369186",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2011-05",
+            "title": "Drug Drug Interactions of Aspirin and P2Y12-inhibitors"
+          }
+        ]
+      },
+      {
+        "year": 2012,
+        "year_date": "2012-01-01",
+        "trial_count": 7,
+        "nct_ids": [
+          "NCT01992484",
+          "NCT01735227",
+          "NCT05151796",
+          "NCT01518231",
+          "NCT01547039",
+          "NCT01496521",
+          "NCT01582217"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT01992484",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2012-08",
+            "title": "Platelet Function in Patients With an Acute Coronary Syndrome"
+          },
+          {
+            "nct_id": "NCT01735227",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2012-11",
+            "title": "Omeprazole and Pantoprazole Antiplatelet Effect of Clopidogrel Clinical Trials(OPEN)"
+          },
+          {
+            "nct_id": "NCT05151796",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2012-05-01",
+            "title": "Continuation of Aspirin Before Isolated Heart Valve Surgery"
+          },
+          {
+            "nct_id": "NCT01518231",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2012-01",
+            "title": "Autologous Hematopoietic Stem Cell Transplantation in Ischemic Stroke"
+          },
+          {
+            "nct_id": "NCT01547039",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2012-06",
+            "title": "Platelet Reactivity and MES During CEA"
+          }
+        ]
+      },
+      {
+        "year": 2013,
+        "year_date": "2013-01-01",
+        "trial_count": 6,
+        "nct_ids": [
+          "NCT01894555",
+          "NCT01968122",
+          "NCT01847404",
+          "NCT01652209",
+          "NCT02221102",
+          "NCT01780480"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT01894555",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2013-01",
+            "title": "Pharmacogenomics of Antiplatelet Response - II (PARes-II)"
+          },
+          {
+            "nct_id": "NCT01968122",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2013-09",
+            "title": "Registry Study of Stenting for Symptomatic Intracranial Artery Stenosis in China"
+          },
+          {
+            "nct_id": "NCT01847404",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2013-05-14",
+            "title": "Comparative Bioavailability Study of Two Test Products of Fixed Dose Combination Capsule of ASA (Acetylsalicylic Acid) and Pantoprazole (Each Capsule Contains ASA 100 mg and Pantoprazole 20 mg) Under Fasting Conditions"
+          },
+          {
+            "nct_id": "NCT01652209",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2013-09-01",
+            "title": "To Evaluate the Efficacy and Safety of Hearticelgram®-AMI in Patients With Acute Myocardial Infarction."
+          },
+          {
+            "nct_id": "NCT02221102",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2013-12",
+            "title": "Edoxaban for TIA and Acute Minor Stroke"
+          }
+        ]
+      },
+      {
+        "year": 2014,
+        "year_date": "2014-01-01",
+        "trial_count": 3,
+        "nct_ids": [
+          "NCT02209909",
+          "NCT02285738",
+          "NCT02064439"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT02209909",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2014-07",
+            "title": "Effects of Low Dose Aspirin Pre-treatment on Platelet Activation Undergoing Off-pump Coronary Artery Bypass Surgery"
+          },
+          {
+            "nct_id": "NCT02285738",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2014-12-30",
+            "title": "Anti-Platelet and Statin Therapy to Prevent Cancer-Associated Thrombosis"
+          },
+          {
+            "nct_id": "NCT02064439",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2014-03-05",
+            "title": "Reduced-dosed Rivaroxaban in the Long-term Prevention of Recurrent Symptomatic VTE(Venous Thromboembolism)"
+          }
+        ]
+      },
+      {
+        "year": 2015,
+        "year_date": "2015-01-01",
+        "trial_count": 7,
+        "nct_ids": [
+          "NCT03487406",
+          "NCT02425969",
+          "NCT02229461",
+          "NCT02423187",
+          "NCT02804815",
+          "NCT02224131",
+          "NCT02047539"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT03487406",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2015-09",
+            "title": "Anti-platelet Therapy in the Prevention of Cardiovascular Disease in Patients With COPD (APPLE-COPD: ICON 2)"
+          },
+          {
+            "nct_id": "NCT02425969",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2015-04",
+            "title": "A Trial in Stable Intermediate Coronary Lesions and Grey-zone FFR Values"
+          },
+          {
+            "nct_id": "NCT02229461",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2015-02",
+            "title": "Naproxen Sodium/ASA Platelet Study"
+          },
+          {
+            "nct_id": "NCT02423187",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2015-03-17",
+            "title": "Rabeprazole Specific Clinical Experience Investigation for the Long-term Combination Therapy With Low-dose Aspirin"
+          },
+          {
+            "nct_id": "NCT02804815",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2015-10",
+            "title": "Add-Aspirin: A Trial Assessing the Effects of Aspirin on Disease Recurrence and Survival After Primary Therapy in Common Non Metastatic Solid Tumours"
+          }
+        ]
+      },
+      {
+        "year": 2016,
+        "year_date": "2016-01-01",
+        "trial_count": 8,
+        "nct_ids": [
+          "NCT02396732",
+          "NCT02776540",
+          "NCT02761486",
+          "NCT02741817",
+          "NCT02604732",
+          "NCT02798913",
+          "NCT02548650",
+          "NCT02601157"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT02396732",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2016-02",
+            "title": "Aspirin and Enoxaparin for VTE in Trauma"
+          },
+          {
+            "nct_id": "NCT02776540",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2016-06-01",
+            "title": "Clopidogrel for Acute Ischaemia of Recent Onset"
+          },
+          {
+            "nct_id": "NCT02761486",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2016-08",
+            "title": "Effect of Aspirin on Gut Microbiome"
+          },
+          {
+            "nct_id": "NCT02741817",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2016-06-26",
+            "title": "WilL LOWer Dose Aspirin be More Effective Following ACS? (WILLOW-ACS)"
+          },
+          {
+            "nct_id": "NCT02604732",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2016-04-01",
+            "title": "Pre-operative Withdrawal of Aspirin in Laparoscopic Inguinal Hernia Repair"
+          }
+        ]
+      },
+      {
+        "year": 2017,
+        "year_date": "2017-01-01",
+        "trial_count": 7,
+        "nct_ids": [
+          "NCT02984384",
+          "NCT03001960",
+          "NCT03341390",
+          "NCT03447379",
+          "NCT03051646",
+          "NCT03321292",
+          "NCT03028350"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT02984384",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2017-04-24",
+            "title": "PREVENTion of Clot in Orthopaedic Trauma"
+          },
+          {
+            "nct_id": "NCT03001960",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2017-03",
+            "title": "Dual AntiPlatelet Therapies for Prevention of Periinterventional Embolic Events in TAVI"
+          },
+          {
+            "nct_id": "NCT03341390",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2017-10-18",
+            "title": "An Investigational Study to Assess the Effect of BMS-986177 on Aspirin in Healthy Participants"
+          },
+          {
+            "nct_id": "NCT03447379",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2017-12-15",
+            "title": "Short-term Dual Antiplatelet Therapy After Deployment of Bioabsorbable Polymer Everolimus-eluting Stent"
+          },
+          {
+            "nct_id": "NCT03051646",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2017-01-13",
+            "title": "Aspirin as a Pre-Treatment for Exercise in Multiple Sclerosis"
+          }
+        ]
+      },
+      {
+        "year": 2018,
+        "year_date": "2018-01-01",
+        "trial_count": 6,
+        "nct_ids": [
+          "NCT03723382",
+          "NCT03560310",
+          "NCT03480009",
+          "NCT04057300",
+          "NCT03417388",
+          "NCT03357367"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT03723382",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2018-05-20",
+            "title": "Stroke in Egyptian Clinical REgisTry"
+          },
+          {
+            "nct_id": "NCT03560310",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2018-06-29",
+            "title": "Ticagrelor and ASA vs. ASA Only After Isolated Coronary Artery Bypass Grafting in Patients With Acute Coronary Syndrome"
+          },
+          {
+            "nct_id": "NCT03480009",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2018-07-28",
+            "title": "Dextromethorphan as a Novel Non-opioid Adjunctive Agent for Pain Control in Medication Abortion"
+          },
+          {
+            "nct_id": "NCT04057300",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2018-10-01",
+            "title": "Ticagrelor Compared to Clopidogrel in Acute Coronary Syndromes"
+          },
+          {
+            "nct_id": "NCT03417388",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2018-02-09",
+            "title": "Women's IschemiA TRial to Reduce Events In Non-ObstRuctive CAD"
+          }
+        ]
+      },
+      {
+        "year": 2019,
+        "year_date": "2019-01-01",
+        "trial_count": 16,
+        "nct_ids": [
+          "NCT03651804",
+          "NCT03509259",
+          "NCT06419283",
+          "NCT04081831",
+          "NCT03735433",
+          "NCT03667326",
+          "NCT03807921",
+          "NCT04184921",
+          "NCT04434365",
+          "NCT03961334",
+          "NCT05247931",
+          "NCT04006288",
+          "NCT03786757",
+          "NCT03805932",
+          "NCT05632445",
+          "NCT03971500"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT03651804",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2019-04-10",
+            "title": "Radiofrequency Ablation: Treatment for Posterior Element Pain From Vertebral Compression Fractures"
+          },
+          {
+            "nct_id": "NCT03509259",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2019-03-21",
+            "title": "Cardiovascular Diseases in Elderly Asthma"
+          },
+          {
+            "nct_id": "NCT06419283",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2019-08-01",
+            "title": "Prospective Study on Safety and Efficacy of Stenting for Chronic Middle Cerebral Artery Occlusion With Limb Dysfunction"
+          },
+          {
+            "nct_id": "NCT04081831",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2019-07-31",
+            "title": "Effectiveness of Low Dose Aspirin in Decreasing the Chance Getting Stomach and Intestine Cancer"
+          },
+          {
+            "nct_id": "NCT03735433",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2019-01-15",
+            "title": "The Effect of Two Aspirin Dosing Strategies for Obese Women at High Risk for Preeclampsia"
+          }
+        ]
+      },
+      {
+        "year": 2020,
+        "year_date": "2020-01-01",
+        "trial_count": 8,
+        "nct_ids": [
+          "NCT04301518",
+          "NCT04274803",
+          "NCT04504864",
+          "NCT04014803",
+          "NCT04753372",
+          "NCT04338919",
+          "NCT04298723",
+          "NCT04307485"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT04301518",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2020-11-06",
+            "title": "Prematurity Risk Assessment Combined With Clinical Interventions for Improving Neonatal outcoMEs"
+          },
+          {
+            "nct_id": "NCT04274803",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2020-04-01",
+            "title": "Dose Intralipid Infusion Reduces Pregnancy Complications Caused by Antiphospholipid Antibody Syndrome?"
+          },
+          {
+            "nct_id": "NCT04504864",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2020-10-01",
+            "title": "Low-dose Aspirin Therapy in Patients With Ischemic Stroke and Microbleeds"
+          },
+          {
+            "nct_id": "NCT04014803",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2020-01-13",
+            "title": "Aspirin and a PoTent P2Y12 Inhibitor Versus Aspirin and Clopidogrel in Patients Undergoing PCI for Complex Lesion"
+          },
+          {
+            "nct_id": "NCT04753372",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2020-12-21",
+            "title": "Rivaroxaban Plus Aspirin in Patients With Chronic Coronary Syndrome and High Ischemic Risk"
+          }
+        ]
+      },
+      {
+        "year": 2021,
+        "year_date": "2021-01-01",
+        "trial_count": 10,
+        "nct_ids": [
+          "NCT04792723",
+          "NCT05007054",
+          "NCT04484259",
+          "NCT04356326",
+          "NCT04945616",
+          "NCT04581759",
+          "NCT07074834",
+          "NCT04768179",
+          "NCT04744571",
+          "NCT04575519"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT04792723",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2021-03-05",
+            "title": "Pharmacokinetic and Pharmacodynamic Study of a Novel Sublingual Aspirin Tablet"
+          },
+          {
+            "nct_id": "NCT05007054",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2021-05-01",
+            "title": "Long-Term Outcomes in Patients With Three-Vessel Disease"
+          },
+          {
+            "nct_id": "NCT04484259",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2021-03-31",
+            "title": "Ticagrelor With and Without Aspirin in Patients With Diabetes Mellitus"
+          },
+          {
+            "nct_id": "NCT04356326",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2021-02-15",
+            "title": "Chronic Hypertension and Acetyl Salicylic Acid in Pregnancy"
+          },
+          {
+            "nct_id": "NCT04945616",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2021-07-13",
+            "title": "To Evaluate the Safety and Tolerability of Combined Administration of SHR2285 Tablets With Aspirin, Clopidogrel or Ticagrelor in Healthy Subjects"
+          }
+        ]
+      },
+      {
+        "year": 2022,
+        "year_date": "2022-01-01",
+        "trial_count": 5,
+        "nct_ids": [
+          "NCT05267990",
+          "NCT05056896",
+          "NCT05257824",
+          "NCT05193071",
+          "NCT02832531"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT05267990",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2022-03-01",
+            "title": "Coronary Artery Calcium-guided Primary Prevention of Major Coronary Heart Disease in Asymptomatic Diabetes"
+          },
+          {
+            "nct_id": "NCT05056896",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2022-06-03",
+            "title": "ASPIRED-XT: ASPirin Intervention for the REDuction of Colorectal Cancer Risk -EXTension"
+          },
+          {
+            "nct_id": "NCT05257824",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2022-06-23",
+            "title": "Optimal Duration of Dual Antiplatelet Therapy After Stent-assisted Coiling"
+          },
+          {
+            "nct_id": "NCT05193071",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2022-07-08",
+            "title": "Early Antiplatelet for Minor Stroke Following Thrombolysis (EAST)"
+          },
+          {
+            "nct_id": "NCT02832531",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2022-01",
+            "title": "INVestIgation of rheumatiC AF Treatment Using Vitamin K Antagonists, Rivaroxaban or Aspirin Studies, Superiority"
+          }
+        ]
+      },
+      {
+        "year": 2023,
+        "year_date": "2023-01-01",
+        "trial_count": 5,
+        "nct_ids": [
+          "NCT05960721",
+          "NCT05761015",
+          "NCT05899582",
+          "NCT06877390",
+          "NCT06088433"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT05960721",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2023-07-06",
+            "title": "Low-dose NOAC Versus GDMT After LAAO"
+          },
+          {
+            "nct_id": "NCT05761015",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2023-12-14",
+            "title": "Helping Osteoarthritis Patients to Walk With NSAID"
+          },
+          {
+            "nct_id": "NCT05899582",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2023-09-15",
+            "title": "Extracranial-intracranial Bypass Surgery for Symptomatic Chronic Middle Cerebral Artery Occlusion: the CMOSS-2 Trial"
+          },
+          {
+            "nct_id": "NCT06877390",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2023-11-01",
+            "title": "Effect of Enhanced External Counterpulsation"
+          },
+          {
+            "nct_id": "NCT06088433",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2023-11-15",
+            "title": "Ticagrelor Single Antiplatelet Therapy in Patients With High Risk of Bleeding After DCB for Coronary Small Vessel Disease"
+          }
+        ]
+      },
+      {
+        "year": 2024,
+        "year_date": "2024-01-01",
+        "trial_count": 7,
+        "nct_ids": [
+          "NCT06653348",
+          "NCT06013020",
+          "NCT06740916",
+          "NCT06281665",
+          "NCT06683300",
+          "NCT06280976",
+          "NCT07064343"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT06653348",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2024-04-01",
+            "title": "Ticagrelor Based De-Escalation of Dual Antiplatelet Therapy in Ischemic Stroke"
+          },
+          {
+            "nct_id": "NCT06013020",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2024-04-01",
+            "title": "Century Clot-Guided Prophylactic Rivaroxaban for Post STEMI Complicating Left Ventricular Thrombus"
+          },
+          {
+            "nct_id": "NCT06740916",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2024-12-12",
+            "title": "Long-term Efficacy of Once Daily Versus Twice Daily Aspirin in High-risk MPN Patients With Aspirin Resistance"
+          },
+          {
+            "nct_id": "NCT06281665",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2024-05-29",
+            "title": "Treatment With Aspirin After Preeclampsia: TAP Trial"
+          },
+          {
+            "nct_id": "NCT06683300",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2024-11",
+            "title": "Drug Eluting Stenting and Short Dual Antiplatelet Therapy for Preventing Recurrent Stroke in Vertebral Stenosis Registry Study"
+          }
+        ]
+      },
+      {
+        "year": 2025,
+        "year_date": "2025-01-01",
+        "trial_count": 5,
+        "nct_ids": [
+          "NCT07088523",
+          "NCT06676280",
+          "NCT07240454",
+          "NCT07198529",
+          "NCT07444164"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT07088523",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2025-07-31",
+            "title": "Traditional Chinese Medicine Intervention for Ischemic Cardiovascular Disease Comorbid With Diabetes Mellitus: An Efficacy Comparative Study"
+          },
+          {
+            "nct_id": "NCT06676280",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2025-07-24",
+            "title": "ASpirin Use and stAtin Strategy for Primary Prevention in Severe Coronary Calcium Score on Computed Tomography"
+          },
+          {
+            "nct_id": "NCT07240454",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2025-10-15",
+            "title": "Aspirin Continuation or Discontinuation in Conservative Treatment for Chronic Subdural Hematoma"
+          },
+          {
+            "nct_id": "NCT07198529",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2025-09-30",
+            "title": "OCT-Guided Stent Optimization for Short-Duration Dual Antiplatelet Therapy in Stable Angina"
+          },
+          {
+            "nct_id": "NCT07444164",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2025-01-13",
+            "title": "Comparative Bioavailability Study Between Ticagrelor and ASA Administered Individually or in Combination."
+          }
+        ]
+      },
+      {
+        "year": 2026,
+        "year_date": "2026-01-01",
+        "trial_count": 5,
+        "nct_ids": [
+          "NCT07663825",
+          "NCT07609654",
+          "NCT07441382",
+          "NCT07677410",
+          "NCT07617870"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT07663825",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2026-09",
+            "title": "Acetylsalicylic Acid Versus Placebo as an add-on Treatment to Local Non-steroidal Anti-inflammatory Drug for the Management of Thrombotic Episodes in Superficial Venous Malformations in Children Aged 6 to 17 Years."
+          },
+          {
+            "nct_id": "NCT07609654",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2026-10-26",
+            "title": "Oral Anticoagulation in Patients With Prior Deep Intracerebral Hemorrhage, Atrial Fibrillation, and Ischemic Stroke"
+          },
+          {
+            "nct_id": "NCT07441382",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2026-03-24",
+            "title": "Catheter Ablation Plus LAAO Versus Anticoagulation in Frail Elderly Patients With Atrial Fibrillation"
+          },
+          {
+            "nct_id": "NCT07677410",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2026-07-18",
+            "title": "Aspirin Monotherapy Versus Sequential Warfarin-Aspirin Therapy After TAVR in Patients With Pure Aortic Regurgitation"
+          },
+          {
+            "nct_id": "NCT07617870",
+            "field_path": "protocolSection.statusModule.startDateStruct.date",
+            "exact_value": "2026-06-01",
+            "title": "Pro-urokinase for Extended-Window Posterior Circulation Stroke"
+          }
+        ]
+      }
+    ],
+    "nodes": null,
+    "edges": null
+  },
+  "meta": {
+    "query_interpretation": "Analyze the temporal trend in aspirin-related clinical trials by start year, using trials where aspirin is the specified drug and summarizing how trial activity changes over time.",
+    "plan": {
+      "answerable": true,
+      "unsupported_reason": null,
+      "analysis_type": "time_trend",
+      "filters": {
+        "drug_name": "aspirin",
+        "condition": null,
+        "sponsor": null,
+        "phase": null,
+        "country": null,
+        "recruitment_status": null,
+        "start_year": null,
+        "end_year": null
+      },
+      "group_by": null,
+      "comparison_groups": [],
+      "network_entity_types": [],
+      "interpretation": "Analyze the temporal trend in aspirin-related clinical trials by start year, using trials where aspirin is the specified drug and summarizing how trial activity changes over time."
+    },
+    "planner_mode": "llm",
+    "filters_applied": {
+      "drug_name": "aspirin"
+    },
+    "total_matching": 2204,
+    "trials_analyzed": 150,
+    "truncated": true,
+    "assumptions": [
+      "Study start dates with month or day precision are bucketed by calendar year."
+    ],
+    "warnings": [],
+    "api_query_url": "https://clinicaltrials.gov/api/v2/studies?format=json&countTotal=true&pageSize=150&fields=BriefTitle%2CNCTId%2CStartDate&query.intr=aspirin",
+    "source": "clinicaltrials.gov",
+    "generated_at": "2026-11-01T18:12:11.240533Z",
+    "total_citations": 111,
+    "network_top_n": null,
+    "network_min_edge_weight": null
+  }
+}
