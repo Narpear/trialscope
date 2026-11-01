@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="/static/style.css?v=5" />
+    <link rel="stylesheet" href="/static/style.css?v=6" />
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
@@ -74,14 +74,13 @@
                 <button id="download-csv" class="text-button" type="button" disabled>Download CSV</button>
                 <button id="share-query" class="text-button" type="button" disabled>Copy query link</button>
                 <button id="json-toggle" class="text-button" type="button">View JSON</button>
-                <button id="copy-json" class="icon-button" type="button" title="Copy response">▢</button>
               </div>
             </div>
             <div id="chart" class="chart"></div>
             <pre id="json-view" class="json-view hidden"></pre>
             <div class="evidence-bar">
-              <div class="evidence-copy"><span class="evidence-icon" aria-hidden="true">⌕</span><span><strong>Every value is backed by trial records.</strong> Click any bar, point or node to see the trials behind it.</span></div>
-              <button id="reopen-citations" class="evidence-button" type="button" disabled>Browse source records <span aria-hidden="true">→</span></button>
+              <p class="evidence-copy"><span class="evidence-icon" aria-hidden="true">☝</span><span>Click a mark to inspect its supporting studies</span></p>
+              <button id="reopen-citations" class="evidence-button hidden" type="button">View source records <span aria-hidden="true">→</span></button>
             </div>
             <div class="chart-footnote"><span>Source: ClinicalTrials.gov</span></div>
           </div>
@@ -102,6 +101,6 @@
       <div id="citation-content" class="citation-content"><p class="muted">Pick a data point to see its contributing trials.</p></div>
     </aside>
     <div id="scrim" class="scrim"></div>
-    <script src="/static/app.js?v=7"></script>
+    <script src="/static/app.js?v=8"></script>
   </body>
 </html>

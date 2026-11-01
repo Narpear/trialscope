@@ -70,7 +70,7 @@ function showStatus(kind, message) {
 function renderResults(response) {
   const { visualization: viz, meta } = response;
   latestCitationSelection = null;
-  document.querySelector("#reopen-citations").disabled = false;
+  document.querySelector("#reopen-citations").classList.add("hidden");
   document.querySelector("#chart-title").textContent = viz.title;
   document.querySelector("#interpretation").textContent = meta.query_interpretation;
   document.querySelector("#metrics").innerHTML = `
@@ -214,6 +214,7 @@ function nodeLabel(nodes, node) { return nodes.find((item) => item.id === (typeo
 
 function openCitations(datum, label) {
   latestCitationSelection = { datum, label };
+  document.querySelector("#reopen-citations").classList.remove("hidden");
   showCitationSelection(datum, label);
 }
 
@@ -305,12 +306,6 @@ document.querySelector("#json-toggle").addEventListener("click", (event) => {
   const view = document.querySelector("#json-view");
   view.classList.toggle("hidden");
   event.currentTarget.textContent = view.classList.contains("hidden") ? "View JSON" : "Hide JSON";
-});
-document.querySelector("#copy-json").addEventListener("click", async () => {
-  if (!latestResponse) return;
-  await navigator.clipboard.writeText(JSON.stringify(latestResponse, null, 2));
-  document.querySelector("#copy-json").textContent = "✓";
-  setTimeout(() => { document.querySelector("#copy-json").textContent = "▢"; }, 1200);
 });
 document.querySelector("#download-csv").addEventListener("click", downloadCsv);
 document.querySelector("#share-query").addEventListener("click", copyShareLink);
