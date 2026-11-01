@@ -3,6 +3,8 @@ from collections import defaultdict
 from dataclasses import dataclass, field
 from typing import Any
 
+from app.aggregators.dimensions import COUNTABLE_DIMENSIONS, NOT_SPECIFIED, category_label
+
 MAX_CITATIONS_PER_DATUM = 5
 
 Evidence = tuple[dict[str, Any], str, Any]
@@ -17,6 +19,17 @@ class Scope:
     total: int
     truncated: bool
     api_query_url: str
+    # Exact registry totals per bucket key, present when the sample is truncated but the
+    # analysis buckets can be counted with countTotal queries.
+    bucket_counts: dict[Any, "BucketCount"] | None = None
+    # Exact number of matching studies that lack the bucketed field, when it was queried.
+    missing_count: int | None = None
+
+
+@dataclass
+class BucketCount:
+    count: int
+    query_url: str
 
 
 @dataclass
@@ -94,11 +107,19 @@ def _normalize(value: str) -> str:
 
 
 def _group_values(study: dict[str, Any], dimension: str) -> list[tuple[str, str, Any]]:
+    """Return (category key, cited field path, exact cited value) for each value of a study.
+
+    Countable dimensions use the registry code as the key and NOT_SPECIFIED when absent, so
+    sample rows line up with exact per-bucket counts.
+    """
     if dimension == "phase":
         raw = section(study, "designModule").get("phases") or []
-        return [
-            (v.replace("_", " ").title(), "protocolSection.designModule.phases", raw) for v in raw
-        ] or [("Not specified", "protocolSection.designModule.phases", raw)]
+        return [(v, "protocolSection.designModule.phases", raw) for v in raw] or [
+            (NOT_SPECIFIED, "protocolSection.designModule.phases", raw)
+        ]
+    if dimension == "status":
+        raw = section(study, "statusModule").get("overallStatus")
+        return [(raw or NOT_SPECIFIED, "protocolSection.statusModule.overallStatus", raw)]
     if dimension == "sponsor":
         raw = section(study, "sponsorCollaboratorsModule").get("leadSponsor", {}).get("name")
         return (
@@ -108,54 +129,75 @@ def _group_values(study: dict[str, Any], dimension: str) -> list[tuple[str, str,
         )
     if dimension == "sponsor_class":
         raw = section(study, "sponsorCollaboratorsModule").get("leadSponsor", {}).get("class")
-        return (
-            [(raw, "protocolSection.sponsorCollaboratorsModule.leadSponsor.class", raw)]
-            if raw
-            else []
-        )
+        return [
+            (
+                raw or NOT_SPECIFIED,
+                "protocolSection.sponsorCollaboratorsModule.leadSponsor.class",
+                raw,
+            )
+        ]
     if dimension == "intervention_type":
         raw = section(study, "armsInterventionsModule").get("interventions") or []
         return [
             (
-                item.get("type", "Not specified").title(),
+                item.get("type") or NOT_SPECIFIED,
                 "protocolSection.armsInterventionsModule.interventions[].type",
                 item.get("type"),
             )
             for item in raw
-        ]
+        ] or [(NOT_SPECIFIED, "protocolSection.armsInterventionsModule.interventions", raw)]
     if dimension == "condition":
         raw = section(study, "conditionsModule").get("conditions") or []
         return [(value, "protocolSection.conditionsModule.conditions", raw) for value in raw]
     raise ValueError(f"Unsupported grouping dimension: {dimension}")
 
 
+def apply_exact_count(row: dict[str, Any], bucket: BucketCount) -> dict[str, Any]:
+    """Replace a sample count with the registry total; keep the sample size for transparency."""
+    row["sample_trial_count"] = row["trial_count"]
+    row["trial_count"] = bucket.count
+    row["count_query_url"] = bucket.query_url
+    return row
+
+
 def categorical_rows(
     studies: list[dict[str, Any]],
     dimension: str,
     extra_evidence: dict[str, Evidence] | None = None,
+    bucket_counts: dict[Any, BucketCount] | None = None,
 ) -> list[dict[str, Any]]:
     """Count each study once per distinct category value, citing the category field.
 
     ``extra_evidence`` maps an NCT ID to an additional citation (such as comparison-group
-    membership) placed before that study's category citation.
+    membership) placed before that study's category citation. With ``bucket_counts``, every
+    bucket with a non-zero registry total gets a row whose trial_count is that exact total.
     """
     records: dict[str, list[Evidence]] = defaultdict(list)
     for study in studies:
         unique: dict[str, tuple[str, Any]] = {}
-        for label, path, exact in _group_values(study, dimension):
-            unique.setdefault(label, (path, exact))
+        for key, path, exact in _group_values(study, dimension):
+            unique.setdefault(key, (path, exact))
         membership = (extra_evidence or {}).get(nct_and_title(study)[0])
-        for label, (path, exact) in unique.items():
+        for key, (path, exact) in unique.items():
             if membership:
-                records[label].append(membership)
-            records[label].append((study, path, exact))
-    return [
-        with_citations({"category": label}, entries)
-        for label, entries in sorted(
-            records.items(),
-            key=lambda item: (-len({nct_and_title(s)[0] for s, _, _ in item[1]}), item[0].casefold()),
+                records[key].append(membership)
+            records[key].append((study, path, exact))
+    countable = dimension in COUNTABLE_DIMENSIONS
+    keys = (
+        [key for key, bucket in bucket_counts.items() if bucket.count]
+        if bucket_counts is not None
+        else list(records)
+    )
+    rows = []
+    for key in keys:
+        row = with_citations(
+            {"category": category_label(key) if countable else key, "category_code": key},
+            records.get(key, []),
         )
-    ]
+        if bucket_counts is not None:
+            apply_exact_count(row, bucket_counts[key])
+        rows.append(row)
+    return sorted(rows, key=lambda row: (-row["trial_count"], row["category"].casefold()))
 
 
 def group_membership(

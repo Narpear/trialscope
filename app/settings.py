@@ -15,8 +15,14 @@ class Settings(BaseSettings):
     clinicaltrials_base_url: str = Field(
         default="https://clinicaltrials.gov/api/v2", validation_alias="CLINICALTRIALS_BASE_URL"
     )
-    max_trials_cap: int = Field(default=5000, ge=1, le=5000, validation_alias="MAX_TRIALS_CAP")
-    request_timeout_seconds: float = 20.0
+    max_trials_cap: int = Field(default=10000, ge=1, le=10000, validation_alias="MAX_TRIALS_CAP")
+    request_timeout_seconds: float = 30.0
+    # ClinicalTrials.gov allows roughly 50 requests/minute per IP after a short burst.
+    clinicaltrials_requests_per_second: float = 0.8
+    clinicaltrials_request_burst: int = 8
+    exact_count_query_budget: int = Field(
+        default=40, ge=0, validation_alias="EXACT_COUNT_QUERY_BUDGET"
+    )
     rate_limit_requests: int = 12
     rate_limit_window_seconds: int = 60
     network_top_n: int = 30

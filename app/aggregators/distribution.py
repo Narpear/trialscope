@@ -12,11 +12,11 @@ from app.schemas import QueryPlan
 def distribution(
     scopes: list[Scope], plan: QueryPlan, options: AggregationOptions
 ) -> AggregateResult:
-    studies = scopes[0].studies
+    scope = scopes[0]
     dimension = plan.group_by or "phase"
-    rows = categorical_rows(studies, dimension)
+    rows = categorical_rows(scope.studies, dimension, bucket_counts=scope.bucket_counts)
     represented = {nct_id for row in rows for nct_id in row["nct_ids"]}
-    missing = len({nct_and_title(study)[0] for study in studies} - represented)
+    missing = len({nct_and_title(study)[0] for study in scope.studies} - represented)
     return finish(
         AggregateResult(
             "bar_chart",

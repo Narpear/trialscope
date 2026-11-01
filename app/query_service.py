@@ -1,9 +1,10 @@
 from datetime import UTC, datetime
 from typing import Any
 
-from app.aggregators import AggregationOptions, Scope, aggregate
+from app.aggregators import AggregateResult, AggregationOptions, Scope, aggregate
 from app.aggregators.common import parse_year, value_at
 from app.clinicaltrials.client import ClinicalTrialsClient, ClinicalTrialsError
+from app.exact_counts import CountOutcome, add_exact_counts
 from app.planner.openai_planner import OpenAIPlanner, PlannerError, fallback_plan
 from app.schemas import (
     AnalysisType,
@@ -97,6 +98,33 @@ class QueryService:
             api_query_url=request_url,
         )
 
+    def _describe_counts(
+        self, result: AggregateResult, scopes: list[Scope], outcome: CountOutcome, max_trials: int
+    ) -> None:
+        """State plainly whether the visualized counts are registry totals or sample counts."""
+        analyzed = sum(len(scope.studies) for scope in scopes)
+        total = sum(scope.total for scope in scopes)
+        assumptions = result.assumptions = result.assumptions or []
+        warnings = result.warnings = result.warnings or []
+        if outcome.basis == "complete_records":
+            assumptions.append(
+                f"All {total:,} matching trials were analyzed, so counts are exact registry totals."
+            )
+        elif outcome.basis == "api_count_queries":
+            assumptions.append(
+                "Each trial_count is an exact ClinicalTrials.gov total from one countTotal query "
+                f"per bucket (count_query_url). The {analyzed:,} fetched trials supply citations "
+                "and nct_ids only; sample_trial_count is how many of them fall in the bucket."
+            )
+        else:
+            warnings.insert(
+                0,
+                f"Counts are based on a sample of {analyzed:,} of {total:,} matching trials (the "
+                f"first {max_trials:,} per query in ClinicalTrials.gov's default order), so they "
+                f"are not registry totals. {outcome.note} Raising max_trials (up to "
+                f"{self.settings.max_trials_cap:,}) or narrowing the filters analyzes more trials.",
+            )
+
     async def query(self, request: QueryRequest) -> QueryResponse:
         if self.planner:
             plan = await self.planner.plan(request)
@@ -113,10 +141,16 @@ class QueryService:
             )
         plan = merge_explicit_filters(plan, request)
         max_trials = min(request.max_trials, self.settings.max_trials_cap)
-        scopes = [
-            await self._collect(label, scope_plan, max_trials)
-            for label, scope_plan in scope_plans(plan)
-        ]
+        planned = scope_plans(plan)
+        scopes = [await self._collect(label, scope_plan, max_trials) for label, scope_plan in planned]
+        try:
+            outcome = await add_exact_counts(
+                self.client,
+                [(scope_plan, scope) for (_, scope_plan), scope in zip(planned, scopes, strict=True)],
+                self.settings.exact_count_query_budget,
+            )
+        except ClinicalTrialsError as exc:
+            raise PlannerError("clinicaltrials_unavailable", str(exc)) from exc
         is_network = plan.analysis_type == AnalysisType.NETWORK
         result = aggregate(
             scopes,
@@ -129,6 +163,7 @@ class QueryService:
         )
         if not result.data and not result.nodes and not result.warnings:
             result.warnings = ["No matching studies were available to visualize."]
+        self._describe_counts(result, scopes, outcome, max_trials)
         visualization = build_visualization(plan, result)
         effective_filters = {
             key: value
@@ -150,6 +185,8 @@ class QueryService:
                 api_query_url=scopes[0].api_query_url,
                 generated_at=datetime.now(UTC),
                 total_citations=result.total_citations,
+                counts_exact=outcome.basis != "sample",
+                count_basis=outcome.basis,
                 group_queries=[
                     GroupQuery(
                         group=scope.label,

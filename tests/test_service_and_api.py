@@ -145,7 +145,7 @@ async def test_comparison_queries_each_group_separately():
         assert all(request.url.params.get("query.locn") == "United States" for request in requests)
         assert [query.group for query in response.meta.group_queries] == searched
         assert {row["group"] for row in response.visualization.data} == set(searched)
-        assert {row["category"] for row in response.visualization.data} <= {
+        assert {row["category_code"] for row in response.visualization.data} <= {
             "INDUSTRY", "OTHER", "NIH", "FED", "OTHER_GOV", "INDIV", "NETWORK", "AMBIG", "UNKNOWN"
         }
     finally:

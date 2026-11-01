@@ -74,8 +74,9 @@ function renderResults(response) {
   document.querySelector("#chart-title").textContent = viz.title;
   document.querySelector("#interpretation").textContent = meta.query_interpretation;
   document.querySelector("#metrics").innerHTML = `
-    <div class="metric"><strong>${formatNumber(meta.trials_analyzed)}</strong><span>trials analyzed</span></div>
+    <div class="metric"><strong>${formatNumber(meta.trials_analyzed)}</strong><span>trials fetched</span></div>
     <div class="metric"><strong>${formatNumber(meta.total_matching)}</strong><span>matching in registry${meta.truncated ? " · capped" : ""}</span></div>
+    <div class="metric"><strong>${meta.counts_exact ? "Exact" : "Sample"}</strong><span>${meta.counts_exact ? "registry counts" : "counts · see warning"}</span></div>
     <div class="metric"><strong>${formatNumber(meta.total_citations)}</strong><span>source citations</span></div>
     <div class="metric"><strong>${meta.planner_mode === "llm" ? "AI plan" : "manual plan"}</strong><span>query interpretation</span></div>`;
   const filters = Object.entries(meta.filters_applied || {});

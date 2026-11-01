@@ -24,7 +24,7 @@ def comparison(scopes: list[Scope], plan: QueryPlan, options: AggregationOptions
                 membership[nct_and_title(study)[0]] = evidence
             else:
                 unmatched += 1
-        for row in categorical_rows(scope.studies, dimension, membership):
+        for row in categorical_rows(scope.studies, dimension, membership, scope.bucket_counts):
             rows.append({"group": scope.label, **row})
     search_field = "query.intr" if group_type == "drug" else "query.cond"
     return finish(

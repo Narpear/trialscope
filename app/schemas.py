@@ -35,7 +35,8 @@ class RecruitmentStatus(StrEnum):
     UNKNOWN = "UNKNOWN"
 
 
-GroupBy = Literal["phase", "sponsor", "sponsor_class", "intervention_type", "condition"]
+GroupBy = Literal["phase", "status", "sponsor", "sponsor_class", "intervention_type", "condition"]
+CountBasis = Literal["complete_records", "api_count_queries", "sample"]
 ComparisonGroupType = Literal["drug", "condition"]
 
 
@@ -51,7 +52,7 @@ class QueryRequest(BaseModel):
     recruitment_status: RecruitmentStatus | None = None
     start_year: int | None = Field(default=None, ge=1900, le=2100)
     end_year: int | None = Field(default=None, ge=1900, le=2100)
-    max_trials: int = Field(default=1000, ge=1, le=5000)
+    max_trials: int = Field(default=5000, ge=1, le=10000)
     analysis_type: AnalysisType | None = None
     group_by: GroupBy | None = None
     comparison_groups: list[Annotated[str, Field(min_length=1, max_length=200)]] | None = Field(
@@ -160,6 +161,8 @@ class ResponseMeta(BaseModel):
     source: str = "clinicaltrials.gov"
     generated_at: datetime
     total_citations: int
+    counts_exact: bool
+    count_basis: CountBasis
     group_queries: list[GroupQuery] | None = None
     network_top_n: int | None = None
     network_min_edge_weight: int | None = None
