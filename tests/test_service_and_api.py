@@ -162,3 +162,27 @@ async def test_comparison_without_two_groups_is_rejected():
         assert error.value.code == "invalid_plan"
     finally:
         await service.close()
+
+
+@pytest.mark.parametrize(
+    ("headers", "hops", "expected"),
+    [
+        ([], 0, "10.0.0.1"),
+        ([("x-forwarded-for", "203.0.113.9")], 0, "10.0.0.1"),
+        ([("x-forwarded-for", "203.0.113.9")], 1, "203.0.113.9"),
+        ([("x-forwarded-for", "6.6.6.6, 203.0.113.9")], 1, "203.0.113.9"),
+        ([("x-forwarded-for", "6.6.6.6"), ("x-forwarded-for", "203.0.113.9")], 1, "203.0.113.9"),
+        ([], 1, "10.0.0.1"),
+    ],
+)
+def test_client_ip_trusts_only_proxy_appended_entries(headers, hops, expected):
+    from starlette.requests import Request
+
+    from app.rate_limit import client_ip
+
+    scope = {
+        "type": "http",
+        "headers": [(name.encode(), value.encode()) for name, value in headers],
+        "client": ("10.0.0.1", 1234),
+    }
+    assert client_ip(Request(scope), hops) == expected

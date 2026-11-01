@@ -10,7 +10,7 @@ from fastapi.staticfiles import StaticFiles
 
 from app.planner.openai_planner import PlannerError
 from app.query_service import QueryService
-from app.rate_limit import InMemoryRateLimiter
+from app.rate_limit import InMemoryRateLimiter, client_ip
 from app.schemas import ErrorResponse, QueryRequest
 from app.settings import get_settings
 
@@ -81,8 +81,7 @@ async def schema():
 
 @app.post("/api/query", responses={422: {"model": ErrorResponse}, 429: {"model": ErrorResponse}})
 async def query(payload: QueryRequest, request: Request):
-    client_ip = request.client.host if request.client else "unknown"
-    if not request.app.state.rate_limiter.allow(client_ip):
+    if not request.app.state.rate_limiter.allow(client_ip(request, settings.trusted_proxy_hops)):
         return error_response(429, "rate_limited", "Too many queries. Please try again later.")
     try:
         result = await request.app.state.query_service.query(payload)

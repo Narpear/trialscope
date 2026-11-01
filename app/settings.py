@@ -1,3 +1,4 @@
+import os
 from functools import lru_cache
 
 from dotenv import load_dotenv
@@ -25,6 +26,14 @@ class Settings(BaseSettings):
     )
     rate_limit_requests: int = 12
     rate_limit_window_seconds: int = 60
+    # Number of reverse proxies in front of the app. The client IP is read from the
+    # X-Forwarded-For entry appended by the outermost trusted proxy; earlier entries are
+    # client-controlled. Railway runs one edge proxy, so it defaults to 1 there.
+    trusted_proxy_hops: int = Field(
+        default_factory=lambda: 1 if os.getenv("RAILWAY_ENVIRONMENT") else 0,
+        ge=0,
+        validation_alias="TRUSTED_PROXY_HOPS",
+    )
     network_top_n: int = 30
     network_min_edge_weight: int = 2
     network_excluded_interventions: list[str] = Field(
