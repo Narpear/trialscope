@@ -129,3 +129,21 @@ def test_analysis_requests_only_its_required_fields(make_plan):
         "NCTId",
         "Phase",
     }
+
+
+def test_phase_filter_uses_advanced_query_combined_with_dates(make_plan):
+    filters = {
+        "drug_name": None,
+        "condition": None,
+        "sponsor": None,
+        "phase": "PHASE3",
+        "country": None,
+        "recruitment_status": None,
+        "start_year": 2018,
+        "end_year": None,
+    }
+    params = ClinicalTrialsClient.build_params(make_plan("time_trend", filters=filters), 10)
+    assert "filter.phase" not in params
+    assert params["filter.advanced"] == (
+        "AREA[Phase]PHASE3 AND AREA[StartDate]RANGE[2018-01-01,2100-12-31]"
+    )

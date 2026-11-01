@@ -88,14 +88,18 @@ class ClinicalTrialsClient:
             params["query.spons"] = filters.sponsor
         if filters.country:
             params["query.locn"] = filters.country
-        if filters.phase:
-            params["filter.phase"] = filters.phase.value
         if filters.recruitment_status:
             params["filter.overallStatus"] = filters.recruitment_status.value
+        # The v2 API has no filter.phase parameter; phase and dates use Essie expressions.
+        clauses = []
+        if filters.phase:
+            clauses.append(f"AREA[Phase]{filters.phase.value}")
         if filters.start_year is not None or filters.end_year is not None:
             start = f"{filters.start_year or 1900}-01-01"
             end = f"{filters.end_year or 2100}-12-31"
-            params["filter.advanced"] = f"AREA[StartDate]RANGE[{start},{end}]"
+            clauses.append(f"AREA[StartDate]RANGE[{start},{end}]")
+        if clauses:
+            params["filter.advanced"] = " AND ".join(clauses)
         return params
 
     async def fetch(

@@ -39,3 +39,25 @@ async def test_live_aspirin_study_query():
             assert 2020 <= int(date[:4]) <= 2022
     finally:
         await client.close()
+
+
+@pytest.mark.live
+@pytest.mark.asyncio
+async def test_live_phase_filter_is_accepted(make_plan):
+    client = ClinicalTrialsClient(get_settings())
+    filters = {
+        "drug_name": "pembrolizumab",
+        "condition": None,
+        "sponsor": None,
+        "phase": "PHASE3",
+        "country": None,
+        "recruitment_status": None,
+        "start_year": None,
+        "end_year": None,
+    }
+    try:
+        studies, total, _, _ = await client.fetch(make_plan("distribution", filters=filters), 50)
+        assert total > 0
+        assert all("PHASE3" in study["protocolSection"]["designModule"]["phases"] for study in studies)
+    finally:
+        await client.close()
