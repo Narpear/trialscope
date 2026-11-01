@@ -121,7 +121,7 @@ class ClinicalTrialsClient:
         request_url = f"{base}?{urlencode(params)}"
         studies: list[dict[str, Any]] = []
         page_token: str | None = None
-        total = 0
+        total: int | None = None
         while len(studies) < max_trials:
             page_params = dict(params)
             page_params["pageSize"] = min(1000, max_trials - len(studies))
@@ -163,17 +163,20 @@ class ClinicalTrialsClient:
                 raise ClinicalTrialsError("ClinicalTrials.gov request failed after retries.")
             if not isinstance(page, dict) or not isinstance(page.get("studies"), list):
                 raise ClinicalTrialsError("ClinicalTrials.gov response omitted the studies field.")
-            try:
-                total = int(page.get("totalCount", len(studies)))
-            except (TypeError, ValueError) as exc:
-                raise ClinicalTrialsError(
-                    "ClinicalTrials.gov returned an invalid totalCount."
-                ) from exc
+            # countTotal is only reported on the first page.
+            if total is None:
+                try:
+                    total = int(page["totalCount"])
+                except (KeyError, TypeError, ValueError) as exc:
+                    raise ClinicalTrialsError(
+                        "ClinicalTrials.gov returned an invalid totalCount."
+                    ) from exc
             studies.extend(page["studies"])
             page_token = page.get("nextPageToken")
             if not page_token or not page["studies"]:
                 break
 
+        total = total if total is not None else len(studies)
         truncated = total > len(studies) or bool(page_token)
         payload = {"studies": studies[:max_trials], "total": total, "url": request_url}
         async with self._lock:

@@ -18,8 +18,9 @@ async def test_fetch_paginates_and_caches_fixture():
         calls.append(request)
         token = request.url.params.get("pageToken")
         study = fixture["studies"][1 if token else 0]
-        content = {"totalCount": 2, "studies": [study]}
+        content = {"studies": [study]}
         if not token:
+            content["totalCount"] = 2
             content["nextPageToken"] = "page-2"
         return httpx.Response(200, json=content)
 
