@@ -1095,7 +1095,7 @@
     "edges": null
   },
   "meta": {
-    "query_interpretation": "Analyze the temporal trend in aspirin-related clinical trials by start year, using trials where aspirin is the specified drug and summarizing how trial activity changes over time.",
+    "query_interpretation": "Assess how aspirin-related clinical trials vary over start year using registry metadata, such as trial counts or characteristics over time.",
     "plan": {
       "answerable": true,
       "unsupported_reason": null,
@@ -1113,7 +1113,7 @@
       "group_by": null,
       "comparison_groups": [],
       "network_entity_types": [],
-      "interpretation": "Analyze the temporal trend in aspirin-related clinical trials by start year, using trials where aspirin is the specified drug and summarizing how trial activity changes over time."
+      "interpretation": "Assess how aspirin-related clinical trials vary over start year using registry metadata, such as trial counts or characteristics over time."
     },
     "planner_mode": "llm",
     "filters_applied": {
@@ -1128,9 +1128,10 @@
     "warnings": [],
     "api_query_url": "https://clinicaltrials.gov/api/v2/studies?format=json&countTotal=true&pageSize=150&fields=BriefTitle%2CNCTId%2CStartDate&query.intr=aspirin",
     "source": "clinicaltrials.gov",
-    "generated_at": "2026-11-01T18:12:11.240533Z",
+    "generated_at": "2026-11-01T18:44:27.625081Z",
     "total_citations": 111,
     "network_top_n": null,
-    "network_min_edge_weight": null
+    "network_min_edge_weight": null,
+    "network_excluded_interventions": null
   }
 }

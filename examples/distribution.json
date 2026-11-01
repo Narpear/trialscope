@@ -936,7 +936,7 @@
     "edges": null
   },
   "meta": {
-    "query_interpretation": "Summarize how melanoma trials are distributed across clinical phases, grouping the registry records by phase under the melanoma condition filter.",
+    "query_interpretation": "Show how melanoma trials are distributed across study phases, grouped by phase.",
     "plan": {
       "answerable": true,
       "unsupported_reason": null,
@@ -954,7 +954,7 @@
       "group_by": "phase",
       "comparison_groups": [],
       "network_entity_types": [],
-      "interpretation": "Summarize how melanoma trials are distributed across clinical phases, grouping the registry records by phase under the melanoma condition filter."
+      "interpretation": "Show how melanoma trials are distributed across study phases, grouped by phase."
     },
     "planner_mode": "llm",
     "filters_applied": {
@@ -969,9 +969,10 @@
     "warnings": [],
     "api_query_url": "https://clinicaltrials.gov/api/v2/studies?format=json&countTotal=true&pageSize=500&fields=BriefTitle%2CNCTId%2CPhase&query.cond=melanoma",
     "source": "clinicaltrials.gov",
-    "generated_at": "2026-11-01T18:12:16.558239Z",
+    "generated_at": "2026-11-01T18:44:33.789550Z",
     "total_citations": 35,
     "network_top_n": null,
-    "network_min_edge_weight": null
+    "network_min_edge_weight": null,
+    "network_excluded_interventions": null
   }
 }

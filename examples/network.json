@@ -885,53 +885,6 @@
         ]
       },
       {
-        "id": "drug:placebo",
-        "label": "placebo",
-        "type": "drug",
-        "weight": 7,
-        "nct_ids": [
-          "NCT00538850",
-          "NCT00621439",
-          "NCT00636168",
-          "NCT00936221",
-          "NCT01667419",
-          "NCT01974752",
-          "NCT02362594"
-        ],
-        "citations": [
-          {
-            "nct_id": "NCT01974752",
-            "field_path": "protocolSection.armsInterventionsModule.interventions[].name",
-            "exact_value": "placebo",
-            "title": "Selumetinib (AZD6244: ARRY-142886) (Hyd-Sulfate) in Metastatic Uveal Melanoma (SUMIT)"
-          },
-          {
-            "nct_id": "NCT00636168",
-            "field_path": "protocolSection.armsInterventionsModule.interventions[].name",
-            "exact_value": "Placebo",
-            "title": "Efficacy Study of Ipilimumab Versus Placebo to Prevent Recurrence After Complete Resection of High Risk Stage III Melanoma"
-          },
-          {
-            "nct_id": "NCT00936221",
-            "field_path": "protocolSection.armsInterventionsModule.interventions[].name",
-            "exact_value": "Placebo",
-            "title": "Comparison of AZD6244 in Combination With Dacarbazine Versus (vs) Dacarbazine Alone in BRAF Mutation Positive Melanoma Patients"
-          },
-          {
-            "nct_id": "NCT02362594",
-            "field_path": "protocolSection.armsInterventionsModule.interventions[].name",
-            "exact_value": "placebo",
-            "title": "Study of Pembrolizumab (MK-3475) Versus Placebo After Complete Resection of High-Risk Stage III Melanoma (MK-3475-054/1325-MG/KEYNOTE-054)"
-          },
-          {
-            "nct_id": "NCT01667419",
-            "field_path": "protocolSection.armsInterventionsModule.interventions[].name",
-            "exact_value": "Placebo",
-            "title": "A Study of Vemurafenib Adjuvant Therapy in Participants With Surgically Resected Cutaneous BRAF-Mutant Melanoma"
-          }
-        ]
-      },
-      {
         "id": "sponsor:hoffmann-la roche",
         "label": "Hoffmann-La Roche",
         "type": "sponsor",
@@ -1489,6 +1442,44 @@
             "title": "Bevacizumab vs Dacarbazine in Metastatic Melanoma"
           }
         ]
+      },
+      {
+        "id": "sponsor:glaxosmithkline",
+        "label": "GlaxoSmithKline",
+        "type": "sponsor",
+        "weight": 4,
+        "nct_ids": [
+          "NCT00685750",
+          "NCT00706238",
+          "NCT01138085",
+          "NCT01928940"
+        ],
+        "citations": [
+          {
+            "nct_id": "NCT01138085",
+            "field_path": "protocolSection.sponsorCollaboratorsModule.leadSponsor.name",
+            "exact_value": "GlaxoSmithKline",
+            "title": "Safety, Pharmacokinetics (PK) of AKT and MEK Combination"
+          },
+          {
+            "nct_id": "NCT00706238",
+            "field_path": "protocolSection.sponsorCollaboratorsModule.leadSponsor.name",
+            "exact_value": "GlaxoSmithKline",
+            "title": "MAGE-A3 Antigen-Specific Cancer Immunotherapeutic in Patients With Progressive Metastatic Cutaneous Melanoma"
+          },
+          {
+            "nct_id": "NCT01928940",
+            "field_path": "protocolSection.sponsorCollaboratorsModule.leadSponsor.name",
+            "exact_value": "GlaxoSmithKline",
+            "title": "Japan PhI/II of GSK2118436 and GSK1120212 Combination in Subjects With BRAF V600E/K Mutation Positive Advanced Solid Tumors (Phase I Part) or Cutaneous Melanoma (Phase II Part)"
+          },
+          {
+            "nct_id": "NCT00685750",
+            "field_path": "protocolSection.sponsorCollaboratorsModule.leadSponsor.name",
+            "exact_value": "GlaxoSmithKline",
+            "title": "Expression Analysis of Specific Markers in Non-small Cell Lung Cancer or Melanoma"
+          }
+        ]
       }
     ],
     "edges": [
@@ -1778,46 +1769,11 @@
             "title": "Comparison of AZD6244 in Combination With Dacarbazine Versus (vs) Dacarbazine Alone in BRAF Mutation Positive Melanoma Patients"
           }
         ]
-      },
-      {
-        "source": "drug:placebo",
-        "target": "sponsor:astrazeneca",
-        "weight": 2,
-        "nct_ids": [
-          "NCT01974752",
-          "NCT00936221"
-        ],
-        "citations": [
-          {
-            "nct_id": "NCT01974752",
-            "field_path": "protocolSection.sponsorCollaboratorsModule.leadSponsor.name",
-            "exact_value": "AstraZeneca",
-            "title": "Selumetinib (AZD6244: ARRY-142886) (Hyd-Sulfate) in Metastatic Uveal Melanoma (SUMIT)"
-          },
-          {
-            "nct_id": "NCT01974752",
-            "field_path": "protocolSection.armsInterventionsModule.interventions[].name",
-            "exact_value": "placebo",
-            "title": "Selumetinib (AZD6244: ARRY-142886) (Hyd-Sulfate) in Metastatic Uveal Melanoma (SUMIT)"
-          },
-          {
-            "nct_id": "NCT00936221",
-            "field_path": "protocolSection.sponsorCollaboratorsModule.leadSponsor.name",
-            "exact_value": "AstraZeneca",
-            "title": "Comparison of AZD6244 in Combination With Dacarbazine Versus (vs) Dacarbazine Alone in BRAF Mutation Positive Melanoma Patients"
-          },
-          {
-            "nct_id": "NCT00936221",
-            "field_path": "protocolSection.armsInterventionsModule.interventions[].name",
-            "exact_value": "Placebo",
-            "title": "Comparison of AZD6244 in Combination With Dacarbazine Versus (vs) Dacarbazine Alone in BRAF Mutation Positive Melanoma Patients"
-          }
-        ]
       }
     ]
   },
   "meta": {
-    "query_interpretation": "Map relationships between sponsors and drugs for clinical trials in melanoma, using melanoma as the condition filter and constructing a bipartite network of sponsor-drug connections.",
+    "query_interpretation": "Map the network of relationships between sponsors and drugs in melanoma trials, using melanoma as the condition filter and connecting sponsors to drugs represented in the registry.",
     "plan": {
       "answerable": true,
       "unsupported_reason": null,
@@ -1838,7 +1794,7 @@
         "sponsor",
         "drug"
       ],
-      "interpretation": "Map relationships between sponsors and drugs for clinical trials in melanoma, using melanoma as the condition filter and constructing a bipartite network of sponsor-drug connections."
+      "interpretation": "Map the network of relationships between sponsors and drugs in melanoma trials, using melanoma as the condition filter and connecting sponsors to drugs represented in the registry."
     },
     "planner_mode": "llm",
     "filters_applied": {
@@ -1848,14 +1804,21 @@
     "trials_analyzed": 500,
     "truncated": true,
     "assumptions": [
-      "Intervention labels are normalized by case and whitespace only; brand/generic variants remain separate."
+      "Intervention labels are normalized by case and whitespace only; brand/generic variants remain separate.",
+      "Configured generic intervention names are excluded from drug nodes and edges: best supportive care, placebo, saline, standard of care."
     ],
     "warnings": [],
     "api_query_url": "https://clinicaltrials.gov/api/v2/studies?format=json&countTotal=true&pageSize=500&fields=BriefTitle%2CInterventionName%2CInterventionType%2CLeadSponsorName%2CNCTId&query.cond=melanoma",
     "source": "clinicaltrials.gov",
-    "generated_at": "2026-11-01T18:12:15.163125Z",
-    "total_citations": 183,
+    "generated_at": "2026-11-01T18:44:32.209391Z",
+    "total_citations": 178,
     "network_top_n": 30,
-    "network_min_edge_weight": 2
+    "network_min_edge_weight": 2,
+    "network_excluded_interventions": [
+      "best supportive care",
+      "placebo",
+      "saline",
+      "standard of care"
+    ]
   }
 }

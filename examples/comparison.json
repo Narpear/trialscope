@@ -371,7 +371,7 @@
     "edges": null
   },
   "meta": {
-    "query_interpretation": "Compare the distribution of trial phases for melanoma studies involving pembrolizumab versus nivolumab, using phase as the grouping variable and drug name as the comparison dimension.",
+    "query_interpretation": "Compare the distribution of melanoma studies across trial phases for pembrolizumab versus nivolumab.",
     "plan": {
       "answerable": true,
       "unsupported_reason": null,
@@ -392,7 +392,7 @@
         "nivolumab"
       ],
       "network_entity_types": [],
-      "interpretation": "Compare the distribution of trial phases for melanoma studies involving pembrolizumab versus nivolumab, using phase as the grouping variable and drug name as the comparison dimension."
+      "interpretation": "Compare the distribution of melanoma studies across trial phases for pembrolizumab versus nivolumab."
     },
     "planner_mode": "llm",
     "filters_applied": {
@@ -407,9 +407,10 @@
     "warnings": [],
     "api_query_url": "https://clinicaltrials.gov/api/v2/studies?format=json&countTotal=true&pageSize=500&fields=BriefTitle%2CInterventionName%2CInterventionType%2CNCTId%2CPhase&query.cond=melanoma",
     "source": "clinicaltrials.gov",
-    "generated_at": "2026-11-01T18:12:12.898397Z",
+    "generated_at": "2026-11-01T18:44:29.215545Z",
     "total_citations": 30,
     "network_top_n": null,
-    "network_min_edge_weight": null
+    "network_min_edge_weight": null,
+    "network_excluded_interventions": null
   }
 }
