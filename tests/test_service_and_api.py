@@ -76,6 +76,34 @@ async def test_service_no_key_fallback_and_explicit_type():
         await service.close()
 
 
+@pytest.mark.asyncio
+async def test_service_reports_network_exclusion_metadata():
+    fixture = json.loads((Path(__file__).parent / "fixtures" / "aspirin_studies.json").read_text())
+
+    async def handler(request):
+        return httpx.Response(200, json={"totalCount": 2, "studies": fixture["studies"]})
+
+    settings = Settings(
+        _env_file=None,
+        openai_api_key=None,
+        network_excluded_interventions=[" PLACEBO "],
+    )
+    client = httpx.AsyncClient(transport=httpx.MockTransport(handler))
+    from app.clinicaltrials.client import ClinicalTrialsClient
+
+    service = QueryService(settings, ClinicalTrialsClient(settings, client))
+    try:
+        response = await service.query(
+            QueryRequest(query="show a sponsor and drug network", analysis_type="network")
+        )
+        assert response.meta.network_excluded_interventions == ["placebo"]
+        assert all(
+            node["label"].casefold() != "placebo" for node in response.visualization.nodes or []
+        )
+    finally:
+        await service.close()
+
+
 def test_rate_limiter_rejects_excess_requests():
     from app.rate_limit import InMemoryRateLimiter
 

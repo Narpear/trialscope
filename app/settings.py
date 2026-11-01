@@ -21,6 +21,10 @@ class Settings(BaseSettings):
     rate_limit_window_seconds: int = 60
     network_top_n: int = 30
     network_min_edge_weight: int = 2
+    network_excluded_interventions: list[str] = Field(
+        default_factory=lambda: ["placebo", "standard of care", "saline", "best supportive care"],
+        validation_alias="NETWORK_EXCLUDED_INTERVENTIONS",
+    )
 
 
 @lru_cache

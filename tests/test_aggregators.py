@@ -99,6 +99,20 @@ def test_drug_network_links_cooccurring_interventions(studies, make_plan):
     )
 
 
+def test_network_excludes_configured_generic_interventions(studies, make_plan):
+    plan = make_plan("network", network_entity_types=["drug"])
+    result = network(
+        studies,
+        plan,
+        top_n=30,
+        min_edge_weight=1,
+        excluded_interventions=[" PLACEBO "],
+    )
+    assert all(node["label"].casefold() != "placebo" for node in result.nodes)
+    assert all("drug:placebo" not in (edge["source"], edge["target"]) for edge in result.edges)
+    assert any("placebo" in assumption for assumption in result.assumptions)
+
+
 def test_histogram_and_scatter_enrollment_provenance(studies, make_plan):
     histogram_result = histogram(studies, make_plan("histogram"))
     scatter_result = scatter(studies, make_plan("scatter"))

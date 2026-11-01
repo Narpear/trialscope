@@ -284,9 +284,14 @@ def geographic(studies: list[dict[str, Any]], plan: QueryPlan) -> AggregateResul
 
 
 def network(
-    studies: list[dict[str, Any]], plan: QueryPlan, top_n: int = 30, min_edge_weight: int = 2
+    studies: list[dict[str, Any]],
+    plan: QueryPlan,
+    top_n: int = 30,
+    min_edge_weight: int = 2,
+    excluded_interventions: list[str] | None = None,
 ) -> AggregateResult:
     entities = plan.network_entity_types or ["sponsor", "drug"]
+    excluded = {_normalize(name) for name in excluded_interventions or []}
     edge_records: dict[tuple[str, str], dict[str, list[tuple[dict[str, Any], str, Any]]]] = (
         defaultdict(dict)
     )
@@ -326,8 +331,11 @@ def network(
             nodes["drug"] = [
                 add_node("drug", name, study, path, value)
                 for name, path, value in _interventions(study)
+                if _normalize(name) not in excluded
             ]
             for name, path, value in _interventions(study):
+                if _normalize(name) in excluded:
+                    continue
                 node_evidence[f"drug:{_normalize(name)}"] = (study, path, value)
         if "condition" in entities:
             raw = value_at(study, "protocolSection.conditionsModule.conditions") or []
@@ -408,7 +416,14 @@ def network(
         nodes=nodes_out,
         edges=edges_out,
         assumptions=[
-            "Intervention labels are normalized by case and whitespace only; brand/generic variants remain separate."
+            "Intervention labels are normalized by case and whitespace only; brand/generic variants remain separate.",
+            (
+                "Configured generic intervention names are excluded from drug nodes and edges: "
+                + ", ".join(sorted(excluded))
+                + "."
+            )
+            if excluded
+            else "No generic intervention names are excluded.",
         ],
     )
     result.total_citations = sum(len(node["citations"]) for node in nodes_out) + sum(

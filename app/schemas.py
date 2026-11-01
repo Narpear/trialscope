@@ -144,6 +144,7 @@ class ResponseMeta(BaseModel):
     total_citations: int
     network_top_n: int | None = None
     network_min_edge_weight: int | None = None
+    network_excluded_interventions: list[str] | None = None
 
 
 class QueryResponse(BaseModel):

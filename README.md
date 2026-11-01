@@ -37,6 +37,7 @@ Open `http://127.0.0.1:8000/`. For calls without a key, include `analysis_type` 
 | `OPENAI_MODEL` | No | `gpt-5.4-mini` | Model used for strict Structured Outputs. Override to another model available to your API project. |
 | `CLINICALTRIALS_BASE_URL` | No | `https://clinicaltrials.gov/api/v2` | ClinicalTrials.gov v2 API base URL. |
 | `MAX_TRIALS_CAP` | No | `5000` | Server-side hard cap on trials fetched per request (1–5,000). |
+| `NETWORK_EXCLUDED_INTERVENTIONS` | No | `["placebo","standard of care","saline","best supportive care"]` | JSON array of drug intervention labels excluded from network nodes and edges; matching ignores case and repeated whitespace. |
 
 The configured OpenAI key was queried through `GET /v1/models` during development. It listed the user-provided allowed models: `gpt-4o-mini`, `gpt-4o-2024-08-06`, `gpt-4.1-nano`, `gpt-4.1-mini`, `gpt-4.1`, `gpt-5-mini`, `gpt-5`, `gpt-5.1`, `gpt-5.2`, `gpt-5.4-nano`, `gpt-5.4-mini`, and `gpt-5.4`. The default is `gpt-5.4-mini`, selected as a cost-efficient current option with Structured Outputs support; `OPENAI_MODEL` keeps that choice configurable.
 
@@ -196,10 +197,29 @@ Results from `gpt-5.4-mini` with the current planner prompt:
 - Categorical multi-value records count once per distinct category. Country counts use distinct reported study-location countries; this is **location coverage**, not proof of where all participants live. Missing locations are excluded and warned.
 - Intervention matching normalizes case and whitespace. It does not attempt drug identity resolution, so brand and generic names may remain separate.
 - Enrollment is the registry's reported enrollment count (target or actual depending on the record); it is not harmonized to a single enrollment status. Histograms use ten equal-width bins across the observed range. Scatter plots exclude missing numeric enrollment or start year.
-- Network nodes are stable typed IDs, ranked by trial weight; the default top 30 nodes are retained and edges need at least two co-occurring records. Both thresholds are present in response metadata. Sponsor–drug and condition–drug networks link records containing both entities; a drug-only network captures drug co-occurrence in combination studies.
+- Network nodes are stable typed IDs, ranked by trial weight; the default top 30 nodes are retained and edges need at least two co-occurring records. Both thresholds are present in response metadata. Sponsor–drug and condition–drug networks link records containing both entities; a drug-only network captures drug co-occurrence in combination studies. Configurable `NETWORK_EXCLUDED_INTERVENTIONS` labels are removed from drug nodes and edges and the effective exclusion list is returned in network metadata and assumptions.
 - The API/cache/rate limiter are in-process. The response cache and simple per-IP query limit reset on restart and do not coordinate across Railway replicas. Use a shared cache and distributed limiter if scaling beyond one instance.
 - Citation details include up to five trial references per datum for payload and UI usability; `nct_ids` still identifies all contributing records. Increasing citation payload limits or adding cursor-based citation expansion would be a useful follow-up.
 - API search semantics are ClinicalTrials.gov's; a broad query can be truncated at the configured trial cap. Metadata reports the API match total and whether the fetched sample was capped.
+
+#### Network quality inspection
+
+For the live query “Which drugs most often appear together in combination studies for lung cancer?”, the fetched sample contained 1,000 of 14,682 matching studies. Before exclusions, `Placebo` was the third-heaviest node (30 studies). It did not dominate the leading edges, but was prominent enough in the node ranking to reduce graph usefulness; the configured generic-name exclusions remove it and any incident edges. The following top ten edges were observed before and after applying the default list:
+
+| Edge | Before | After |
+|---|---:|---:|
+| carboplatin — paclitaxel | 27 | 27 |
+| carboplatin — pemetrexed | 22 | 22 |
+| cisplatin — pemetrexed | 21 | 21 |
+| carboplatin — cisplatin | 20 | 20 |
+| cisplatin — etoposide | 12 | 12 |
+| cisplatin — gemcitabine | 9 | 9 |
+| paclitaxel — pemetrexed | 9 | 9 |
+| carboplatin — etoposide | 8 | 8 |
+| carboplatin — gemcitabine | 8 | 8 |
+| gemcitabine — pemetrexed | 7 | 7 |
+
+The top-ten edge list is unchanged because no excluded label appeared in those edges; the node set is clearer, with `Placebo` absent. This is a bounded live sample, not a claim that generic interventions are unimportant across all registry queries.
 
 ## Tests and examples
 

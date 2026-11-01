@@ -87,6 +87,7 @@ class QueryService:
             plan,
             self.settings.network_top_n,
             self.settings.network_min_edge_weight,
+            self.settings.network_excluded_interventions,
         )
         if not result.data and not result.nodes and not result.warnings:
             result.warnings = ["No matching studies were available to visualize."]
@@ -115,6 +116,11 @@ class QueryService:
                 if plan.analysis_type == AnalysisType.NETWORK
                 else None,
                 network_min_edge_weight=self.settings.network_min_edge_weight
+                if plan.analysis_type == AnalysisType.NETWORK
+                else None,
+                network_excluded_interventions=sorted(
+                    {" ".join(name.casefold().split()) for name in self.settings.network_excluded_interventions}
+                )
                 if plan.analysis_type == AnalysisType.NETWORK
                 else None,
             ),
