@@ -26,6 +26,7 @@ async def test_live_aspirin_study_query():
         },
         group_by=None,
         comparison_groups=[],
+        comparison_group_type=None,
         network_entity_types=[],
         interpretation="Live count check",
     )

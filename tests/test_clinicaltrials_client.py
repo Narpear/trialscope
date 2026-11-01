@@ -43,6 +43,7 @@ async def test_fetch_paginates_and_caches_fixture():
         },
         group_by=None,
         comparison_groups=[],
+        comparison_group_type=None,
         network_entity_types=[],
         interpretation="Count by year",
     )
@@ -81,6 +82,7 @@ async def test_invalid_api_json_is_reported():
         },
         group_by=None,
         comparison_groups=[],
+        comparison_group_type=None,
         network_entity_types=[],
         interpretation="Count by year",
     )
@@ -107,6 +109,7 @@ def test_year_filters_use_verified_advanced_query():
         },
         group_by=None,
         comparison_groups=[],
+        comparison_group_type=None,
         network_entity_types=[],
         interpretation="Count by year",
     )
@@ -121,7 +124,7 @@ def test_analysis_requests_only_its_required_fields(make_plan):
     assert set(comparison["fields"].split(",")) == {
         "BriefTitle",
         "InterventionName",
-        "InterventionType",
+        "InterventionOtherName",
         "NCTId",
         "Phase",
     }

@@ -24,6 +24,7 @@ def plan_payload():
         },
         "group_by": None,
         "comparison_groups": [],
+        "comparison_group_type": None,
         "network_entity_types": [],
         "interpretation": "Count aspirin trials by start year.",
     }

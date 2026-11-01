@@ -1,61 +1,54 @@
-from collections import defaultdict
-from typing import Any
-
 from app.aggregators.common import (
     AggregateResult,
-    _group_values,
-    _interventions,
-    _normalize,
+    AggregationOptions,
+    Scope,
+    categorical_rows,
     finish,
-    with_citations,
+    group_membership,
+    nct_and_title,
 )
 from app.schemas import QueryPlan
 
 
-def comparison(studies: list[dict[str, Any]], plan: QueryPlan) -> AggregateResult:
-    groups = plan.comparison_groups or ([plan.filters.drug_name] if plan.filters.drug_name else [])
-    groups = [group.strip() for group in groups if group and group.strip()]
-    if not groups:
-        groups = sorted(
-            {
-                _normalize(name): name
-                for study in studies
-                for name, _, _ in _interventions(study)
-            }.values()
-        )[:2]
+def comparison(scopes: list[Scope], plan: QueryPlan, options: AggregationOptions) -> AggregateResult:
+    """Group each comparison scope (one API query per group) by the same dimension."""
     dimension = plan.group_by or "phase"
-    evidence: dict[tuple[str, str], list[tuple[dict[str, Any], str, Any]]] = defaultdict(list)
-    for study in studies:
-        names = _interventions(study)
-        for group in groups:
-            target = _normalize(group)
-            matches = [
-                (study, path, name) for name, path, _ in names if _normalize(name) == target
-            ]
-            if not matches:
-                continue
-            group_evidence = matches[0]
-            categories = {}
-            for label, path, exact in _group_values(study, dimension):
-                categories.setdefault(label, (path, exact))
-            for category, (path, exact) in categories.items():
-                evidence[(group, category)].extend([group_evidence, (study, path, exact)])
-    rows = [
-        with_citations({"group": group, "category": category}, entries)
-        for (group, category), entries in sorted(evidence.items())
-    ]
+    group_type = plan.comparison_group_type or "drug"
+    rows = []
+    unmatched = 0
+    for scope in scopes:
+        membership = {}
+        for study in scope.studies:
+            evidence = group_membership(study, group_type, scope.label or "")
+            if evidence:
+                membership[nct_and_title(study)[0]] = evidence
+            else:
+                unmatched += 1
+        for row in categorical_rows(scope.studies, dimension, membership):
+            rows.append({"group": scope.label, **row})
+    search_field = "query.intr" if group_type == "drug" else "query.cond"
     return finish(
         AggregateResult(
             "grouped_bar_chart",
-            f"Trials by {dimension.replace('_', ' ')}: comparison",
+            f"Trials by {dimension.replace('_', ' ')}: "
+            + " vs ".join(scope.label or "" for scope in scopes),
             [],
             assumptions=[
-                "Intervention names are matched case-insensitively after whitespace normalization; brand and generic names are not merged."
+                (
+                    f"Each group is a separate ClinicalTrials.gov {search_field} search, so group "
+                    "membership follows the registry's own search (including its synonym "
+                    "matching). A trial matching several groups is counted in each."
+                ),
+                "Studies with multiple values contribute once to each distinct category.",
             ],
             warnings=[
-                "No explicit comparison groups were supplied; compared the two most frequent intervention names."
+                (
+                    f"{unmatched} matched trials had no {group_type} field containing the group "
+                    "term (the registry matched them through synonyms or other fields); they are "
+                    "counted but cited only by their category value."
+                )
             ]
-            if not plan.comparison_groups
+            if unmatched
             else [],
         ),
         rows,

@@ -6,6 +6,7 @@ import pytest
 from fastapi.testclient import TestClient
 
 from app.main import app
+from app.planner.openai_planner import PlannerError
 from app.query_service import QueryService, merge_explicit_filters
 from app.schemas import QueryPlan, QueryRequest
 from app.settings import Settings
@@ -28,6 +29,7 @@ def test_explicit_filters_and_analysis_override_plan(make_plan=None):
         },
         group_by="phase",
         comparison_groups=[],
+        comparison_group_type=None,
         network_entity_types=[],
         interpretation="Plan",
     )
@@ -111,3 +113,52 @@ def test_rate_limiter_rejects_excess_requests():
     assert limiter.allow("127.0.0.1")
     assert limiter.allow("127.0.0.1")
     assert not limiter.allow("127.0.0.1")
+
+
+@pytest.mark.asyncio
+async def test_comparison_queries_each_group_separately():
+    fixture = json.loads((Path(__file__).parent / "fixtures" / "aspirin_studies.json").read_text())
+    requests = []
+
+    async def handler(request):
+        requests.append(request)
+        return httpx.Response(200, json={"totalCount": 2, "studies": fixture["studies"]})
+
+    settings = Settings(_env_file=None, openai_api_key=None)
+    client = httpx.AsyncClient(transport=httpx.MockTransport(handler))
+    from app.clinicaltrials.client import ClinicalTrialsClient
+
+    service = QueryService(settings, ClinicalTrialsClient(settings, client))
+    try:
+        response = await service.query(
+            QueryRequest(
+                query="Compare phases for breast versus prostate cancer trials",
+                analysis_type="comparison",
+                comparison_groups=["breast cancer", "prostate cancer"],
+                comparison_group_type="condition",
+                group_by="sponsor_class",
+                country="United States",
+            )
+        )
+        searched = [request.url.params.get("query.cond") for request in requests]
+        assert searched == ["breast cancer", "prostate cancer"]
+        assert all(request.url.params.get("query.locn") == "United States" for request in requests)
+        assert [query.group for query in response.meta.group_queries] == searched
+        assert {row["group"] for row in response.visualization.data} == set(searched)
+        assert {row["category"] for row in response.visualization.data} <= {
+            "INDUSTRY", "OTHER", "NIH", "FED", "OTHER_GOV", "INDIV", "NETWORK", "AMBIG", "UNKNOWN"
+        }
+    finally:
+        await service.close()
+
+
+@pytest.mark.asyncio
+async def test_comparison_without_two_groups_is_rejected():
+    settings = Settings(_env_file=None, openai_api_key=None)
+    service = QueryService(settings)
+    try:
+        with pytest.raises(PlannerError) as error:
+            await service.query(QueryRequest(query="Compare trials", analysis_type="comparison"))
+        assert error.value.code == "invalid_plan"
+    finally:
+        await service.close()

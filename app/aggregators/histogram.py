@@ -1,11 +1,19 @@
 from collections import defaultdict
 from typing import Any
 
-from app.aggregators.common import AggregateResult, finish, value_at, with_citations
+from app.aggregators.common import (
+    AggregateResult,
+    AggregationOptions,
+    Scope,
+    finish,
+    value_at,
+    with_citations,
+)
 from app.schemas import QueryPlan
 
 
-def histogram(studies: list[dict[str, Any]], plan: QueryPlan) -> AggregateResult:
+def histogram(scopes: list[Scope], plan: QueryPlan, options: AggregationOptions) -> AggregateResult:
+    studies = scopes[0].studies
     observations: list[tuple[float, dict[str, Any], Any]] = []
     missing = 0
     for study in studies:

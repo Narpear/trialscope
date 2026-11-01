@@ -1,6 +1,6 @@
 from datetime import datetime
 from enum import StrEnum
-from typing import Any, Literal
+from typing import Annotated, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
 
@@ -35,6 +35,10 @@ class RecruitmentStatus(StrEnum):
     UNKNOWN = "UNKNOWN"
 
 
+GroupBy = Literal["phase", "sponsor", "sponsor_class", "intervention_type", "condition"]
+ComparisonGroupType = Literal["drug", "condition"]
+
+
 class QueryRequest(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
@@ -49,6 +53,11 @@ class QueryRequest(BaseModel):
     end_year: int | None = Field(default=None, ge=1900, le=2100)
     max_trials: int = Field(default=1000, ge=1, le=5000)
     analysis_type: AnalysisType | None = None
+    group_by: GroupBy | None = None
+    comparison_groups: list[Annotated[str, Field(min_length=1, max_length=200)]] | None = Field(
+        default=None, min_length=2, max_length=4
+    )
+    comparison_group_type: ComparisonGroupType | None = None
 
     @model_validator(mode="after")
     def years_are_ordered(self) -> "QueryRequest":
@@ -91,8 +100,9 @@ class QueryPlan(BaseModel):
     unsupported_reason: str | None
     analysis_type: AnalysisType
     filters: PlanFilters
-    group_by: Literal["phase", "sponsor", "intervention_type", "condition"] | None
+    group_by: GroupBy | None
     comparison_groups: list[str]
+    comparison_group_type: ComparisonGroupType | None
     network_entity_types: list[Literal["sponsor", "drug", "condition"]]
     interpretation: str = Field(min_length=1, max_length=300)
 
@@ -128,6 +138,14 @@ class Visualization(BaseModel):
     edges: list[dict[str, Any]] | None = None
 
 
+class GroupQuery(BaseModel):
+    group: str
+    total_matching: int
+    trials_analyzed: int
+    truncated: bool
+    api_query_url: str
+
+
 class ResponseMeta(BaseModel):
     query_interpretation: str
     plan: QueryPlan
@@ -142,6 +160,7 @@ class ResponseMeta(BaseModel):
     source: str = "clinicaltrials.gov"
     generated_at: datetime
     total_citations: int
+    group_queries: list[GroupQuery] | None = None
     network_top_n: int | None = None
     network_min_edge_weight: int | None = None
     network_excluded_interventions: list[str] | None = None

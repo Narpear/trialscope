@@ -91,6 +91,7 @@ async def query(payload: QueryRequest, request: Request):
         status = {
             "unsupported_query": 422,
             "planner_key_required": 422,
+            "invalid_plan": 422,
             "planner_invalid_plan": 502,
             "planner_unavailable": 503,
             "clinicaltrials_unavailable": 502,

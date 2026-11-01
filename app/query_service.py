@@ -1,11 +1,13 @@
 from datetime import UTC, datetime
 from typing import Any
 
-from app.aggregators import aggregate
+from app.aggregators import AggregationOptions, Scope, aggregate
+from app.aggregators.common import parse_year, value_at
 from app.clinicaltrials.client import ClinicalTrialsClient, ClinicalTrialsError
 from app.planner.openai_planner import OpenAIPlanner, PlannerError, fallback_plan
 from app.schemas import (
     AnalysisType,
+    GroupQuery,
     PlanFilters,
     QueryPlan,
     QueryRequest,
@@ -15,6 +17,8 @@ from app.schemas import (
 from app.settings import Settings
 from app.spec_builder import build_visualization
 
+PLAN_OVERRIDES = ("analysis_type", "group_by", "comparison_groups", "comparison_group_type")
+
 
 def merge_explicit_filters(plan: QueryPlan, request: QueryRequest) -> QueryPlan:
     filters = plan.filters.model_dump()
@@ -23,16 +27,35 @@ def merge_explicit_filters(plan: QueryPlan, request: QueryRequest) -> QueryPlan:
         if explicit is not None:
             filters[field] = explicit
     updates: dict[str, Any] = {"filters": PlanFilters.model_validate(filters)}
-    if request.analysis_type is not None:
-        updates["analysis_type"] = request.analysis_type
+    for field in PLAN_OVERRIDES:
+        explicit = getattr(request, field)
+        if explicit is not None:
+            updates[field] = explicit
     return plan.model_copy(update=updates)
+
+
+def scope_plans(plan: QueryPlan) -> list[tuple[str | None, QueryPlan]]:
+    """Return one retrieval plan per comparison group, or the plan itself otherwise."""
+    if plan.analysis_type != AnalysisType.COMPARISON:
+        return [(None, plan)]
+    groups = list({group.strip().casefold(): group.strip() for group in plan.comparison_groups
+                   if group.strip()}.values())
+    if len(groups) < 2:
+        raise PlannerError(
+            "invalid_plan",
+            "A comparison needs at least two distinct comparison_groups.",
+            {"plan": plan.model_dump(mode="json")},
+        )
+    field = "condition" if plan.comparison_group_type == "condition" else "drug_name"
+    return [
+        (group, plan.model_copy(update={"filters": plan.filters.model_copy(update={field: group})}))
+        for group in groups
+    ]
 
 
 def filter_years(studies: list[dict[str, Any]], plan: QueryPlan) -> list[dict[str, Any]]:
     if plan.filters.start_year is None and plan.filters.end_year is None:
         return studies
-    from app.aggregators.common import parse_year, value_at
-
     filtered = []
     for study in studies:
         year = parse_year(value_at(study, "protocolSection.statusModule.startDateStruct.date"))
@@ -61,6 +84,19 @@ class QueryService:
         if self.planner:
             await self.planner.client.close()
 
+    async def _collect(self, label: str | None, plan: QueryPlan, max_trials: int) -> Scope:
+        try:
+            fetched, total, truncated, request_url = await self.client.fetch(plan, max_trials)
+        except ClinicalTrialsError as exc:
+            raise PlannerError("clinicaltrials_unavailable", str(exc)) from exc
+        return Scope(
+            label=label,
+            studies=filter_years(fetched, plan),
+            total=total,
+            truncated=truncated or total > len(fetched),
+            api_query_url=request_url,
+        )
+
     async def query(self, request: QueryRequest) -> QueryResponse:
         if self.planner:
             plan = await self.planner.plan(request)
@@ -77,17 +113,19 @@ class QueryService:
             )
         plan = merge_explicit_filters(plan, request)
         max_trials = min(request.max_trials, self.settings.max_trials_cap)
-        try:
-            fetched, total, truncated, request_url = await self.client.fetch(plan, max_trials)
-        except ClinicalTrialsError as exc:
-            raise PlannerError("clinicaltrials_unavailable", str(exc)) from exc
-        filtered = filter_years(fetched, plan)
+        scopes = [
+            await self._collect(label, scope_plan, max_trials)
+            for label, scope_plan in scope_plans(plan)
+        ]
+        is_network = plan.analysis_type == AnalysisType.NETWORK
         result = aggregate(
-            filtered,
+            scopes,
             plan,
-            self.settings.network_top_n,
-            self.settings.network_min_edge_weight,
-            self.settings.network_excluded_interventions,
+            AggregationOptions(
+                network_top_n=self.settings.network_top_n,
+                network_min_edge_weight=self.settings.network_min_edge_weight,
+                network_excluded_interventions=self.settings.network_excluded_interventions,
+            ),
         )
         if not result.data and not result.nodes and not result.warnings:
             result.warnings = ["No matching studies were available to visualize."]
@@ -104,24 +142,35 @@ class QueryService:
                 plan=plan,
                 planner_mode=planner_mode,
                 filters_applied=effective_filters,
-                total_matching=total,
-                trials_analyzed=len(filtered),
-                truncated=truncated or total > len(fetched),
+                total_matching=sum(scope.total for scope in scopes),
+                trials_analyzed=sum(len(scope.studies) for scope in scopes),
+                truncated=any(scope.truncated for scope in scopes),
                 assumptions=result.assumptions or [],
                 warnings=result.warnings or [],
-                api_query_url=request_url,
+                api_query_url=scopes[0].api_query_url,
                 generated_at=datetime.now(UTC),
                 total_citations=result.total_citations,
-                network_top_n=self.settings.network_top_n
-                if plan.analysis_type == AnalysisType.NETWORK
-                else None,
+                group_queries=[
+                    GroupQuery(
+                        group=scope.label,
+                        total_matching=scope.total,
+                        trials_analyzed=len(scope.studies),
+                        truncated=scope.truncated,
+                        api_query_url=scope.api_query_url,
+                    )
+                    for scope in scopes
+                    if scope.label is not None
+                ]
+                or None,
+                network_top_n=self.settings.network_top_n if is_network else None,
                 network_min_edge_weight=self.settings.network_min_edge_weight
-                if plan.analysis_type == AnalysisType.NETWORK
+                if is_network
                 else None,
                 network_excluded_interventions=sorted(
-                    {" ".join(name.casefold().split()) for name in self.settings.network_excluded_interventions}
+                    {" ".join(name.casefold().split())
+                     for name in self.settings.network_excluded_interventions}
                 )
-                if plan.analysis_type == AnalysisType.NETWORK
+                if is_network
                 else None,
             ),
         )

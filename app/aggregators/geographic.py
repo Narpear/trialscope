@@ -3,6 +3,8 @@ from typing import Any
 
 from app.aggregators.common import (
     AggregateResult,
+    AggregationOptions,
+    Scope,
     finish,
     nct_and_title,
     section,
@@ -12,7 +14,10 @@ from app.aggregators.common import (
 from app.schemas import QueryPlan
 
 
-def geographic(studies: list[dict[str, Any]], plan: QueryPlan) -> AggregateResult:
+def geographic(
+    scopes: list[Scope], plan: QueryPlan, options: AggregationOptions
+) -> AggregateResult:
+    studies = scopes[0].studies
     records: dict[str, list[tuple[dict[str, Any], str, Any]]] = defaultdict(list)
     status_path = "protocolSection.statusModule.overallStatus"
     status_filter = (

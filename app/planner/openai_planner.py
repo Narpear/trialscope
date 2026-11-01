@@ -43,7 +43,11 @@ class OpenAIPlanner:
                                 "intervention types', and 'distribution' do not by themselves "
                                 "mean comparison. Choose comparison only when the user explicitly "
                                 "asks to compare two or more named groups, such as drug A versus "
-                                "drug B or condition A against condition B. For an unanswerable "
+                                "drug B or condition A against condition B; put each compared entity in "
+                                "comparison_groups, set comparison_group_type to drug or condition, "
+                                "and do not repeat the compared entities in filters. Sponsor categories "
+                                "or sponsor types (industry, NIH, other government, etc.) use "
+                                "group_by=sponsor_class. For an unanswerable "
                                 "question, set answerable=false and provide a concise "
                                 "unsupported_reason; the analysis_type is unused in that case. "
                                 "Descriptive plots of supported registry fields are answerable: "
@@ -111,8 +115,11 @@ def fallback_plan(request: QueryRequest) -> QueryPlan:
             "start_year": request.start_year,
             "end_year": request.end_year,
         },
-        group_by="phase" if request.analysis_type == "distribution" else None,
-        comparison_groups=[],
+        group_by=request.group_by
+        or ("phase" if request.analysis_type in ("distribution", "comparison") else None),
+        comparison_groups=request.comparison_groups or [],
+        comparison_group_type=request.comparison_group_type
+        or ("drug" if request.analysis_type == "comparison" else None),
         network_entity_types=["sponsor", "drug"] if request.analysis_type == "network" else [],
         interpretation=f"Deterministic {request.analysis_type.value} requested by caller.",
     )

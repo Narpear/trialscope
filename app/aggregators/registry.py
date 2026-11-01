@@ -1,6 +1,4 @@
-from typing import Any
-
-from app.aggregators.common import AggregateResult
+from app.aggregators.common import AggregateResult, AggregationOptions, Scope
 from app.aggregators.comparison import comparison
 from app.aggregators.distribution import distribution
 from app.aggregators.geographic import geographic
@@ -22,13 +20,7 @@ AGGREGATORS = {
 
 
 def aggregate(
-    studies: list[dict[str, Any]],
-    plan: QueryPlan,
-    top_n: int = 30,
-    min_edge_weight: int = 2,
-    excluded_interventions: list[str] | None = None,
+    scopes: list[Scope], plan: QueryPlan, options: AggregationOptions | None = None
 ) -> AggregateResult:
-    function = AGGREGATORS[plan.analysis_type]
-    if plan.analysis_type == AnalysisType.NETWORK:
-        return network(studies, plan, top_n, min_edge_weight, excluded_interventions)
-    return function(studies, plan)
+    """Dispatch to the plan's aggregator. Comparisons receive one scope per group."""
+    return AGGREGATORS[plan.analysis_type](scopes, plan, options or AggregationOptions())

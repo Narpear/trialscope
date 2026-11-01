@@ -5,6 +5,8 @@ from typing import Any
 from app.aggregators.common import (
     MAX_CITATIONS_PER_DATUM,
     AggregateResult,
+    AggregationOptions,
+    Scope,
     _interventions,
     _normalize,
     citation,
@@ -14,15 +16,12 @@ from app.aggregators.common import (
 from app.schemas import QueryPlan
 
 
-def network(
-    studies: list[dict[str, Any]],
-    plan: QueryPlan,
-    top_n: int = 30,
-    min_edge_weight: int = 2,
-    excluded_interventions: list[str] | None = None,
-) -> AggregateResult:
+def network(scopes: list[Scope], plan: QueryPlan, options: AggregationOptions) -> AggregateResult:
+    studies = scopes[0].studies
+    top_n = options.network_top_n
+    min_edge_weight = options.network_min_edge_weight
     entities = plan.network_entity_types or ["sponsor", "drug"]
-    excluded = {_normalize(name) for name in excluded_interventions or []}
+    excluded = {_normalize(name) for name in options.network_excluded_interventions}
     edge_records: dict[tuple[str, str], dict[str, list[tuple[dict[str, Any], str, Any]]]] = (
         defaultdict(dict)
     )

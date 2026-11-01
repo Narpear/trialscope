@@ -13,6 +13,7 @@ COMMON_FIELDS = {"NCTId", "BriefTitle"}
 DIMENSION_FIELD = {
     "phase": "Phase",
     "sponsor": "LeadSponsorName",
+    "sponsor_class": "LeadSponsorClass",
     "intervention_type": "InterventionType",
     "condition": "Condition",
 }
@@ -53,9 +54,11 @@ class ClinicalTrialsClient:
         elif plan.analysis_type.value == "distribution":
             fields.add(DIMENSION_FIELD[plan.group_by or "phase"])
         elif plan.analysis_type.value == "comparison":
-            fields.update(
-                {"InterventionName", "InterventionType", DIMENSION_FIELD[plan.group_by or "phase"]}
-            )
+            fields.add(DIMENSION_FIELD[plan.group_by or "phase"])
+            if plan.comparison_group_type == "condition":
+                fields.update({"Condition", "Keyword"})
+            else:
+                fields.update({"InterventionName", "InterventionOtherName"})
         elif plan.analysis_type.value == "geographic":
             fields.update({"OverallStatus", "LocationCountry"})
         elif plan.analysis_type.value == "network":

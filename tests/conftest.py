@@ -3,7 +3,12 @@ from pathlib import Path
 
 import pytest
 
+from app.aggregators import Scope
 from app.schemas import QueryPlan
+
+
+def scope(studies, label=None):
+    return [Scope(label, studies, len(studies), False, "https://example.test/studies")]
 
 FIXTURE_PATH = Path(__file__).parent / "fixtures" / "aspirin_studies.json"
 
@@ -38,6 +43,7 @@ def make_plan():
             },
             "group_by": None,
             "comparison_groups": [],
+            "comparison_group_type": None,
             "network_entity_types": [],
             "interpretation": "Test registry query",
         }

@@ -1,11 +1,22 @@
 from collections import defaultdict
 from typing import Any
 
-from app.aggregators.common import AggregateResult, finish, parse_year, value_at, with_citations
+from app.aggregators.common import (
+    AggregateResult,
+    AggregationOptions,
+    Scope,
+    finish,
+    parse_year,
+    value_at,
+    with_citations,
+)
 from app.schemas import QueryPlan
 
 
-def time_trend(studies: list[dict[str, Any]], plan: QueryPlan) -> AggregateResult:
+def time_trend(
+    scopes: list[Scope], plan: QueryPlan, options: AggregationOptions
+) -> AggregateResult:
+    studies = scopes[0].studies
     buckets: dict[int, list[tuple[dict[str, Any], str, Any]]] = defaultdict(list)
     missing = 0
     for study in studies:
