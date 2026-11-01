@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="/static/style.css?v=3" />
+    <link rel="stylesheet" href="/static/style.css?v=4" />
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
@@ -79,7 +79,11 @@
             </div>
             <div id="chart" class="chart"></div>
             <pre id="json-view" class="json-view hidden"></pre>
-            <div class="chart-footnote"><span>Click a mark to inspect supporting studies</span><button id="reopen-citations" class="text-button" type="button" disabled>View source records</button><span>Source: ClinicalTrials.gov</span></div>
+            <div class="evidence-bar">
+              <div class="evidence-copy"><span class="evidence-icon" aria-hidden="true">⌕</span><span><strong>Every value is backed by trial records.</strong> Click any bar, point or node to see the trials behind it.</span></div>
+              <button id="reopen-citations" class="evidence-button" type="button" disabled>Browse source records <span aria-hidden="true">→</span></button>
+            </div>
+            <div class="chart-footnote"><span>Source: ClinicalTrials.gov</span></div>
           </div>
           <aside class="meta-card">
             <p class="eyebrow">QUERY SUMMARY</p>
@@ -95,9 +99,9 @@
     </div>
     <aside id="citation-panel" class="citation-panel" aria-live="polite">
       <div class="citation-head"><div><p class="eyebrow">SOURCE RECORDS</p><h2 id="citation-title">Evidence</h2></div><button id="close-citations" class="icon-button" type="button" aria-label="Close citations">×</button></div>
-      <div id="citation-content" class="citation-content"><p class="muted">Select a chart mark to see its contributing trials.</p></div>
+      <div id="citation-content" class="citation-content"><p class="muted">Pick a data point to see its contributing trials.</p></div>
     </aside>
     <div id="scrim" class="scrim"></div>
-    <script src="/static/app.js?v=6"></script>
+    <script src="/static/app.js?v=7"></script>
   </body>
 </html>

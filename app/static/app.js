@@ -70,7 +70,7 @@ function showStatus(kind, message) {
 function renderResults(response) {
   const { visualization: viz, meta } = response;
   latestCitationSelection = null;
-  document.querySelector("#reopen-citations").disabled = true;
+  document.querySelector("#reopen-citations").disabled = false;
   document.querySelector("#chart-title").textContent = viz.title;
   document.querySelector("#interpretation").textContent = meta.query_interpretation;
   document.querySelector("#metrics").innerHTML = `
@@ -125,6 +125,7 @@ function renderVisualization(viz) {
     mark: {
       type: mark,
       tooltip: true,
+      cursor: "pointer",
       ...(mark === "bar" ? { cornerRadiusTopLeft: 3, cornerRadiusTopRight: 3 } : {}),
       ...(mark === "line" ? { point: true } : {}),
     },
@@ -213,8 +214,52 @@ function nodeLabel(nodes, node) { return nodes.find((item) => item.id === (typeo
 
 function openCitations(datum, label) {
   latestCitationSelection = { datum, label };
-  document.querySelector("#reopen-citations").disabled = false;
   showCitationSelection(datum, label);
+}
+
+function datumLabel(datum, viz) {
+  if (viz.type === "network_graph") {
+    if (datum.source !== undefined) {
+      return `${nodeLabel(viz.nodes || [], datum.source)} ↔ ${nodeLabel(viz.nodes || [], datum.target)}`;
+    }
+    return datum.label;
+  }
+  if (datum.group !== undefined) return `${datum.group} · ${datum.category}`;
+  if (datum.bin_start !== undefined) return `${formatNumber(datum.bin_start)}–${formatNumber(datum.bin_end)} participants`;
+  if (datum.nct_id && viz.type === "scatter_plot") return `${datum.nct_id} · ${datum.title || ""}`;
+  return String(datum.category ?? datum.country ?? datum.year ?? datum.nct_id ?? "Data point");
+}
+
+function showOverview() {
+  const viz = latestResponse?.visualization;
+  if (!viz) return;
+  latestCitationSelection = null;
+  document.querySelector("#citation-title").textContent = "All data points";
+  const item = (datum, count) => `
+    <li><button type="button" data-index="${datum.__index}">${escapeHtml(datumLabel(datum, viz))}<span class="datum-count">${formatNumber(count)} trials ›</span></button></li>`;
+  const sections = viz.type === "network_graph"
+    ? [["NODES", viz.nodes || [], (d) => d.weight], ["CONNECTIONS", viz.edges || [], (d) => d.weight]]
+    : [["", viz.data || [], (d) => d.trial_count]];
+  const entries = [];
+  const html = sections.map(([heading, rows, count]) => {
+    if (!rows.length) return "";
+    const list = rows.map((datum) => {
+      entries.push(datum);
+      return item({ ...datum, __index: entries.length - 1 }, count(datum));
+    }).join("");
+    return `${heading ? `<p class="datum-group">${heading}</p>` : ""}<ul class="datum-list">${list}</ul>`;
+  }).join("");
+  const content = document.querySelector("#citation-content");
+  content.innerHTML = `<p class="muted">Choose a data point to see the trials and exact registry fields behind it.</p>${html || '<p class="muted">This visualization has no data points.</p>'}`;
+  content.querySelectorAll("[data-index]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const datum = entries[Number(button.dataset.index)];
+      latestCitationSelection = { datum, label: datumLabel(datum, viz) };
+      showCitationSelection(datum, latestCitationSelection.label);
+    });
+  });
+  citationPanel.classList.add("open");
+  scrim.classList.add("open");
 }
 
 function showCitationSelection(datum, label) {
@@ -222,6 +267,7 @@ function showCitationSelection(datum, label) {
   const nctIds = [...new Set(datum.nct_ids || [])];
   document.querySelector("#citation-title").textContent = label;
   const content = document.querySelector("#citation-content");
+  const back = '<button type="button" class="back-link" id="back-to-overview">← All data points</button>';
   const citationCards = citations.length ? citations.map((citation) => `
     <article class="citation-card">
       <a href="https://clinicaltrials.gov/study/${encodeURIComponent(citation.nct_id)}" target="_blank" rel="noreferrer">${escapeHtml(citation.nct_id)} ↗</a>
@@ -236,7 +282,11 @@ function showCitationSelection(datum, label) {
         <li><a href="https://clinicaltrials.gov/study/${encodeURIComponent(nctId)}" target="_blank" rel="noreferrer">${escapeHtml(nctId)} ↗</a></li>`).join("")}
       </ul>
     </section>` : "";
-  content.innerHTML = citationCards + allContributors;
+  const exactNote = datum.count_query_url
+    ? `<p class="muted">The registry total (${formatNumber(datum.trial_count)}) comes from <a href="${escapeHtml(datum.count_query_url)}" target="_blank" rel="noreferrer">this ClinicalTrials.gov query ↗</a>; the records below are the ${formatNumber(datum.sample_trial_count)} fetched trials in this bucket.</p>`
+    : "";
+  content.innerHTML = back + exactNote + citationCards + allContributors;
+  document.querySelector("#back-to-overview").addEventListener("click", showOverview);
   citationPanel.classList.add("open");
   scrim.classList.add("open");
 }
@@ -246,6 +296,8 @@ document.querySelector("#close-citations").addEventListener("click", closeCitati
 document.querySelector("#reopen-citations").addEventListener("click", () => {
   if (latestCitationSelection) {
     showCitationSelection(latestCitationSelection.datum, latestCitationSelection.label);
+  } else {
+    showOverview();
   }
 });
 scrim.addEventListener("click", closeCitations);
