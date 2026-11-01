@@ -1,6 +1,6 @@
 from typing import Any
 
-from app.aggregators.core import AggregateResult
+from app.aggregators.common import AggregateResult
 from app.schemas import AnalysisType, Encoding, QueryPlan, Visualization
 
 CHART_ENCODING: dict[AnalysisType, dict[str, Any]] = {

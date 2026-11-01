@@ -31,7 +31,7 @@ def merge_explicit_filters(plan: QueryPlan, request: QueryRequest) -> QueryPlan:
 def filter_years(studies: list[dict[str, Any]], plan: QueryPlan) -> list[dict[str, Any]]:
     if plan.filters.start_year is None and plan.filters.end_year is None:
         return studies
-    from app.aggregators.core import parse_year, value_at
+    from app.aggregators.common import parse_year, value_at
 
     filtered = []
     for study in studies:

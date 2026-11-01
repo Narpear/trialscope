@@ -2,15 +2,13 @@ from collections import defaultdict
 from itertools import combinations
 
 from app.aggregators import aggregate
-from app.aggregators.core import (
-    comparison,
-    distribution,
-    geographic,
-    histogram,
-    network,
-    scatter,
-    time_trend,
-)
+from app.aggregators.comparison import comparison
+from app.aggregators.distribution import distribution
+from app.aggregators.geographic import geographic
+from app.aggregators.histogram import histogram
+from app.aggregators.network import network
+from app.aggregators.scatter import scatter
+from app.aggregators.time_trend import time_trend
 
 
 def test_time_trend_accepts_month_and_day_dates_and_cites(studies, make_plan):
