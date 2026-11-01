@@ -2,7 +2,7 @@
 
 ClinicalTrials.gov Query-to-Visualization service: ask a natural-language question about registered studies and receive a renderable visualization specification with record-level citations.
 
-**Live demo:** TODO — add the Render URL after deployment.
+**Live demo:** https://trialscope.onrender.com/ (free Render instance: after 15 idle minutes the first request takes about a minute while it wakes).
 
 ## What it does
 
@@ -142,6 +142,22 @@ The abbreviated values above are illustrative; real responses include the comple
 
 **Meta fields.** `total_matching` is the API's match total, `trials_analyzed` is the number of records fetched (the sample size), and `truncated` says whether that is fewer than the total. For comparisons, both are sums over groups (a trial matching two groups counts in each), and `group_queries` lists each group's total, fetched count, truncation and query URL. `counts_exact` and `count_basis` say whether the visualized numbers are registry totals. `plan_adjustments` lists changes made by semantic plan validation. `total_citations` counts citation objects returned across the visualization (not references beyond each datum's cap). Network responses also report `network_top_n`, `network_min_edge_weight`, and the normalized `network_excluded_interventions` list.
 
+### Visualization types
+
+`visualization.type` decides where the marks are and which fields each mark has. Every row or element also carries `trial_count` (or `weight`), `nct_ids` and `citations`, as described above.
+
+| `type` | Analysis | Marks are in | Mark fields | Encoding |
+|---|---|---|---|---|
+| `time_series` | `time_trend` | `data`, one row per year | `year` (integer), `year_date` (`YYYY-01-01`) | x = `year_date` (temporal, year unit), y = `trial_count`; sorted by year |
+| `bar_chart` | `distribution` | `data`, one row per category | `category` (label), `category_code` (registry code) | x = `category`, y = `trial_count`; sorted by count, descending |
+| `grouped_bar_chart` | `comparison` | `data`, one row per group × category | `group`, `category`, `category_code` | x = `category`, xOffset and color = `group`, y = `trial_count` |
+| `bar_chart` | `geographic` | `data`, one row per country | `country` | x = `country`, y = `trial_count`; sorted by count, descending |
+| `histogram` | `histogram` | `data`, one row per non-empty bin | `bin_start`, `bin_end` (participants) | x = `bin_start` (quantitative), y = `trial_count` |
+| `scatter_plot` | `scatter` | `data`, one row per trial | `nct_id`, `title`, `start_year`, `enrollment`; `trial_count` is always 1 | x = `start_year`, y = `enrollment` |
+| `network_graph` | `network` | `nodes` and `edges`; `data` is empty | nodes: `id` (`<type>:<name>`), `label`, `type` (`sponsor`, `drug` or `condition`), `weight`; edges: `source`, `target` (node ids), `weight` | `encoding.nodes` / `encoding.edges` map these fields; weights are distinct trial counts |
+
+`encoding` uses Vega-Lite-style channel objects (`field`, `type`, optional `title` and `timeUnit`) plus `sort`, `units`, `tooltip` and `time_granularity`, so it can be passed to Vega-Lite almost directly. The bundled frontend does exactly that for every type except networks, which it draws with d3.
+
 ### Count accuracy
 
 A ClinicalTrials.gov query can match more trials than are practical to fetch, so `meta.count_basis` states where the numbers come from:
@@ -198,6 +214,15 @@ When the planner is unavailable, the service reports that failure explicitly rat
 4. **Aggregate deterministically.** `app/aggregators/registry.py` dispatches every analysis through one `(scopes, plan, options)` signature: one scope per query (several for a comparison). Each analysis type has its own module; shared citation, category and name-normalization helpers live in `common.py`, and the countable registry codes and their labels live in `dimensions.py`. No query-text branching produces data. Study IDs and exact source values remain attached through aggregation.
 5. **Build a renderable spec.** The spec builder attaches an encoding with explicit channels, field names, types, units, sort and temporal granularity. The no-build frontend renders from those returned types/encodings and supports citation inspection, CSV export of chart rows or graph nodes/edges, and copyable query links that restore query inputs without automatically sending a request.
 
+## Design trade-offs
+
+- **The LLM plans; code answers.** The model can only choose among seven analysis types and fill typed filters, so it cannot invent numbers or citations. The cost is flexibility: questions outside those shapes (outcome statistics, eligibility criteria, investigator networks) are refused or answered with the nearest supported chart rather than improvised.
+- **Exact counts within a request budget.** Per-bucket `countTotal` queries give registry-exact totals without fetching every record. But ClinicalTrials.gov allows only about 50 requests per minute, so they are bounded by `EXACT_COUNT_QUERY_BUDGET` and add latency (about 15 seconds for 14 years). Analyses without fixed buckets (networks, geography, histograms, scatter) are exact only when every matching trial is fetched; otherwise they are labeled as samples.
+- **Registry search defines groups.** Drug and condition groups are ClinicalTrials.gov searches (`query.intr`, `query.cond`), so totals match what a user sees on clinicaltrials.gov, including its synonym expansion. That is broader and less transparent than exact name matching, and the response warns about trials whose cited fields do not contain the term.
+- **Faithful multi-value counting.** Multi-phase trials count once in each reported phase, and multi-country trials once per country, instead of creating combined buckets. Every bar can be traced to its records, but bars can sum to more than the trial total.
+- **Bounded citations.** Each datum cites up to five records in detail and lists every contributing NCT ID. This keeps responses usable (the largest example is about 0.5 MB) while every count remains traceable.
+- **In-process state.** The cache, request pacer and rate limiter live in one process. That is simple and fine for one free instance, but they reset when it sleeps and do not scale across instances.
+
 ## Planner evaluation
 
 Two real-planner evaluation sets score the plan after semantic validation, so a plan the service would reject counts as a failure:
@@ -221,7 +246,7 @@ Caveats:
 - The same author wrote the prompt and both sets, so the held-out questions are not independent of the prompt's vocabulary.
 - The model is non-deterministic and provider updates can change results. Rerun both sets after planner changes.
 
-### Messy-data decisions and limitations
+## Messy-data decisions and limitations
 
 - **Dates.** Start dates are `YYYY`, `YYYY-MM` or `YYYY-MM-DD` strings and are bucketed by calendar year. Every year in the range is listed, with `trial_count` 0 for empty years. Records without a usable date are excluded with a warning. Registries record *anticipated* start dates, so future years are noted as planned starts, and the current year is noted as incomplete.
 - **Phases.** Phase is an array. A multi-phase study (Phase 1/Phase 2) is counted once in every reported phase rather than in a fabricated combined phase, so bars can sum to more than the trial total. Missing phases are `Not specified`, and the registry's `NA` is `Not Applicable`.
@@ -233,6 +258,28 @@ Caveats:
 - **Sampling.** See [Count accuracy](#count-accuracy). Truncated samples are the first records in the API's default order, which is not a random sample.
 - **Single process.** The response cache, request pacer and per-client rate limiter (12 queries/minute) are in-process. They reset on restart and do not coordinate across instances; scaling beyond one instance needs a shared cache and limiter.
 - **Citation cap.** Citation details include up to five references per datum for payload and UI usability. `nct_ids` lists every contributing fetched record, and the citation drawer lists every contributing NCT ID below the detailed records when the list exceeds the cap.
+
+## What I would improve with more time
+
+- **Entity resolution.** Map interventions to RxNorm and conditions to MeSH terms (the registry already includes `conditionBrowseModule` and `interventionBrowseModule` MeSH data) so brand names, code names (MK-3475) and spelling variants merge.
+- **Exact counts everywhere.** Keep a local mirror of the registry from ClinicalTrials.gov's bulk download, refreshed nightly, so networks, geography and histograms are always exact and responses do not depend on the API rate limit. Short of that, run long count jobs asynchronously with progress polling.
+- **More analyses.** Collaborator and investigator/site networks, sponsor-class breakdowns within time trends (stacked series), log-scaled enrollment bins, and phases in natural order.
+- **Planner.** A larger, independently written evaluation set run several times per model, clarifying questions for ambiguous requests, and multi-turn refinement ("now only phase 3").
+- **Operations.** Redis for the cache and rate limiter, structured request logging, and frontend tests.
+
+## Example runs
+
+Five real responses from the service are stored in `examples/`, produced by `scripts/generate_examples.py` from natural-language questions with default limits. Each is the full JSON response, including the plan, metadata and citations.
+
+| File | Question | Visualization | Matching trials | Counts |
+|---|---|---|---:|---|
+| [`examples/time_trend.json`](examples/time_trend.json) | How many rheumatoid arthritis trials started each year since 2015? | `time_series`, 14 years | 1,972 | exact (`complete_records`) |
+| [`examples/comparison.json`](examples/comparison.json) | Compare phases for trials involving pembrolizumab vs nivolumab. | `grouped_bar_chart`, 2 groups × 7 phases | 2,997 + 2,040 | exact (`complete_records`) |
+| [`examples/geographic.json`](examples/geographic.json) | Which countries have the most recruiting trials for melanoma? | `bar_chart`, 53 countries | 485 | exact (`complete_records`) |
+| [`examples/network.json`](examples/network.json) | Which drugs frequently co-occur in combination studies for pancreatic cancer? (`max_trials: 10000`) | `network_graph`, 30 nodes, 212 edges | 5,120 | exact (`complete_records`) |
+| [`examples/distribution.json`](examples/distribution.json) | How are breast cancer trials distributed across phases? | `bar_chart`, 7 phases | 16,973 | exact (`api_count_queries`, 5,000 records fetched for citations) |
+
+The time trend, comparison and network numbers are among those checked independently against the API (see [Independent verification](#independent-verification-against-clinicaltrialsgov)).
 
 ## Tests and examples
 
@@ -257,7 +304,7 @@ The following were checked by a separate script that queries the API directly an
 | "Which drugs frequently co-occur in combination studies for pancreatic cancer?" | Top 8 edge weights and NCT ID sets against a recount of all 5,120 raw records using the documented name rule; every edge NCT ID re-checked to contain both drugs | 8/8 equal with `max_trials: 10000` (e.g. gemcitabine — nab-paclitaxel: 164); with the default 5,000 the response is marked `sample` and weights are slightly lower (159) |
 | All of the above | Cited `field_path` / `exact_value` re-read from each trial's full API record | 16 citations, 0 mismatches; every time-bucket citation's date is in its year |
 
-Five actual service responses are stored under `examples/`: time trend, comparison, geography, network (all `complete_records`), and a breast-cancer phase distribution (16,973 matches, `api_count_queries`). To regenerate them, start the service with `uvicorn app.main:app` and run:
+To regenerate the [example runs](#example-runs), start the service with `uvicorn app.main:app` and run:
 
 ```bash
 python scripts/generate_examples.py
@@ -271,7 +318,7 @@ Set `EXAMPLES_BASE_URL` if the server is not at `http://127.0.0.1:8000`. The exa
 2. Set **Runtime** to Python, **Build Command** to `pip install .`, and **Start Command** to `uvicorn app.main:app --host 0.0.0.0 --port $PORT`. Render supplies `PORT`. `.python-version` selects Python 3.12 (a `PYTHON_VERSION` environment variable would override it).
 3. Under **Advanced**, set **Health Check Path** to `/api/health`.
 4. Under **Environment**, add `OPENAI_API_KEY` and, optionally, `OPENAI_MODEL`, `MAX_TRIALS_CAP`, `EXACT_COUNT_QUERY_BUDGET`, and `NETWORK_EXCLUDED_INTERVENTIONS`. Do not commit `.env` or paste secrets into source files.
-5. Deploy. Use the `https://<service>.onrender.com` URL as the live demo URL and update the TODO at the top of this README.
+5. Deploy. The service is then served at `https://<service>.onrender.com` (this deployment: https://trialscope.onrender.com/).
 6. To run without an OpenAI key, callers must specify `analysis_type` (and `comparison_groups` for comparisons); this mode is useful for service smoke tests, not natural-language chart selection.
 
 **Free-tier cold starts.** Render spins a free web service down after 15 minutes without traffic. The next request wakes it, which takes about a minute, and Render shows a loading page meanwhile. After that, responses take their normal time. The in-memory cache and rate-limit counters start empty after each wake.
