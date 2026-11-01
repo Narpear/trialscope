@@ -20,10 +20,37 @@ OPTIONS = AggregationOptions()
 
 def test_time_trend_accepts_month_and_day_dates_and_cites(studies, make_plan):
     result = time_trend(scope(studies), make_plan("time_trend"), OPTIONS)
-    assert {row["year"] for row in result.data} == {2006, 2019}
+    assert [row["year"] for row in result.data] == list(range(2006, 2020))
+    counts = {row["year"]: row["trial_count"] for row in result.data}
+    assert counts[2006] == counts[2019] == 1
+    assert sum(counts.values()) == 2
     assert result.data[0]["year_date"] == "2006-01-01"
+    assert result.data[1]["citations"] == []
     assert result.total_citations == 2
     assert result.data[0]["citations"][0]["field_path"].endswith("startDateStruct.date")
+
+
+def test_time_trend_notes_future_and_current_years(studies, make_plan, monkeypatch):
+    monkeypatch.setattr("app.aggregators.time_trend.current_year", lambda: 2018)
+    studies[0]["protocolSection"]["statusModule"]["startDateStruct"]["date"] = "2018-03"
+    studies[1]["protocolSection"]["statusModule"]["startDateStruct"]["date"] = "2020-01-15"
+    plan = make_plan(
+        "time_trend",
+        filters={
+            "drug_name": None,
+            "condition": None,
+            "sponsor": None,
+            "phase": None,
+            "country": None,
+            "recruitment_status": None,
+            "start_year": 2016,
+            "end_year": 2100,
+        },
+    )
+    result = time_trend(scope(studies), plan, OPTIONS)
+    assert [row["year"] for row in result.data] == [2016, 2017, 2018, 2019, 2020]
+    assert any("after 2018 (2020–2020)" in note for note in result.assumptions)
+    assert any("2018 is in progress" in note for note in result.assumptions)
 
 
 def test_time_trend_warns_when_start_date_is_missing(studies, make_plan):
@@ -36,7 +63,8 @@ def test_time_trend_warns_when_start_date_is_missing(studies, make_plan):
 def test_distribution_groups_phase_and_cites(studies, make_plan):
     plan = make_plan("distribution", group_by="phase")
     result = distribution(scope(studies), plan, OPTIONS)
-    assert result.data[0]["category"] == "Phase4"
+    assert result.data[0]["category"] == "Phase 4"
+    assert result.data[0]["category_code"] == "PHASE4"
     assert result.data[0]["trial_count"] == 2
     assert result.total_citations == 2
 
@@ -45,9 +73,9 @@ def test_multi_phase_study_is_counted_once_in_each_reported_phase(studies, make_
     studies[0]["protocolSection"]["designModule"]["phases"] = ["PHASE1", "PHASE2"]
     result = distribution(scope(studies), make_plan("distribution", group_by="phase"), OPTIONS)
     counts = {row["category"]: row["trial_count"] for row in result.data}
-    assert counts["Phase1"] == 1
-    assert counts["Phase2"] == 1
-    assert counts["Phase4"] == 1
+    assert counts["Phase 1"] == 1
+    assert counts["Phase 2"] == 1
+    assert counts["Phase 4"] == 1
 
 
 def test_comparison_aggregates_each_group_scope_separately(studies, make_plan):
@@ -63,8 +91,8 @@ def test_comparison_aggregates_each_group_scope_separately(studies, make_plan):
     ]
     result = comparison(scopes, plan, OPTIONS)
     counts = {(row["group"], row["category"]): row["trial_count"] for row in result.data}
-    assert counts[("tirofiban", "Phase4")] == 1
-    assert counts[("placebo", "Phase4")] == 2
+    assert counts[("tirofiban", "Phase 4")] == 1
+    assert counts[("placebo", "Phase 4")] == 2
     assert result.visualization_type == "grouped_bar_chart"
     tirofiban = next(row for row in result.data if row["group"] == "tirofiban")
     assert {citation["field_path"] for citation in tirofiban["citations"]} == {

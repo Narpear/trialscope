@@ -1,4 +1,5 @@
 from collections import defaultdict
+from datetime import UTC, datetime
 from typing import Any
 
 from app.aggregators.common import (
@@ -31,7 +32,10 @@ def time_trend(
         if plan.filters.end_year is not None and year > plan.filters.end_year:
             continue
         buckets[year].append((study, "protocolSection.statusModule.startDateStruct.date", date))
-    years = sorted(scope.bucket_counts) if scope.bucket_counts is not None else sorted(buckets)
+    if scope.bucket_counts is not None:
+        years = sorted(scope.bucket_counts)
+    else:
+        years = year_range(plan, buckets) if buckets else []
     rows = []
     for year in years:
         row = with_citations({"year": year, "year_date": f"{year:04d}-01-01"}, buckets.get(year, []))
@@ -46,7 +50,9 @@ def time_trend(
             "Clinical trials by start year",
             [],
             assumptions=[
-                "Study start dates with month or day precision are bucketed by calendar year."
+                "Study start dates with month or day precision are bucketed by calendar year.",
+                "Every year in the range is listed; years with no trials have trial_count 0.",
+                *calendar_notes(rows),
             ],
             warnings=[f"{missing} trials had no usable start date and were excluded."]
             if missing
@@ -54,3 +60,36 @@ def time_trend(
         ),
         rows,
     )
+
+
+def year_range(plan: QueryPlan, buckets: dict[int, Any]) -> list[int]:
+    """Consecutive years from the requested (or first observed) start to the last relevant year.
+
+    An end_year beyond the data stops at the later of the last observed year and the current
+    year, so a far-future end_year does not produce a long run of empty years.
+    """
+    start = plan.filters.start_year if plan.filters.start_year is not None else min(buckets)
+    end = max(buckets)
+    if plan.filters.end_year is not None:
+        end = min(plan.filters.end_year, max(end, current_year()))
+    return list(range(start, end + 1))
+
+
+def calendar_notes(rows: list[dict[str, Any]]) -> list[str]:
+    this_year = current_year()
+    notes = []
+    future = [row for row in rows if row["year"] > this_year and row["trial_count"]]
+    if future:
+        trials = sum(row["trial_count"] for row in future)
+        notes.append(
+            f"{trials} trials have anticipated start dates after {this_year} "
+            f"({future[0]['year']}–{future[-1]['year']}); registries record planned start "
+            "dates, so these trials have not started yet."
+        )
+    if any(row["year"] == this_year for row in rows):
+        notes.append(f"{this_year} is in progress, so its count is not final.")
+    return notes
+
+
+def current_year() -> int:
+    return datetime.now(UTC).year

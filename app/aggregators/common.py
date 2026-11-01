@@ -191,7 +191,10 @@ def categorical_rows(
     rows = []
     for key in keys:
         row = with_citations(
-            {"category": category_label(key) if countable else key, "category_code": key},
+            {
+                "category": category_label(dimension, key) if countable else key,
+                "category_code": key,
+            },
             records.get(key, []),
         )
         if bucket_counts is not None:

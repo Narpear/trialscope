@@ -58,5 +58,48 @@ def bucket_clauses(dimension: str) -> dict[str, str]:
     return clauses
 
 
-def category_label(code: str) -> str:
-    return "Not specified" if code == NOT_SPECIFIED else code.replace("_", " ").title()
+# Display labels follow ClinicalTrials.gov's own wording where it has one.
+LABELS: dict[str, dict[str, str]] = {
+    "phase": {
+        "EARLY_PHASE1": "Early Phase 1",
+        "PHASE1": "Phase 1",
+        "PHASE2": "Phase 2",
+        "PHASE3": "Phase 3",
+        "PHASE4": "Phase 4",
+        "NA": "Not Applicable",
+    },
+    "status": {
+        "RECRUITING": "Recruiting",
+        "NOT_YET_RECRUITING": "Not yet recruiting",
+        "ENROLLING_BY_INVITATION": "Enrolling by invitation",
+        "ACTIVE_NOT_RECRUITING": "Active, not recruiting",
+        "COMPLETED": "Completed",
+        "SUSPENDED": "Suspended",
+        "TERMINATED": "Terminated",
+        "WITHDRAWN": "Withdrawn",
+        "UNKNOWN": "Unknown status",
+        "AVAILABLE": "Available (expanded access)",
+        "NO_LONGER_AVAILABLE": "No longer available (expanded access)",
+        "TEMPORARILY_NOT_AVAILABLE": "Temporarily not available (expanded access)",
+        "APPROVED_FOR_MARKETING": "Approved for marketing (expanded access)",
+        "WITHHELD": "Withheld",
+    },
+    "intervention_type": {"DIETARY_SUPPLEMENT": "Dietary Supplement"},
+    "sponsor_class": {
+        "INDUSTRY": "Industry",
+        "NIH": "NIH",
+        "FED": "U.S. federal (non-NIH)",
+        "OTHER_GOV": "Other government",
+        "INDIV": "Individual",
+        "NETWORK": "Network",
+        "AMBIG": "Ambiguous",
+        "OTHER": "Other (academic, hospital, nonprofit)",
+        "UNKNOWN": "Unknown",
+    },
+}
+
+
+def category_label(dimension: str, code: str) -> str:
+    if code == NOT_SPECIFIED:
+        return "Not specified"
+    return LABELS.get(dimension, {}).get(code) or code.replace("_", " ").title()

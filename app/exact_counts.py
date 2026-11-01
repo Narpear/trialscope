@@ -13,6 +13,7 @@ from typing import Any
 
 from app.aggregators.common import BucketCount, Scope
 from app.aggregators.dimensions import COUNTABLE_DIMENSIONS, bucket_clauses
+from app.aggregators.time_trend import current_year
 from app.clinicaltrials.client import ClinicalTrialsClient
 from app.schemas import AnalysisType, CountBasis, QueryPlan
 
@@ -37,12 +38,13 @@ def counted_dimension(plan: QueryPlan) -> str | None:
 
 async def _year_clauses(client: ClinicalTrialsClient, plan: QueryPlan) -> dict[Any, str]:
     start, end = plan.filters.start_year, plan.filters.end_year
-    if start is None or end is None:
+    if start is None or end is None or end > current_year():
         bounds = await client.start_year_bounds(plan.filters)
         if bounds is None:
             return {}
         start = bounds[0] if start is None else start
-        end = bounds[1] if end is None else min(end, bounds[1])
+        # Same range rule as the records path (time_trend.year_range).
+        end = bounds[1] if end is None else min(end, max(bounds[1], current_year()))
     return {year: f"AREA[StartDate]RANGE[{year}-01-01,{year}-12-31]" for year in range(start, end + 1)}
 
 
