@@ -241,16 +241,16 @@ class ClinicalTrialsClient:
         self, plan: QueryPlan, max_trials: int
     ) -> tuple[list[dict[str, Any]], int, bool, str]:
         params = self.build_params(plan, max_trials)
-        key = tuple(sorted((k, str(v)) for k, v in params.items()))
+        # pageSize is capped at 1,000, so it cannot distinguish larger max_trials values.
+        key = (
+            "fetch",
+            max_trials,
+            *sorted((k, str(v)) for k, v in params.items() if k != "pageSize"),
+        )
         async with self._lock:
             payload = self._cache_get(key)
         if payload is not None:
-            return (
-                payload["studies"][:max_trials],
-                payload["total"],
-                payload["total"] > max_trials,
-                payload["url"],
-            )
+            return payload["studies"], payload["total"], payload["truncated"], payload["url"]
 
         request_url = f"{self.base_url}?{urlencode(params)}"
         studies: list[dict[str, Any]] = []
@@ -277,7 +277,12 @@ class ClinicalTrialsClient:
 
         total = total if total is not None else len(studies)
         truncated = total > len(studies) or bool(page_token)
-        payload = {"studies": studies[:max_trials], "total": total, "url": request_url}
+        payload = {
+            "studies": studies[:max_trials],
+            "total": total,
+            "truncated": truncated,
+            "url": request_url,
+        }
         async with self._lock:
             self._cache_put(key, payload)
         return payload["studies"], total, truncated, request_url

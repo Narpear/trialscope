@@ -147,3 +147,36 @@ def test_phase_filter_uses_advanced_query_combined_with_dates(make_plan):
     assert params["filter.advanced"] == (
         "AREA[Phase]PHASE3 AND AREA[StartDate]RANGE[2018-01-01,2100-12-31]"
     )
+
+
+@pytest.mark.asyncio
+async def test_cache_distinguishes_max_trials_above_one_page(make_plan):
+    calls = []
+
+    async def handler(request):
+        calls.append(request)
+        size = int(request.url.params["pageSize"])
+        start = int(request.url.params.get("pageToken") or 0)
+        studies = [
+            {"protocolSection": {"identificationModule": {"nctId": f"NCT{start + i:08d}"}}}
+            for i in range(size)
+        ]
+        content = {"studies": studies, "nextPageToken": str(start + size)}
+        if not start:
+            content["totalCount"] = 10_000
+        return httpx.Response(200, json=content)
+
+    client = ClinicalTrialsClient(
+        Settings(_env_file=None, openai_api_key=None, clinicaltrials_requests_per_second=1000),
+        http_client=httpx.AsyncClient(transport=httpx.MockTransport(handler)),
+    )
+    plan = make_plan("time_trend")
+    first, _, _, _ = await client.fetch(plan, 1500)
+    second, total, truncated, _ = await client.fetch(plan, 3000)
+    assert len(first) == 1500
+    assert len(second) == 3000
+    assert (total, truncated) == (10_000, True)
+    calls_after_two_sizes = len(calls)
+    cached, _, _, _ = await client.fetch(plan, 3000)
+    assert len(cached) == 3000
+    assert len(calls) == calls_after_two_sizes
