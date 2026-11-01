@@ -218,15 +218,24 @@ function openCitations(datum, label) {
 
 function showCitationSelection(datum, label) {
   const citations = datum.citations || [];
+  const nctIds = [...new Set(datum.nct_ids || [])];
   document.querySelector("#citation-title").textContent = label;
   const content = document.querySelector("#citation-content");
-  content.innerHTML = citations.length ? citations.map((citation) => `
+  const citationCards = citations.length ? citations.map((citation) => `
     <article class="citation-card">
       <a href="https://clinicaltrials.gov/study/${encodeURIComponent(citation.nct_id)}" target="_blank" rel="noreferrer">${escapeHtml(citation.nct_id)} ↗</a>
       <p class="citation-title">${escapeHtml(citation.title || "Clinical study")}</p>
       <div class="citation-field"><span>Source field</span><code>${escapeHtml(citation.field_path)}</code></div>
       <div class="citation-field"><span>Exact API value</span><pre>${escapeHtml(JSON.stringify(citation.exact_value, null, 2))}</pre></div>
     </article>`).join("") : '<p class="muted">No source records were attached to this datum.</p>';
+  const allContributors = nctIds.length > citations.length ? `
+    <section class="all-contributors">
+      <h3>All contributing trials <span>(${formatNumber(nctIds.length)})</span></h3>
+      <ul>${nctIds.map((nctId) => `
+        <li><a href="https://clinicaltrials.gov/study/${encodeURIComponent(nctId)}" target="_blank" rel="noreferrer">${escapeHtml(nctId)} ↗</a></li>`).join("")}
+      </ul>
+    </section>` : "";
+  content.innerHTML = citationCards + allContributors;
   citationPanel.classList.add("open");
   scrim.classList.add("open");
 }
