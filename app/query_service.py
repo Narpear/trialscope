@@ -6,6 +6,7 @@ from app.aggregators.common import normalize_intervention, parse_year, value_at
 from app.clinicaltrials.client import ClinicalTrialsClient, ClinicalTrialsError
 from app.exact_counts import CountOutcome, add_exact_counts
 from app.planner.openai_planner import OpenAIPlanner, PlannerError, fallback_plan
+from app.planner.validation import validate_plan
 from app.schemas import (
     AnalysisType,
     GroupQuery,
@@ -39,18 +40,10 @@ def scope_plans(plan: QueryPlan) -> list[tuple[str | None, QueryPlan]]:
     """Return one retrieval plan per comparison group, or the plan itself otherwise."""
     if plan.analysis_type != AnalysisType.COMPARISON:
         return [(None, plan)]
-    groups = list({group.strip().casefold(): group.strip() for group in plan.comparison_groups
-                   if group.strip()}.values())
-    if len(groups) < 2:
-        raise PlannerError(
-            "invalid_plan",
-            "A comparison needs at least two distinct comparison_groups.",
-            {"plan": plan.model_dump(mode="json")},
-        )
     field = "condition" if plan.comparison_group_type == "condition" else "drug_name"
     return [
         (group, plan.model_copy(update={"filters": plan.filters.model_copy(update={field: group})}))
-        for group in groups
+        for group in plan.comparison_groups
     ]
 
 
@@ -139,7 +132,7 @@ class QueryService:
                 or "This question cannot be answered from ClinicalTrials.gov registry data.",
                 {"plan": plan.model_dump(mode="json")},
             )
-        plan = merge_explicit_filters(plan, request)
+        plan, plan_adjustments = validate_plan(merge_explicit_filters(plan, request))
         max_trials = min(request.max_trials, self.settings.max_trials_cap)
         planned = scope_plans(plan)
         scopes = [await self._collect(label, scope_plan, max_trials) for label, scope_plan in planned]
@@ -180,6 +173,7 @@ class QueryService:
                 total_matching=sum(scope.total for scope in scopes),
                 trials_analyzed=sum(len(scope.studies) for scope in scopes),
                 truncated=any(scope.truncated for scope in scopes),
+                plan_adjustments=plan_adjustments,
                 assumptions=result.assumptions or [],
                 warnings=result.warnings or [],
                 api_query_url=scopes[0].api_query_url,

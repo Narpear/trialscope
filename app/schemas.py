@@ -155,6 +155,7 @@ class ResponseMeta(BaseModel):
     total_matching: int
     trials_analyzed: int
     truncated: bool
+    plan_adjustments: list[str]
     assumptions: list[str]
     warnings: list[str]
     api_query_url: str

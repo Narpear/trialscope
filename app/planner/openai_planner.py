@@ -115,11 +115,9 @@ def fallback_plan(request: QueryRequest) -> QueryPlan:
             "start_year": request.start_year,
             "end_year": request.end_year,
         },
-        group_by=request.group_by
-        or ("phase" if request.analysis_type in ("distribution", "comparison") else None),
+        group_by=request.group_by,
         comparison_groups=request.comparison_groups or [],
-        comparison_group_type=request.comparison_group_type
-        or ("drug" if request.analysis_type == "comparison" else None),
-        network_entity_types=["sponsor", "drug"] if request.analysis_type == "network" else [],
+        comparison_group_type=request.comparison_group_type,
+        network_entity_types=[],
         interpretation=f"Deterministic {request.analysis_type.value} requested by caller.",
     )
