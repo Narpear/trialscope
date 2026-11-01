@@ -2,7 +2,7 @@ from datetime import UTC, datetime
 from typing import Any
 
 from app.aggregators import AggregateResult, AggregationOptions, Scope, aggregate
-from app.aggregators.common import parse_year, value_at
+from app.aggregators.common import normalize_intervention, parse_year, value_at
 from app.clinicaltrials.client import ClinicalTrialsClient, ClinicalTrialsError
 from app.exact_counts import CountOutcome, add_exact_counts
 from app.planner.openai_planner import OpenAIPlanner, PlannerError, fallback_plan
@@ -204,8 +204,10 @@ class QueryService:
                 if is_network
                 else None,
                 network_excluded_interventions=sorted(
-                    {" ".join(name.casefold().split())
-                     for name in self.settings.network_excluded_interventions}
+                    {
+                        normalize_intervention(name)
+                        for name in self.settings.network_excluded_interventions
+                    }
                 )
                 if is_network
                 else None,

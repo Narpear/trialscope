@@ -1,9 +1,12 @@
+import re
 from collections import defaultdict
 from itertools import combinations
 
+import pytest
 from conftest import scope
 
 from app.aggregators import AggregationOptions, Scope, aggregate
+from app.aggregators.common import normalize_intervention
 from app.aggregators.comparison import comparison
 from app.aggregators.distribution import distribution
 from app.aggregators.geographic import geographic
@@ -136,6 +139,53 @@ def test_network_excludes_configured_generic_interventions(studies, make_plan):
     assert any("placebo" in assumption for assumption in result.assumptions)
 
 
+def reference_drug_key(name):
+    without_marks = name.replace("®", "").replace("™", "").replace("©", "")
+    without_brackets = re.sub(r"\(.*?\)|\[.*?\]", " ", without_marks)
+    return " ".join(without_brackets.casefold().split()).strip(" .,;:-")
+
+
+@pytest.mark.parametrize(
+    ("raw", "expected"),
+    [
+        ("Pembrolizumab (Keytruda®)", "pembrolizumab"),
+        ("PEMBROLIZUMAB [MK-3475]", "pembrolizumab"),
+        ("  pembrolizumab  ", "pembrolizumab"),
+        ("Keytruda™", "keytruda"),
+        ("MK-3475", "mk-3475"),
+        ("Nab-paclitaxel", "nab-paclitaxel"),
+    ],
+)
+def test_intervention_name_normalization(raw, expected):
+    assert normalize_intervention(raw) == expected
+
+
+def test_network_includes_biologicals_and_merges_brand_suffixes(make_plan):
+    def study(nct_id, interventions):
+        return {
+            "protocolSection": {
+                "identificationModule": {"nctId": nct_id, "briefTitle": nct_id},
+                "armsInterventionsModule": {
+                    "interventions": [{"type": kind, "name": name} for kind, name in interventions]
+                },
+            }
+        }
+
+    studies = [
+        study("NCT1", [("BIOLOGICAL", "Pembrolizumab (Keytruda®)"), ("DRUG", "Carboplatin")]),
+        study("NCT2", [("DRUG", "pembrolizumab"), ("DRUG", "CARBOPLATIN"), ("DEVICE", "Pump")]),
+    ]
+    plan = make_plan("network", network_entity_types=["drug"])
+    result = network(scope(studies), plan, OPTIONS)
+    assert {node["id"]: node["weight"] for node in result.nodes} == {
+        "drug:pembrolizumab": 2,
+        "drug:carboplatin": 2,
+    }
+    assert [(edge["source"], edge["target"], edge["weight"]) for edge in result.edges] == [
+        ("drug:carboplatin", "drug:pembrolizumab", 2)
+    ]
+
+
 def test_combination_network_weights_match_raw_api_fixture(pembrolizumab_studies, make_plan):
     exclusions = ["placebo", "standard of care", "saline", "best supportive care"]
     excluded = set(exclusions)
@@ -145,11 +195,11 @@ def test_combination_network_weights_match_raw_api_fixture(pembrolizumab_studies
         nct_id = protocol["identificationModule"]["nctId"]
         interventions = protocol.get("armsInterventionsModule", {}).get("interventions", [])
         drugs = {
-            " ".join(intervention["name"].casefold().split())
+            key
             for intervention in interventions
-            if intervention.get("type") == "DRUG"
-            and intervention.get("name")
-            and " ".join(intervention["name"].casefold().split()) not in excluded
+            if intervention.get("type") in ("DRUG", "BIOLOGICAL") and intervention.get("name")
+            for key in [reference_drug_key(intervention["name"])]
+            if key not in excluded
         }
         for left, right in combinations(sorted(drugs), 2):
             expected[(f"drug:{left}", f"drug:{right}")].add(nct_id)

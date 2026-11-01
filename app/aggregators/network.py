@@ -7,10 +7,11 @@ from app.aggregators.common import (
     AggregateResult,
     AggregationOptions,
     Scope,
-    _interventions,
     _normalize,
     citation,
+    drug_interventions,
     nct_and_title,
+    normalize_intervention,
     value_at,
 )
 from app.schemas import QueryPlan
@@ -21,16 +22,16 @@ def network(scopes: list[Scope], plan: QueryPlan, options: AggregationOptions) -
     top_n = options.network_top_n
     min_edge_weight = options.network_min_edge_weight
     entities = plan.network_entity_types or ["sponsor", "drug"]
-    excluded = {_normalize(name) for name in options.network_excluded_interventions}
+    excluded = {normalize_intervention(name) for name in options.network_excluded_interventions}
     edge_records: dict[tuple[str, str], dict[str, list[tuple[dict[str, Any], str, Any]]]] = (
         defaultdict(dict)
     )
     node_records: dict[tuple[str, str], dict[str, Any]] = {}
 
     def add_node(
-        kind: str, label: str, study: dict[str, Any], path: str, value: Any
+        kind: str, label: str, study: dict[str, Any], path: str, value: Any, key: str | None = None
     ) -> tuple[str, str]:
-        node_id = f"{kind}:{_normalize(label)}"
+        node_id = f"{kind}:{key or _normalize(label)}"
         item = node_records.setdefault(
             (kind, node_id), {"id": node_id, "label": label, "type": kind, "nct_ids": set()}
         )
@@ -58,16 +59,13 @@ def network(scopes: list[Scope], plan: QueryPlan, options: AggregationOptions) -
                     label,
                 )
         if "drug" in entities:
-            names = [
-                item
-                for item in _interventions(study)
-                if _normalize(item[0]) not in excluded
-            ]
+            path = "protocolSection.armsInterventionsModule.interventions[].name"
+            drugs = [drug for drug in drug_interventions(study) if drug[0] not in excluded]
             nodes["drug"] = [
-                add_node("drug", name, study, path, value) for name, path, value in names
+                add_node("drug", label, study, path, raw, key) for key, label, raw in drugs
             ]
-            for name, path, value in names:
-                node_evidence[f"drug:{_normalize(name)}"] = (study, path, value)
+            for key, _, raw in drugs:
+                node_evidence[f"drug:{key}"] = (study, path, raw)
         if "condition" in entities:
             raw = value_at(study, "protocolSection.conditionsModule.conditions") or []
             nodes["condition"] = [
@@ -147,7 +145,12 @@ def network(scopes: list[Scope], plan: QueryPlan, options: AggregationOptions) -
         nodes=nodes_out,
         edges=edges_out,
         assumptions=[
-            "Intervention labels are normalized by case and whitespace only; brand/generic variants remain separate.",
+            (
+                "Drug nodes include DRUG and BIOLOGICAL interventions. Names are matched after "
+                "removing case, extra whitespace, trademark symbols and parenthetical or "
+                "bracketed text (e.g. 'Pembrolizumab (Keytruda®)' = 'pembrolizumab'); brand-only "
+                "names, code names (MK-3475), doses and formulation words stay separate."
+            ),
             (
                 "Configured generic intervention names are excluded from drug nodes and edges: "
                 + ", ".join(sorted(excluded))

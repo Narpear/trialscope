@@ -206,9 +206,10 @@ def group_membership(
     """Find the record field showing why ClinicalTrials.gov matched ``study`` to ``group``."""
     term = _normalize(group)
     if group_type == "drug":
+        term = normalize_intervention(group)
         interventions = section(study, "armsInterventionsModule").get("interventions") or []
         for item in interventions:
-            if term in _normalize(item.get("name", "")):
+            if term in normalize_intervention(item.get("name", "")):
                 return (
                     study,
                     "protocolSection.armsInterventionsModule.interventions[].name",
@@ -216,7 +217,7 @@ def group_membership(
                 )
         for item in interventions:
             for other in item.get("otherNames") or []:
-                if term in _normalize(other):
+                if term in normalize_intervention(other):
                     return (
                         study,
                         "protocolSection.armsInterventionsModule.interventions[].otherNames",
@@ -232,17 +233,33 @@ def group_membership(
     return None
 
 
-def _interventions(
-    study: dict[str, Any], drug_only: bool = True
-) -> list[tuple[str, str, Any]]:
-    raw = section(study, "armsInterventionsModule").get("interventions") or []
-    values = []
-    for item in raw:
-        if drug_only and item.get("type", "").upper() != "DRUG":
-            continue
+DRUG_INTERVENTION_TYPES = {"DRUG", "BIOLOGICAL"}
+_TRADEMARKS = re.compile(r"[®™©]")
+_BRACKETED = re.compile(r"\([^)]*\)|\[[^\]]*\]")
+
+
+def display_intervention(name: str) -> str:
+    """Drop trademark symbols and parenthetical/bracketed text such as brand names."""
+    cleaned = re.sub(r"\s+", " ", _BRACKETED.sub(" ", _TRADEMARKS.sub("", name)))
+    cleaned = cleaned.strip(" .,;:-")
+    return cleaned or name.strip()
+
+
+def normalize_intervention(name: str) -> str:
+    """Matching key for an intervention name: display form, case-folded.
+
+    'Pembrolizumab (Keytruda®)', 'PEMBROLIZUMAB [MK-3475]' and 'pembrolizumab' share a key.
+    Brand-only names, code names, doses and formulation words are not resolved.
+    """
+    return _normalize(display_intervention(name))
+
+
+def drug_interventions(study: dict[str, Any]) -> list[tuple[str, str, str]]:
+    """Distinct (matching key, display label, raw name) for drug and biological interventions."""
+    found: dict[str, tuple[str, str, str]] = {}
+    for item in section(study, "armsInterventionsModule").get("interventions") or []:
         name = item.get("name")
-        if name:
-            values.append(
-                (name, "protocolSection.armsInterventionsModule.interventions[].name", name)
-            )
-    return values
+        if name and (item.get("type") or "").upper() in DRUG_INTERVENTION_TYPES:
+            key = normalize_intervention(name)
+            found.setdefault(key, (key, display_intervention(name), name))
+    return list(found.values())
