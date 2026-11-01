@@ -128,7 +128,7 @@ Returns JSON Schema documents for the request and successful response. This endp
 }
 ```
 
-The abbreviated `plan` and `api_query_url` above are illustrative; actual responses include the complete validated plan and full URL. Every datum carries `nct_ids` and up to five citation objects. A citation's `field_path` identifies the exact API field and `exact_value` is copied from that response. `total_citations` counts citation objects returned across the visualization (not all references beyond each datum's cap).
+The abbreviated `plan` and `api_query_url` above are illustrative; actual responses include the complete validated plan and full URL. Every datum carries `nct_ids` and up to five citation objects. A citation's `field_path` identifies the exact API field and `exact_value` is copied from that response. `total_citations` counts citation objects returned across the visualization (not all references beyond each datum's cap). Network responses also report `network_top_n`, `network_min_edge_weight`, and the normalized `network_excluded_interventions` list in `meta`.
 
 Encoding fields use `quantitative`, `temporal`, and `nominal` data types and explicit fields, units, order, and time granularity. `network_graph` responses use `nodes` (`id`, `label`, `type`, `weight`, citations) and `edges` (`source`, `target`, `weight`, citations); the field mapping is in `encoding.nodes` and `encoding.edges`.
 
@@ -197,7 +197,7 @@ Results from `gpt-5.4-mini` with the current planner prompt:
 - Categorical multi-value records count once per distinct category. Country counts use distinct reported study-location countries; this is **location coverage**, not proof of where all participants live. Missing locations are excluded and warned.
 - Intervention matching normalizes case and whitespace. It does not attempt drug identity resolution, so brand and generic names may remain separate.
 - Enrollment is the registry's reported enrollment count (target or actual depending on the record); it is not harmonized to a single enrollment status. Histograms use ten equal-width bins across the observed range. Scatter plots exclude missing numeric enrollment or start year.
-- Network nodes are stable typed IDs, ranked by trial weight; the default top 30 nodes are retained and edges need at least two co-occurring records. Both thresholds are present in response metadata. Sponsor–drug and condition–drug networks link records containing both entities; a drug-only network captures drug co-occurrence in combination studies. Configurable `NETWORK_EXCLUDED_INTERVENTIONS` labels are removed from drug nodes and edges and the effective exclusion list is returned in network metadata and assumptions.
+- Network nodes are stable typed IDs, ranked by trial weight; the default top 30 nodes are retained and edges need at least two co-occurring records. Both thresholds are present in response metadata. Sponsor–drug and condition–drug networks link records containing both entities; a drug-only network captures drug co-occurrence in combination studies. Configurable `NETWORK_EXCLUDED_INTERVENTIONS` labels are removed from drug nodes and edges using exact matching after case/whitespace normalization, and the effective exclusion list is returned in network metadata and assumptions. This is a label-based heuristic; it can remove a legitimate intervention with an excluded name and does not identify synonyms.
 - The API/cache/rate limiter are in-process. The response cache and simple per-IP query limit reset on restart and do not coordinate across Railway replicas. Use a shared cache and distributed limiter if scaling beyond one instance.
 - Citation details include up to five trial references per datum for payload and UI usability; `nct_ids` still identifies all contributing records, and the citation drawer lists every contributing NCT ID below the detailed records whenever the full list exceeds the detailed citation cap.
 - API search semantics are ClinicalTrials.gov's; a broad query can be truncated at the configured trial cap. Metadata reports the API match total and whether the fetched sample was capped.
@@ -245,7 +245,7 @@ Set `EXAMPLES_BASE_URL` if the server is not at `http://127.0.0.1:8000`. Generat
 
 1. Push this repository to a Git provider and create a Railway project from that repository.
 2. Railway reads `railway.json`; it starts `uvicorn app.main:app --host 0.0.0.0 --port $PORT` and checks `/api/health`.
-3. In the Railway service's **Variables** panel, set `OPENAI_API_KEY` and, optionally, `OPENAI_MODEL` and `MAX_TRIALS_CAP`. Do not commit `.env` or paste secrets into source files.
+3. In the Railway service's **Variables** panel, set `OPENAI_API_KEY` and, optionally, `OPENAI_MODEL`, `MAX_TRIALS_CAP`, and `NETWORK_EXCLUDED_INTERVENTIONS`. Do not commit `.env` or paste secrets into source files.
 4. Deploy and wait for the `/api/health` check to pass. Use the generated Railway domain as the live demo URL and update the TODO at the top of this README.
 5. To run without an OpenAI key, callers must specify `analysis_type`; this mode is useful for service smoke tests, not natural-language chart selection.
 
