@@ -70,7 +70,12 @@
           <div class="results-main">
             <div class="result-heading">
               <div><p class="eyebrow">VISUALIZATION</p><h2 id="chart-title"></h2></div>
-              <div class="result-tools"><button id="json-toggle" class="text-button" type="button">View JSON</button><button id="copy-json" class="icon-button" type="button" title="Copy response">▢</button></div>
+              <div class="result-tools">
+                <button id="download-csv" class="text-button" type="button" disabled>Download CSV</button>
+                <button id="share-query" class="text-button" type="button" disabled>Copy query link</button>
+                <button id="json-toggle" class="text-button" type="button">View JSON</button>
+                <button id="copy-json" class="icon-button" type="button" title="Copy response">▢</button>
+              </div>
             </div>
             <div id="chart" class="chart"></div>
             <pre id="json-view" class="json-view hidden"></pre>
@@ -93,6 +98,6 @@
       <div id="citation-content" class="citation-content"><p class="muted">Select a chart mark to see its contributing trials.</p></div>
     </aside>
     <div id="scrim" class="scrim"></div>
-    <script src="/static/app.js?v=5"></script>
+    <script src="/static/app.js?v=6"></script>
   </body>
 </html>

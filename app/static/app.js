@@ -5,8 +5,11 @@ const chart = document.querySelector("#chart");
 const citationPanel = document.querySelector("#citation-panel");
 const scrim = document.querySelector("#scrim");
 let latestResponse = null;
+let latestRequest = null;
 let latestPlanType = null;
 let latestCitationSelection = null;
+
+loadSharedQuery();
 
 document.querySelectorAll(".chip").forEach((chip) => {
   chip.addEventListener("click", () => {
@@ -42,6 +45,9 @@ form.addEventListener("submit", async (event) => {
       throw new Error(error.message || `Request failed (${response.status})`);
     }
     latestResponse = body;
+    latestRequest = { ...payload };
+    document.querySelector("#download-csv").disabled = false;
+    document.querySelector("#share-query").disabled = false;
     statusBox.classList.add("hidden");
     results.classList.remove("hidden");
     await new Promise((resolve) => requestAnimationFrame(resolve));
@@ -244,7 +250,92 @@ document.querySelector("#copy-json").addEventListener("click", async () => {
   document.querySelector("#copy-json").textContent = "✓";
   setTimeout(() => { document.querySelector("#copy-json").textContent = "▢"; }, 1200);
 });
+document.querySelector("#download-csv").addEventListener("click", downloadCsv);
+document.querySelector("#share-query").addEventListener("click", copyShareLink);
 document.addEventListener("keydown", (event) => { if (event.key === "Escape") closeCitations(); });
+
+function downloadCsv() {
+  if (!latestResponse) return;
+  const { visualization } = latestResponse;
+  const records = visualization.type === "network_graph"
+    ? [
+      ...(visualization.nodes || []).map((node) => ({ record_type: "node", ...node })),
+      ...(visualization.edges || []).map((edge) => ({ record_type: "edge", ...edge })),
+    ]
+    : visualization.data || [];
+  if (!records.length) {
+    showStatus("error", "There are no visualization records to export.");
+    return;
+  }
+  const headers = [...new Set(records.flatMap((record) => Object.keys(record)))];
+  const csvValue = (value) => {
+    const text = value === null || value === undefined
+      ? ""
+      : typeof value === "object"
+        ? JSON.stringify(value)
+        : String(value);
+    return `"${text.replaceAll('"', '""')}"`;
+  };
+  const csv = [headers, ...records.map((record) => headers.map((header) => record[header]))]
+    .map((row) => row.map(csvValue).join(","))
+    .join("\r\n");
+  const blob = new Blob(["\uFEFF", csv], { type: "text/csv;charset=utf-8" });
+  const objectUrl = URL.createObjectURL(blob);
+  const anchor = document.createElement("a");
+  anchor.href = objectUrl;
+  anchor.download = `trial-scope-${latestResponse.meta.plan.analysis_type}.csv`;
+  anchor.click();
+  setTimeout(() => URL.revokeObjectURL(objectUrl), 1000);
+}
+
+async function copyShareLink() {
+  if (!latestResponse || !latestRequest) return;
+  const sharedRequest = {
+    ...latestRequest,
+    analysis_type: latestResponse.meta.plan.analysis_type,
+  };
+  for (const [field, value] of Object.entries(latestResponse.meta.filters_applied || {})) {
+    if (field in sharedRequest || ["drug_name", "condition", "sponsor", "phase", "country", "recruitment_status", "start_year", "end_year"].includes(field)) {
+      sharedRequest[field] = value;
+    }
+  }
+  const url = new URL(window.location.href);
+  url.search = "";
+  url.hash = "";
+  for (const [key, value] of Object.entries(sharedRequest)) {
+    if (value !== null && value !== undefined && value !== "") {
+      url.searchParams.set(key, String(value));
+    }
+  }
+  try {
+    await navigator.clipboard.writeText(url.toString());
+    showStatus("success", "Query link copied. Opening it will restore the query and filters; submit to run it again.");
+  } catch {
+    showStatus("error", "Could not copy the query link. Check clipboard permissions and try again.");
+  }
+}
+
+function loadSharedQuery() {
+  const params = new URLSearchParams(window.location.search);
+  const fields = ["query", "drug_name", "condition", "sponsor", "phase", "country", "recruitment_status", "start_year", "end_year", "max_trials"];
+  let restored = false;
+  for (const field of fields) {
+    const value = params.get(field);
+    const input = form.elements.namedItem(field);
+    if (value !== null && input) {
+      input.value = value;
+      restored = true;
+    }
+  }
+  const analysisType = params.get("analysis_type");
+  if (analysisType && ["time_trend", "distribution", "comparison", "geographic", "network", "histogram", "scatter"].includes(analysisType)) {
+    latestPlanType = analysisType;
+    restored = true;
+  }
+  if (restored) {
+    showStatus("success", "Shared query restored. Review the filters, then select Explore trials to run it.");
+  }
+}
 
 function formatNumber(value) { return new Intl.NumberFormat().format(value || 0); }
 function escapeHtml(value) {

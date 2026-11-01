@@ -50,6 +50,7 @@ h1 em { font-style: normal; color: #77937f; }
 .chip:hover { background:var(--green-soft); color:var(--green); border-color:#cfe0d3; }
 .status { max-width:900px; margin:22px auto 0; padding:15px 18px; border-radius:10px; background:#fff; border:1px solid var(--line); color:#5f7065; }
 .status.error { border-color:#efcfca; background:#fff8f6; color:#9c4a3e; }.status.loading { display:flex; align-items:center; gap:12px; }
+.status.success { border-color:#cfe0d3; background:#f6faf7; color:#466b53; }
 .spinner { width:16px;height:16px;border:2px solid #d5e4d9;border-top-color:var(--green);border-radius:50%;animation:spin .7s linear infinite; }@keyframes spin{to{transform:rotate(360deg)}}
 .results { display:grid; grid-template-columns:minmax(0, 1fr) 280px; gap:18px; margin:32px auto 0; max-width:1130px; align-items:start; }
 .results-main, .meta-card { background:#fff; border:1px solid #e7ece8; border-radius:13px; box-shadow:0 10px 35px rgba(27,55,39,.04); }
@@ -57,6 +58,7 @@ h1 em { font-style: normal; color: #77937f; }
 .result-heading { display:flex; align-items:center; justify-content:space-between; gap:15px; }.result-heading .eyebrow { margin-bottom:5px; }
 h2 { color:var(--green-dark); font:700 19px/1.35 Manrope,sans-serif; margin:0; letter-spacing:-.4px; }
 .result-tools { display:flex; align-items:center; gap:8px; }.text-button,.icon-button { background:transparent; color:#668071; border:1px solid #e4eae5; border-radius:7px; padding:8px 10px; font-size:11px; font-weight:600; }.text-button:hover,.icon-button:hover{background:#f4f7f4}
+.result-tools .text-button:disabled { opacity:.5; cursor:not-allowed; }
 .icon-button { width:32px;height:32px;padding:0;font-size:17px; }
 #chart { display:block; width:100%; }
 .chart { min-height:310px; padding-top:14px; overflow:hidden; }.chart .vega-embed{width:100%}.chart svg{max-width:100%}
