@@ -6,6 +6,46 @@ from pydantic import ValidationError
 
 from app.schemas import QueryPlan, QueryRequest
 
+SYSTEM_PROMPT = """\
+You turn a question about clinical trials into a query plan for the ClinicalTrials.gov \
+registry. You only plan: the service retrieves the records and computes every number, so \
+never put counts, data points, trial IDs or citations in the plan.
+
+Answerability. A question is answerable when it asks about what registry fields record: \
+how many trials there are, when they started, their phases, recruitment statuses, lead \
+sponsors and sponsor types, conditions, interventions and intervention types, site \
+countries, and enrollment counts. Describing or plotting these fields is answerable for any \
+drug or disease. Set answerable=false with a short unsupported_reason when the answer needs \
+something these fields do not contain: whether a treatment works or is better, safety, \
+adverse events, survival or other outcomes, causal claims, or topics unrelated to clinical \
+trials. analysis_type is ignored for unanswerable plans.
+
+Analysis types. Choose by the shape of the answer:
+- time_trend: number of trials per start year.
+- distribution: one set of trials split into the categories of a single field, given by \
+group_by: phase, status (overall recruitment status), intervention_type, sponsor (lead \
+sponsor name), sponsor_class (industry, NIH, other government, network, individual, other) \
+or condition.
+- comparison: the same category split shown side by side for two to four groups that the \
+question names. Each group is a drug or a condition: list them in comparison_groups, set \
+comparison_group_type, and pick group_by as for distribution. Do not repeat the groups in \
+filters. A single set of trials split by a field is a distribution, not a comparison.
+- geographic: number of trials per country with study sites.
+- network: links between entities that appear in the same trials. network_entity_types lists \
+the linked kinds (sponsor, drug, condition); use only drug for drugs tested together.
+- histogram: how trial enrollment sizes are distributed.
+- scatter: one point per trial, enrollment against start year.
+
+Filters. Set a filter only when the question restricts which trials count, and leave the \
+rest null. drug_name and condition are search terms: use the user's wording without adding \
+synonyms or boolean operators. Map recruitment wording to recruitment_status, phase wording \
+to phase, and year limits (since, before, between) to start_year and end_year. Explicit \
+structured filters supplied with the question take precedence.
+
+Leave group_by, comparison_groups, comparison_group_type and network_entity_types null or \
+empty when the chosen analysis does not use them. interpretation is one sentence restating \
+the plan."""
+
 
 class PlannerError(Exception):
     def __init__(self, code: str, message: str, details: dict[str, Any] | None = None):
@@ -30,31 +70,7 @@ class OpenAIPlanner:
                     input=[
                         {
                             "role": "system",
-                            "content": (
-                                "Plan a clinical-trial registry query. Output only the requested "
-                                "structured plan. Use only supported registry information. Mark "
-                                "unanswerable when the question asks for clinical conclusions, "
-                                "outcomes absent from the returned registry fields, or unrelated "
-                                "information. Never produce counts, data points, or citations. "
-                                "Filters should reflect the user's intent. Choose distribution "
-                                "when one study population is grouped by a single registry "
-                                "category such as phase, intervention type, condition, or sponsor; "
-                                "phrases like 'across phases', 'by phase', 'most common "
-                                "intervention types', and 'distribution' do not by themselves "
-                                "mean comparison. Choose comparison only when the user explicitly "
-                                "asks to compare two or more named groups, such as drug A versus "
-                                "drug B or condition A against condition B; put each compared entity in "
-                                "comparison_groups, set comparison_group_type to drug or condition, "
-                                "and do not repeat the compared entities in filters. Sponsor categories "
-                                "or sponsor types (industry, NIH, other government, etc.) use "
-                                "group_by=sponsor_class. For an unanswerable "
-                                "question, set answerable=false and provide a concise "
-                                "unsupported_reason; the analysis_type is unused in that case. "
-                                "Descriptive plots of supported registry fields are answerable: "
-                                "in particular, a request to plot numeric enrollment against study "
-                                "start year is a scatter query, not a request for clinical "
-                                "effectiveness or causation."
-                            ),
+                            "content": SYSTEM_PROMPT,
                         },
                         {
                             "role": "user",

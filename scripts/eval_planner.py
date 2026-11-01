@@ -5,11 +5,13 @@ from pathlib import Path
 from typing import Any
 
 from app.planner.openai_planner import OpenAIPlanner, PlannerError
+from app.planner.validation import validate_plan
 from app.schemas import QueryRequest
 from app.settings import get_settings
 
 ROOT = Path(__file__).resolve().parents[1]
 CASES_PATH = ROOT / "evals" / "planner_cases.json"
+HOLDOUT_PATH = ROOT / "evals" / "planner_holdout.json"
 
 
 def normalize(value: Any) -> Any:
@@ -37,6 +39,13 @@ def evaluate_case(case: dict[str, Any], plan: dict[str, Any] | None, error: str 
         if normalize(actual_filters.get(key)) != normalize(expected):
             failures.append(f"{key}={actual_filters.get(key)!r} (expected {expected!r})")
 
+    expected_group_type = case.get("expected_comparison_group_type")
+    if expected_group_type and plan.get("comparison_group_type") != expected_group_type:
+        failures.append(
+            f"comparison_group_type={plan.get('comparison_group_type')!r} "
+            f"(expected {expected_group_type!r})"
+        )
+
     expected_group_by = case.get("expected_group_by")
     if expected_group_by and plan.get("group_by") != expected_group_by:
         failures.append(f"group_by={plan.get('group_by')!r} (expected {expected_group_by!r})")
@@ -62,16 +71,19 @@ async def run_eval(cases_path: Path, limit: int | None = None) -> int:
     planner = OpenAIPlanner(settings.openai_api_key, settings.openai_model)
     passed = 0
     try:
-        print(f"Planner evaluation — model: {settings.openai_model}")
+        print(f"Planner evaluation — model: {settings.openai_model} — cases: {cases_path.name}")
         print(f"{'CASE':34} {'RESULT':7} DETAILS")
         print("-" * 100)
         for case in cases:
             plan = None
             error = None
             try:
-                plan = (await planner.plan(QueryRequest(query=case["query"]))).model_dump(
-                    mode="json"
-                )
+                raw_plan = await planner.plan(QueryRequest(query=case["query"]))
+                # Score what the service would execute: semantic validation can fill
+                # defaults or reject the plan.
+                if raw_plan.answerable:
+                    raw_plan, _ = validate_plan(raw_plan)
+                plan = raw_plan.model_dump(mode="json")
             except PlannerError as exc:
                 error = f"{exc.code}: {exc.message}"
             ok, failures = evaluate_case(case, plan, error)
@@ -96,9 +108,13 @@ async def run_eval(cases_path: Path, limit: int | None = None) -> int:
 def main() -> None:
     parser = argparse.ArgumentParser(description="Evaluate the real structured-output query planner.")
     parser.add_argument("--cases", type=Path, default=CASES_PATH)
+    parser.add_argument(
+        "--holdout", action="store_true", help=f"Run the held-out set ({HOLDOUT_PATH.name})."
+    )
     parser.add_argument("--limit", type=int, help="Run only the first N cases.")
     args = parser.parse_args()
-    raise SystemExit(asyncio.run(run_eval(args.cases, args.limit)))
+    cases = HOLDOUT_PATH if args.holdout else args.cases
+    raise SystemExit(asyncio.run(run_eval(cases, args.limit)))
 
 
 if __name__ == "__main__":

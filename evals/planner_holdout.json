@@ -1,0 +1,120 @@
+[
+  {
+    "id": "holdout-time-trend-condition",
+    "query": "How many Alzheimer's disease trials have started each year since 2010?",
+    "expected_analysis_type": "time_trend",
+    "expected_answerable": true,
+    "expected_filters": {
+      "condition": "Alzheimer's disease",
+      "start_year": 2010
+    }
+  },
+  {
+    "id": "holdout-sponsor-class-distribution",
+    "query": "What share of COVID-19 trials are run by industry versus academic, government or other sponsors?",
+    "expected_analysis_type": "distribution",
+    "expected_answerable": true,
+    "expected_filters": {
+      "condition": "COVID-19"
+    },
+    "expected_group_by": "sponsor_class"
+  },
+  {
+    "id": "holdout-status-distribution",
+    "query": "Give me the recruitment status breakdown of cystic fibrosis studies.",
+    "expected_analysis_type": "distribution",
+    "expected_answerable": true,
+    "expected_filters": {
+      "condition": "cystic fibrosis"
+    },
+    "expected_group_by": "status"
+  },
+  {
+    "id": "holdout-condition-comparison",
+    "query": "Contrast the sponsor types behind obesity trials with those behind type 1 diabetes trials.",
+    "expected_analysis_type": "comparison",
+    "expected_answerable": true,
+    "expected_comparison_groups": [
+      "obesity",
+      "type 1 diabetes"
+    ],
+    "expected_comparison_group_type": "condition",
+    "expected_group_by": "sponsor_class"
+  },
+  {
+    "id": "holdout-drug-comparison",
+    "query": "Semaglutide versus tirzepatide: how do their trials split across phases?",
+    "expected_analysis_type": "comparison",
+    "expected_answerable": true,
+    "expected_comparison_groups": [
+      "semaglutide",
+      "tirzepatide"
+    ],
+    "expected_comparison_group_type": "drug",
+    "expected_group_by": "phase"
+  },
+  {
+    "id": "holdout-geographic-completed",
+    "query": "In which countries were completed Parkinson's disease trials run?",
+    "expected_analysis_type": "geographic",
+    "expected_answerable": true,
+    "expected_filters": {
+      "condition": "Parkinson's disease",
+      "recruitment_status": "COMPLETED"
+    }
+  },
+  {
+    "id": "holdout-network-condition-drug",
+    "query": "Map which conditions are studied alongside which drugs in HIV trials.",
+    "expected_analysis_type": "network",
+    "expected_answerable": true,
+    "expected_filters": {
+      "condition": "HIV"
+    },
+    "expected_network_entity_types": [
+      "condition",
+      "drug"
+    ]
+  },
+  {
+    "id": "holdout-histogram-phase",
+    "query": "How large are the enrollments of phase 3 psoriasis trials?",
+    "expected_analysis_type": "histogram",
+    "expected_answerable": true,
+    "expected_filters": {
+      "condition": "psoriasis",
+      "phase": "PHASE3"
+    }
+  },
+  {
+    "id": "holdout-scatter",
+    "query": "For sickle cell disease trials, plot when each one started against how many participants it enrolled.",
+    "expected_analysis_type": "scatter",
+    "expected_answerable": true,
+    "expected_filters": {
+      "condition": "sickle cell disease"
+    }
+  },
+  {
+    "id": "holdout-sponsor-names",
+    "query": "Which organizations lead the most migraine trials?",
+    "expected_analysis_type": "distribution",
+    "expected_answerable": true,
+    "expected_filters": {
+      "condition": "migraine"
+    },
+    "expected_group_by": "sponsor"
+  },
+  {
+    "id": "holdout-unsupported-efficacy",
+    "query": "Is metformin effective at preventing cancer?",
+    "expected_analysis_type": "distribution",
+    "expected_answerable": false
+  },
+  {
+    "id": "holdout-unsupported-adverse-events",
+    "query": "What adverse events were most common in ibuprofen trials?",
+    "expected_analysis_type": "distribution",
+    "expected_answerable": false
+  }
+]
