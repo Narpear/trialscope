@@ -327,4 +327,28 @@ Set `EXAMPLES_BASE_URL` if the server is not at `http://127.0.0.1:8000`. The exa
 
 ## AI tool usage
 
-> TODO — write this section in your own words. Describe the AI tools you used, which parts they helped with, and what you deliberately designed, verified, or adapted yourself.
+**What I designed.** I designed the LLM setup. A language model only interprets the question into a structured, validated query plan. Deterministic tools then retrieve the records from ClinicalTrials.gov, compute every number, and build the visualization and its citations from those records, so the model never produces data.
+
+**What AI generated.** The code was generated with AI tools from that design:
+
+- Claude Code (Claude Opus 5.5) produced the initial implementation: backend, frontend, tests, evaluation set and README.
+- Claude Code (Claude Opus 5.5) reviewed the submission against this handout and fixed what the review found. The fixes included:
+  - querying each comparison group separately;
+  - a phase filter the API rejected;
+  - counts silently based on truncated samples (now exact registry totals where feasible, and labeled otherwise);
+  - missed biological interventions;
+  - a pagination bug in match totals;
+  - a cache-key collision;
+  - semantic plan validation;
+  - a planner prompt that had been tuned to its evaluation cases.
+
+  It also updated the frontend and this README.
+
+At runtime the service calls OpenAI `gpt-5.4-mini`, and only for the planning step.
+
+**How correctness was validated.** I also used AI to write the tests and run them. I relied on these checks:
+
+- 73 automated tests, including two that call the live ClinicalTrials.gov API.
+- Two planner evaluation sets: a development set (15/15) and a held-out set written before it was run (12/12); see [Planner evaluation](#planner-evaluation).
+- An independent verification script that queried ClinicalTrials.gov directly and recounted raw records with its own code. Time-trend, comparison and network numbers matched exactly, and every re-checked citation matched its trial record; see [Independent verification](#independent-verification-against-clinicaltrialsgov).
+- A browser check of the citation flow in the UI.
