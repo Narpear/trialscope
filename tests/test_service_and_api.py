@@ -186,3 +186,15 @@ def test_client_ip_trusts_only_proxy_appended_entries(headers, hops, expected):
         "client": ("10.0.0.1", 1234),
     }
     assert client_ip(Request(scope), hops) == expected
+
+
+def test_every_planner_error_code_has_an_http_status():
+    import re
+
+    from app.main import ERROR_STATUS
+
+    source = "".join(path.read_text() for path in Path("app").rglob("*.py"))
+    raised = set(re.findall(r'PlannerError\(\s*"(\w+)"', source))
+    raised |= set(re.findall(r'PlannerError\("(\w+)"', source))
+    assert raised
+    assert raised <= set(ERROR_STATUS)

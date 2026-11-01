@@ -17,6 +17,18 @@ from app.settings import get_settings
 settings = get_settings()
 logger = logging.getLogger(__name__)
 
+# HTTP status for each PlannerError code: caller-correctable problems are 422, failures of an
+# upstream provider are 502/503.
+ERROR_STATUS = {
+    "unsupported_query": 422,
+    "invalid_plan": 422,
+    "planner_key_required": 422,
+    "planner_invalid_plan": 502,
+    "planner_empty_response": 502,
+    "planner_unavailable": 503,
+    "clinicaltrials_unavailable": 502,
+}
+
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -87,15 +99,9 @@ async def query(payload: QueryRequest, request: Request):
         result = await request.app.state.query_service.query(payload)
         return result.model_dump(mode="json", by_alias=True)
     except PlannerError as exc:
-        status = {
-            "unsupported_query": 422,
-            "planner_key_required": 422,
-            "invalid_plan": 422,
-            "planner_invalid_plan": 502,
-            "planner_unavailable": 503,
-            "clinicaltrials_unavailable": 502,
-        }.get(exc.code, 500)
-        return error_response(status, exc.code, exc.message, exc.details)
+        return error_response(
+            ERROR_STATUS.get(exc.code, 500), exc.code, exc.message, exc.details
+        )
     except Exception:
         logger.exception("Unexpected error while processing a clinical trials query")
         return error_response(
